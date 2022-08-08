@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+$white: #DDDDDD;
+$hoverwhite: #D6D6D6;
+$black: #121B25;
+$thirdcolor: #1AA090;
+$footerbackground: #1A242F;
+
+* {
+    color: $white;
+    font-family: 'Poppins', sans-serif;
+    transition: .4s ease all;
+    padding: 0;
+}
+
+body {
+    background-color: $black;
+}
+
+a {
+    text-decoration: none;
+
+    &:hover {
+        color: $hoverwhite;
+
+    }
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-weight: bold;
+}
+
