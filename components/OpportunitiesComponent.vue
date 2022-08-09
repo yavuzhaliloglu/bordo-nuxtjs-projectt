@@ -2,20 +2,45 @@
     <div class="opportunities">
         <div class="container d-flex flex-column justify-content-center align-items-center">
             <h2 class="opportunities-header">Why To Choose Us</h2>
-            <div class="opportunities-logo-container w-100 d-flex flex-row justify-content-around align-items-center">
-                <div class="opportunities-logo-container-logo">
-                    
+            <div class="opportunities-content w-100 d-flex flex-row justify-content-around align-items-center">
+                <div class="opportunities-content-item">
+                    <div class="opportunities-content-item-logo">
+                        <img src="~/assets/images/zoom.png" alt="">
+                    </div>
+                    <h3>Easy to find</h3>
+                    <p>Urna, massa aliqua dui pellentesque. Ac, gravida in. Diam vitae, nec mattis lectus quam
+                        pretium amet facilisis.</p>
+
                 </div>
-                <div class="opportunities-logo-container-logo"></div>
-                <div class="opportunities-logo-container-logo"></div>
+                <div class="opportunities-content-item">
+                    <div class="opportunities-content-item-logo">
+                        <img src="~/assets/images/tag.png" alt="">
+                    </div>
+                    <h3>Affordable Prices</h3>
+                    <p>Urna, massa aliqua dui pellentesque. Ac, gravida in. Diam vitae, nec mattis lectus quam pretium
+                        amet facilisis.</p>
+                </div>
+                <div class="opportunities-content-item">
+                    <div class="opportunities-content-item-logo">
+                        <img src="~/assets/images/clock.png" alt="">
+                    </div>
+                    <h3>Quickly Process</h3>
+                    <p>Ac, gravida in diam vitae, nec mattis lectus quam pretium amet facilisis. Urna, massa aliqua dui
+                        pellentesque. </p>
+                </div>
             </div>
         </div>
+        <span>“</span>
+        <OpportunitiesSlider />
     </div>
 </template>
 
 <script>
+import OpportunitiesSlider from "./OpportunitiesSlider.vue";
+
 export default {
-    name: 'OpportunitiesComponent.vue'
+    name: "OpportunitiesComponent",
+    components: { OpportunitiesSlider }
 }
 </script>
 
@@ -23,29 +48,36 @@ export default {
 @import '~/assets/scss/main.scss';
 
 .opportunities {
-    border: 1px solid white;
     padding: 100px 0;
+
     &-header {
         margin-bottom: 50px;
 
     }
 
-    &-logo-container {
-        &-logo {
-            border-radius: 50%;
-            background-color: darken($thirdcolor,27%);
-            background-image: url('~/assets/images/zoom.png');
-            background-position: center;
-            background-repeat: no-repeat;
-            width: 180px;
-            height: 180px;
-            &:nth-child(2){
-                background-image: url('~/assets/images/tag.png');
-            }
-            &:last-child{
-                background-image: url('~/assets/images/clock.png');
+    &-content {
+        &-item {
+            width: 30%;
+            text-align: center;
+            &-logo {
+                border-radius: 50%;
+                background-color: darken($thirdcolor, 25%);
+                width: 150px;
+                height: 150px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: auto;
+                margin-bottom: 50px;
             }
         }
+
+    }
+
+    span{
+        font-size: 260px;
+        font-family: 'Work Sans', sans-serif;
+        color:$thirdcolor;
     }
 }
 </style>
