@@ -1,0 +1,50 @@
+@use '../variables/reset' as *;
+@use '../variables/variables' as *;
+
+
+
+.text-slider {
+    width: 60%;
+    margin: auto;
+    margin-top: 120px;
+    position: relative;
+}
+
+.quote {
+    font-size: 260px;
+    font-family: 'Work Sans', sans-serif;
+    color: $thirdcolor;
+    position: absolute;
+    left: 0;
+    bottom: 1%;
+
+}
+
+.carousel-control-prev {
+    margin-left: 68%;
+    margin-bottom: -20px;
+}
+
+.carousel-control-next {
+    margin-bottom: -20px;
+}
+
+.carousel-control-prev-icon {
+    position: absolute !important;
+    bottom: 0;
+    right: 0;
+}
+
+.carousel-control-next-icon {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.carousel {
+    position: relative;
+
+    &-inner {
+        min-height: 30vh;
+    }
+}

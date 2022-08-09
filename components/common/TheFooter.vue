@@ -22,7 +22,7 @@
                 </div>
             </div>
 
-            <div class="footer-content-links d-flex flex-row justify-content-between mx-5">
+            <div class="footer-content-links d-flex flex-row justify-content-between flex-wrap mx-5">
                 <div class="project">
                     <h3>Project</h3>
                     <nuxt-link to="/">Houses</nuxt-link>

@@ -11,6 +11,7 @@
     }
 
     &-content {
+        margin-bottom: 70px;
         &-item {
             width: 30%;
             text-align: center;
@@ -28,11 +29,5 @@
             }
         }
 
-    }
-
-    span {
-        font-size: 260px;
-        font-family: 'Work Sans', sans-serif;
-        color: $thirdcolor;
     }
 }

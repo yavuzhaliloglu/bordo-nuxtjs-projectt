@@ -1,6 +1,6 @@
 <template>
     <div class="slider my-5">
-        <VueSlickCarousel v-bind="settings">
+        <!-- <VueSlickCarousel v-bind="settings">
             <div class="slider-cart">
                 <img class="mx-auto" src="~/assets/images/slider-1.png" alt="">
                 <div class="slider-cart-content">
@@ -29,26 +29,26 @@
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore, eveniet.</p>
                 </div>
             </div>
-        </VueSlickCarousel>
-
+        </VueSlickCarousel> -->
+        slider
     </div>
 </template>
 
 <script>
-import VueSlickCarousel from 'vue-slick-carousel'
-import 'vue-slick-carousel/dist/vue-slick-carousel.css'
-import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
+// import VueSlickCarousel from 'vue-slick-carousel'
+// import 'vue-slick-carousel/dist/vue-slick-carousel.css'
+// import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
 export default {
 
     name: 'PopularSlider',
-    components: { VueSlickCarousel },
+    // components: { VueSlickCarousel },
     data() {
         return {
-            settings: {
-                arrows: true,
-                dots: false,
-                slidesToShow: 3
-            }
+            // settings: {
+            //     arrows: true,
+            //     dots: false,
+            //     slidesToShow: 3
+            // }
         }
     },
     methods: {

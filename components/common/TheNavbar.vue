@@ -1,5 +1,5 @@
 <template>
-    <nav class="container d-flex flex-row justify-content-between">
+    <nav class="container d-flex flex-row justify-content-between flex-wrap">
         <span></span>
         <div class="logo">
             <nuxt-link class="logo-link" to="/">Rentiz</nuxt-link>

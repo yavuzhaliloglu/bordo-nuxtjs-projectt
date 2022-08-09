@@ -30,9 +30,6 @@
                 </div>
             </div>
         </div>
-        <span>“</span>
-
-
         <OpportunitiesSlider />
 
 
