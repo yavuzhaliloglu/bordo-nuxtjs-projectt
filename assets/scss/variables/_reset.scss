@@ -1,0 +1,47 @@
+@use '../variables/variables' as *;
+
+* {
+    color: $white;
+    transition: .4s ease all;
+    padding: 0;
+}
+
+body {
+    background-color: $black;
+    font-family: 'Poppins', sans-serif;
+}
+
+a {
+    color:$hoverwhite;
+    text-decoration: none !important;
+    &:hover {
+        color: $white;
+
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: bold;
+    line-height: 126%;
+}
+
+h1 {
+    font-size: 54px;
+}
+
+h2 {
+    font-size: 46px;
+}
+
+button {
+    background-color: $thirdcolor;
+    padding: 22px 42px;
+    font-size: 22px;
+    font-weight: bold;
+    border: none;
+}

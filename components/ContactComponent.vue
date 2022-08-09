@@ -37,41 +37,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '~/assets/scss/main.scss';
-
-.bg {
-    background-color: $footerbackground ;
-    padding: 100px 0;
-
-    .contact {
-        &-images {
-            width: 50%;
-
-            img {
-                object-fit: cover;
-                width: 50%;
-                margin-left: 10px;
-
-                &:first-child {
-                    margin-left: 0;
-                }
-            }
-        }
-
-        &-content {
-            width: 45%;
-
-            &-header {
-                margin-bottom: 20px;
-            }
-
-            &-text {
-                line-height: 170%;
-                margin-bottom: 30px;
-            }
-
-            &-button {}
-        }
-    }
-}
 </style>

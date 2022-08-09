@@ -1,0 +1,78 @@
+@use '../variables/reset' as *;
+@use '../variables/variables' as *;
+
+
+a {
+    color: darken($hoverwhite, 30%);
+
+    &:hover {
+        color: $white;
+    }
+}
+
+.footer {
+    margin-bottom: 0;
+    background-color: $footerbackground;
+    font-size: 14px;
+
+    &-content {
+        padding: 100px 0;
+        position: relative;
+
+        span {
+            position: absolute;
+            width: 32px;
+            height: 31px;
+            top: 100px;
+            left: -10px;
+            background-color: $thirdcolor;
+            z-index: 0;
+        }
+
+        &-brand {
+            width: 25%;
+            line-height: 1.7;
+            z-index: 99;
+
+            &-social {
+                svg {
+                    font-size: 20px;
+                    margin-right: 16px;
+                }
+
+                a {
+                    opacity: .4;
+
+                    &:hover {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+
+        &-links {
+            width: 75%;
+
+            div {
+                margin-right: 20px;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
+
+                &:last-child {
+                    margin-right: 0;
+                }
+
+
+            }
+        }
+    }
+
+
+    &-bottom {
+        padding: 20px 0;
+        border-top: 1px solid #303A44;
+    }
+
+}

@@ -31,7 +31,11 @@
             </div>
         </div>
         <span>“</span>
+
+
         <OpportunitiesSlider />
+
+
     </div>
 </template>
 
@@ -45,39 +49,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '~/assets/scss/main.scss';
-
-.opportunities {
-    padding: 100px 0;
-
-    &-header {
-        margin-bottom: 50px;
-
-    }
-
-    &-content {
-        &-item {
-            width: 30%;
-            text-align: center;
-            &-logo {
-                border-radius: 50%;
-                background-color: darken($thirdcolor, 25%);
-                width: 150px;
-                height: 150px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                margin: auto;
-                margin-bottom: 50px;
-            }
-        }
-
-    }
-
-    span{
-        font-size: 260px;
-        font-family: 'Work Sans', sans-serif;
-        color:$thirdcolor;
-    }
-}
 </style>

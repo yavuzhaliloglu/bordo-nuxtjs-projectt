@@ -27,37 +27,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
-.hero {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 80vh;
-    padding: 0;
-    margin-bottom: 120px;
-
-    &-content {
-        width: 50%;
-        height: 100%;
-
-        &-text {
-            width: 90%;
-            font-size: 18px;
-
-            h1 {
-                margin-bottom: 32px;
-            }
-        }
-    }
-
-    &-image {
-        width: 50%;
-        height: 100%;
-
-        img {
-            width: 100%;
-            height: 100%;
-        }
-    }
-}
 </style>

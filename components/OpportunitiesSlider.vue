@@ -1,13 +1,18 @@
 <template>
-    <div>
-        this is carousel
-    </div>
+    <div></div>
 </template>
 
 <script>
 export default {
-    name: 'OpportunitiesSlider'
+    name: 'OpportunitiesSlider',
+    data() {
+        return {
+
+        }
+    },
+
 }
+
 </script>
 
 <style lang="scss" scoped>

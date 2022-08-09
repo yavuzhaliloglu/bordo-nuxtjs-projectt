@@ -1,0 +1,14 @@
+@use '../variables/reset' as *;
+@use '../variables/variables' as *;
+
+.popular-component {
+    padding: 100px 0;
+    background-color: lighten($black, 8%);
+    background-image: url('~/assets/images/popularbackground.png');
+    background-size: cover;
+
+    a{
+        @extend button
+    }
+
+}

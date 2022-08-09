@@ -24,22 +24,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
-.begin{
-    padding: 100px 0;
-    &-header{
-        width: 40%;
-        h1{
-            width: 80%;
-        }
-    }
-
-    &-text{
-        width: 50%;
-        line-height: 30.6px;
-         p{
-            margin-bottom: 30px;
-         }
-    }
-}
 </style>
