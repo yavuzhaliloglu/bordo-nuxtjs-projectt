@@ -30,6 +30,10 @@
             <div class="buttons">
                 <nuxt-link to="/signin">Login</nuxt-link>
                 <nuxt-link to="/signup">Sign up</nuxt-link>
+                <div v-if="$auth.loggedIn">
+                    <p>şwdkjqwlk</p>
+                    <button @click="$auth.logout()">Log Out</button>
+                </div>
             </div>
         </div>
 
@@ -110,4 +114,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+button {
+    padding: 0;
+    background-color: transparent;
+    font-size: 20px;
+}
 </style>

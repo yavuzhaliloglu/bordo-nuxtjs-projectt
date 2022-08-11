@@ -3,15 +3,40 @@
 
 .featured {
     padding: 100px 0;
+    width: 90%;
+    margin:auto;
+    &-brands {
+        // img {
+        //     width: 18%;
+        //     height: 18vh;
+        // }
+        
+        &-image{
+            width: 18%;
+            height: 16vh;
 
+            img{
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
 }
 
-@media screen and (max-width:$xs) {
+@media screen and (max-width:$md) {
     .featured {
         text-align: center;
 
         &-brands {
             flex-direction: column !important;
+
+            &-image{
+                width: 50%;
+                margin-bottom: 50px;
+                &:last-child{
+                    margin-bottom: 0;
+                }
+            }
         }
     }
 }

@@ -1,6 +1,7 @@
 <template>
     <a href="#">
-        <font-awesome-icon :icon="`['fab', 'facebook']`" />
+        <!-- <font-awesome-icon :icon="require(`['fab', ${social}]`)" /> -->
+        <font-awesome-icon :icon="require(`fa-brands fa-${social.item}`)" />
     </a>
 </template>
 
@@ -9,18 +10,18 @@ export default {
     name: 'FooterSocial',
     props: {
         social: {
-            type: String,
+            type: Object,
             required: true
         }
     },
     data() {
         return {
-            name: 'facebook'
+            
         }
+    },
+    created(){
+        console.log('deneme')
     }
-    // created(){
-    //     console.log(social)
-    // }
 }
 </script>
 

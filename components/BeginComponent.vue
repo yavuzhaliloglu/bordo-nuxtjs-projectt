@@ -7,8 +7,9 @@
             </div>
             <div class="begin-text">
                 <p>Neque, vestibulum sed varius magna et at. Eu, adipiscing morbi augue justo. Nibh laoreet volutpat
-                    quis velit. Blandit aliquam donec sed morbi congue eget lorem viverra porta id lobortis.</p>
-                <LinkComponent :text="text" :path="path"/>
+                    quis velit. Blandit aliquam donec sed morbi congue eget lorem viverra porta id lobortis.
+                </p>
+                <LinksLinkComponent :text="text" :path="path"/>
             </div>
         </div>
     </div>
@@ -17,10 +18,8 @@
 
 <script>
 
-import LinkComponent from './LinkComponent.vue';
 export default {
     name: "BeginComponent",
-    components: { LinkComponent },
     data(){
         return{
             text:'Get Started',

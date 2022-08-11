@@ -25,7 +25,7 @@
             </div>
 
             <div class="footer-content-links d-flex flex-row justify-content-between flex-wrap mx-5">
-                <FooterLink v-for="(i,index) in links" :key="index" :links="i" />
+                <FooterLink v-for="i in links" :key="i" :links="i" />
             </div>
         </div>
 
@@ -40,14 +40,12 @@
 </template>
 
 <script>
-import FooterLink from '../FooterLink.vue'
-// import FooterSocial from '../FooterSocial.vue';
 export default {
     name: "TheFooter",
 
     data() {
         return {
-            social: ["facebook", 'instagram', "twitter", "youtube"],
+        // social: [{item:'facebook'}, {item:'instagram'}, {item:'twitter'}, {item:'youtube'}],
             links: [
                 { header: 'Project', items: ['Houses', 'Rooms', 'Flats', 'Apartments'] },
                 { header: 'Company', items: ['How we work?', 'Capital', 'Security'] },
@@ -56,7 +54,6 @@ export default {
             ]
         };
     },
-    components: { FooterLink }
 }
 </script>
 

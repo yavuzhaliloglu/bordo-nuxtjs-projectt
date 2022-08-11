@@ -18,7 +18,7 @@
                         Blandit
                         aliquam donec sed morbi congue eget lorem viverra porta id lobortis.
                     </p>
-                    <LinkComponent :text="text" :path="path"/>
+                    <LinksLinkComponent :text="text" :path="path"/>
                 </div>
 
             </div>
@@ -29,11 +29,8 @@
 
 <script>
 
-import LinkComponent from './LinkComponent.vue';
-
 export default {
     name: "ContactComponent",
-    components: { LinkComponent },
     data(){
         return{
             text:'Get In Touch',

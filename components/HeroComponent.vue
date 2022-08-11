@@ -14,9 +14,9 @@
                     <b-form-select v-model="selected" class="select" :options="options"></b-form-select>
                     <b-form-select v-model="selected" class="select" :options="options"></b-form-select>
                     <b-form-select v-model="selected" class="select" :options="options"></b-form-select>
-                    <ButtonComponent :text="text"/>
+                    <LinksLinkComponent class="search-button" :text="text" :path="path" />
                 </div>
-                
+
             </div>
 
             <div class="hero-image">
@@ -28,14 +28,13 @@
 </template>
 
 <script>
-import ButtonComponent from './ButtonComponent.vue'
+
 export default {
     name: "HeroComponent",
-    components: { ButtonComponent },
     data() {
         return {
-            text:'Search',
-            selected: null,
+            text: 'Search',
+            path: '/signup',
             options: [
                 { value: null, text: "Please select an option" },
                 { value: "a", text: "This is First option" },
@@ -45,11 +44,13 @@ export default {
             ]
         };
     },
-    
+    created() {
+        console.log(this.$auth.loggedIn)
+    }
+
 }
 
 </script>
 
 <style lang="scss" scoped>
-
 </style>

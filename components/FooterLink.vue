@@ -1,7 +1,7 @@
 <template>
     <div>
         <h3>{{ links.header }}</h3>
-        <nuxt-link to="/" v-for="(i, index) in links.items" :key="index">
+        <nuxt-link to="/" v-for="i in links.items" :key="i">
             {{ i }}
         </nuxt-link>
     </div>

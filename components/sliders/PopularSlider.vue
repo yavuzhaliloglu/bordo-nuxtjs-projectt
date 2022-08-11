@@ -19,7 +19,6 @@
 <script>
 import { Swiper, Navigation, Autoplay } from 'swiper'
 import 'swiper/swiper-bundle.min.css'
-// import PopularOneSlide from './PopularOneSlide.vue'
 
 
 export default {
@@ -75,7 +74,6 @@ export default {
             console.log(swiper);
         },
     },
-    // components: { PopularOneSlide }
 }
 </script>
 
