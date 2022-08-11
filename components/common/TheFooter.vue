@@ -7,6 +7,8 @@
                 <h1>Rentiz</h1>
                 <p>Neque, vestibulum sed varius magna et at. Eu, adipiscing morbi augue.</p>
                 <div class="footer-content-brand-social">
+                    <!-- <FooterSocial v-for="i in social" :key='i' :social="i" /> -->
+
                     <a href="#">
                         <font-awesome-icon :icon="['fab', 'facebook']" />
                     </a>
@@ -23,31 +25,7 @@
             </div>
 
             <div class="footer-content-links d-flex flex-row justify-content-between flex-wrap mx-5">
-                <div class="project">
-                    <h3>Project</h3>
-                    <nuxt-link to="/">Houses</nuxt-link>
-                    <nuxt-link to="/">Rooms</nuxt-link>
-                    <nuxt-link to="/">Flats</nuxt-link>
-                    <nuxt-link to="/">Appartments</nuxt-link>
-                </div>
-                <div class="company">
-                    <h3>Company</h3>
-                    <nuxt-link to="/">How we work?</nuxt-link>
-                    <nuxt-link to="/">Capital</nuxt-link>
-                    <nuxt-link to="/">Security</nuxt-link>
-                </div>
-                <div class="movement">
-                    <h3>Movement</h3>
-                    <nuxt-link to="/">Who we are</nuxt-link>
-                    <nuxt-link to="/">Support us</nuxt-link>
-                </div>
-                <div class="help">
-                    <h3>Help</h3>
-                    <nuxt-link to="/">Privacy</nuxt-link>
-                    <nuxt-link to="/">Condition</nuxt-link>
-                    <nuxt-link to="/">Blog</nuxt-link>
-                    <nuxt-link to="/">FAQs</nuxt-link>
-                </div>
+                <FooterLink v-for="(i,index) in links" :key="index" :links="i" />
             </div>
         </div>
 
@@ -62,8 +40,23 @@
 </template>
 
 <script>
+import FooterLink from '../FooterLink.vue'
+// import FooterSocial from '../FooterSocial.vue';
 export default {
-    name: 'TheFooter'
+    name: "TheFooter",
+
+    data() {
+        return {
+            social: ["facebook", 'instagram', "twitter", "youtube"],
+            links: [
+                { header: 'Project', items: ['Houses', 'Rooms', 'Flats', 'Apartments'] },
+                { header: 'Company', items: ['How we work?', 'Capital', 'Security'] },
+                { header: 'Movement', items: ['Who we are', 'Support us'] },
+                { header: 'Help', items: ['Privacy', 'Condition', 'Blog', 'FAQs'] },                
+            ]
+        };
+    },
+    components: { FooterLink }
 }
 </script>
 

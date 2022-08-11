@@ -1,0 +1,75 @@
+@use '../variables/reset' as *;
+@use '../variables/variables' as *;
+
+.signin {
+    height: 100vh;
+
+    &-content {
+        width: 40%;
+        height: 100%;
+        margin: auto;
+
+        &-header {}
+
+        &-text {}
+
+        &-container {
+            
+            &-input {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 14px;
+
+                svg {
+                    background-color: $thirdcolor;
+                    padding: 10px;
+                    border-top-left-radius: 8px;
+                    border-bottom-left-radius: 8px;
+                    width: 32px;
+                    height: 32px;
+                }
+
+                input {
+                    color: $black;
+                    padding: 14px 14px;
+                    width: 100%;
+                    border-top-right-radius: 8px;
+                    border-bottom-right-radius: 8px;
+                    border: none;
+
+                    &:focus{
+                        outline: none;
+                    }
+
+                    &::placeholder{
+                        color: $thirdcolor;
+                    }
+                }
+            }
+
+            &-buttons {
+                .login-button{
+                    button{
+                        font-size: 16px;
+                        padding: 14px 18px;
+                        border-radius: 8px;
+                    }
+                }
+
+                .signup-link{
+                    color: $thirdcolor;
+                }
+            }
+        }
+    }
+
+    &-image {
+        width: 50%;
+        height: 100%;
+        background-image: url('~/assets/images/signin.jpg');
+        background-size: cover;
+        background-position: center;
+    }
+}

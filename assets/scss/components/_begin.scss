@@ -21,3 +21,21 @@
         }
     }
 }
+
+@media screen and (max-width:$sm){
+    .begin{
+        flex-direction: column !important;
+        text-align: center;
+        &-header{
+            width: 100% !important;
+
+            h1{
+                width: 100%;
+            }
+        }
+
+        &-text{
+            width: 100% !important;
+        }
+    }
+}

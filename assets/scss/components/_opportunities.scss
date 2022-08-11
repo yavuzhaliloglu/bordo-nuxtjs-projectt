@@ -31,3 +31,16 @@
 
     }
 }
+
+@media screen and (max-width:$sm){
+    .opportunities-content{
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+
+        &-item{
+            width: 100%;
+            margin-bottom: 30px;
+        }
+    }
+}

@@ -36,3 +36,18 @@
         }
     }
 }
+
+@media screen and (max-width:$sm){
+    .contact{
+        flex-direction: column-reverse !important;
+        text-align: center;
+        &-images{
+            width: 100% !important;
+        }
+
+        &-content{
+            width: 100% !important;
+            margin-bottom: 30px;
+        }
+    }
+}

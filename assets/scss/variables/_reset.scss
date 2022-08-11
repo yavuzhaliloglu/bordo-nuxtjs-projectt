@@ -12,8 +12,9 @@ body {
 }
 
 a {
-    color:$hoverwhite;
+    color: $hoverwhite;
     text-decoration: none !important;
+
     &:hover {
         color: $white;
 
@@ -38,10 +39,24 @@ h2 {
     font-size: 46px;
 }
 
+@media screen and (max-width:$sm){
+    h1{
+        font-size: 46px;
+    }
+    h2{
+        font-size: 38px;
+    }
+}
+
 button {
     background-color: $thirdcolor;
     padding: 22px 42px;
     font-size: 22px;
     font-weight: bold;
     border: none;
+}
+
+.nav-button {
+    background-color: $thirdcolor;
+    padding: 10px 12px;
 }

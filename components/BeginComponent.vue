@@ -8,9 +8,7 @@
             <div class="begin-text">
                 <p>Neque, vestibulum sed varius magna et at. Eu, adipiscing morbi augue justo. Nibh laoreet volutpat
                     quis velit. Blandit aliquam donec sed morbi congue eget lorem viverra porta id lobortis.</p>
-                <button class="button">
-                    Get Started
-                </button>
+                <ButtonComponent :text="text"/>
             </div>
         </div>
     </div>
@@ -18,8 +16,15 @@
 </template>
 
 <script>
+import ButtonComponent from './ButtonComponent.vue';
 export default {
-    name: 'BeginComponent'
+    name: "BeginComponent",
+    components: { ButtonComponent },
+    data(){
+        return{
+            text:'Get Started'
+        }
+    }
 }
 </script>
 

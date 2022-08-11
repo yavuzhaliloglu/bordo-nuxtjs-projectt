@@ -7,8 +7,12 @@
     background-image: url('~/assets/images/popularbackground.png');
     background-size: cover;
 
+    .popular-residence{
+    }
+
     a{
-        @extend button
+        @extend button;
+        
     }
 
 }

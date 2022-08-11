@@ -1,25 +1,28 @@
 <template>
     <div class="popular-component">
-        <div class="popular-residence container text-center">
-            <h2 class="popular-residence-header">Popular Residence</h2>
+        <div class="popular-residence container">
+            <h2 class="popular-residence-header text-center">Popular Residence</h2>
             <PopularSlider />
-            <nuxt-link to="/" class="popular-residence-button button">View All Properties</nuxt-link>
+            <div class="text-center">
+                <ButtonComponent :text="text"/>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
-import PopularSlider from './PopularSlider.vue'
+import PopularSlider from './sliders/PopularSlider.vue'
+import ButtonComponent from './ButtonComponent.vue';
 
 export default {
     name: "PopularResidance",
-    
+
     data() {
         return {
-
+            text:'View All Properties'
         };
     },
-    components: { PopularSlider }
+    components: { PopularSlider, ButtonComponent }
 }
 </script>
 

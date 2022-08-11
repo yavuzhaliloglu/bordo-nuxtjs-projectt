@@ -1,6 +1,6 @@
 <template>
     <section>
-        <div class="hero container">
+        <div class="hero">
             <div class="hero-content d-flex flex-column justify-content-around">
                 <div class="hero-content-text">
                     <h1>Perfect way to buy and sell a home</h1>
@@ -8,10 +8,17 @@
                         Ac,
                         gravida in eget non amet eget purus non.</p>
                 </div>
-                <div class="hero-content-search">
-                    aslkdhqlhdqwdhqwlkh
+
+                <!--SEARCH-->
+                <div class="hero-content-search d-flex flex-row justify-content-center align-items-stretch">
+                    <b-form-select v-model="selected" class="select" :options="options"></b-form-select>
+                    <b-form-select v-model="selected" class="select" :options="options"></b-form-select>
+                    <b-form-select v-model="selected" class="select" :options="options"></b-form-select>
+                    <ButtonComponent :text="text"/>
                 </div>
+                
             </div>
+
             <div class="hero-image">
                 <img src="~/assets/images/hero.png" alt="">
             </div>
@@ -21,10 +28,28 @@
 </template>
 
 <script>
+import ButtonComponent from './ButtonComponent.vue'
 export default {
-    name: 'HeroComponent'
+    name: "HeroComponent",
+    components: { ButtonComponent },
+    data() {
+        return {
+            text:'Search',
+            selected: null,
+            options: [
+                { value: null, text: "Please select an option" },
+                { value: "a", text: "This is First option" },
+                { value: "b", text: "Selected Option" },
+                { value: { C: "3PO" }, text: "This is an option with object value" },
+                { value: "d", text: "This one is disabled", disabled: true }
+            ]
+        };
+    },
+    
 }
+
 </script>
 
 <style lang="scss" scoped>
+
 </style>

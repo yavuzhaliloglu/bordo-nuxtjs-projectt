@@ -1,6 +1,49 @@
 @use '../variables/reset' as *;
 @use '../variables/variables' as *;
 
-.slider-cart{
-    border: 1px solid red;
+
+.swiper {
+    min-height: 60vh;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+
+    &-button-next, &-button-prev{
+        &::after{
+            color: $thirdcolor;
+        }
+    }
+}
+
+.swiper-slide {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.slider-content{
+    height: 100%;
+    width: 100%;
+
+    .oneslide{
+        
+        &-img{
+            height: 70%;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+
+        &-icons{
+
+            .cont{
+                margin-right: 20px;
+                &:last-child{
+                    margin-right: 0;
+                }
+            }
+        }
+
+    }
+
 }

@@ -49,12 +49,6 @@
                 </template>
             </b-carousel-slide>
 
-            <!-- <b-carousel-slide>
-                <template #img>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eros felis, tincidunt
-                    a tincidunt eget, convallis vel est. Ut pellentesque ut lacus vel interdum.
-                </template>
-            </b-carousel-slide> -->
         </b-carousel>
     </div>
 </template>

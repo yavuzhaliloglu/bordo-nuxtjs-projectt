@@ -1,6 +1,17 @@
 @use '../variables/reset' as *;
 @use '../variables/variables' as *;
 
-.featured{
+.featured {
     padding: 100px 0;
+
+}
+
+@media screen and (max-width:$xs) {
+    .featured {
+        text-align: center;
+
+        &-brands {
+            flex-direction: column !important;
+        }
+    }
 }

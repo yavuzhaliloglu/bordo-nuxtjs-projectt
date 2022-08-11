@@ -16,7 +16,7 @@
     color: $thirdcolor;
     position: absolute;
     left: 0;
-    bottom: 1%;
+    bottom: 10%;
 
 }
 
@@ -45,6 +45,20 @@
     position: relative;
 
     &-inner {
-        min-height: 30vh;
+        height: 30vh;
+    }
+}
+
+@media screen and (max-width:$sm){
+    .text-slider{
+        width: 80%;
+    }
+
+    .carousel-inner{
+        height: 50vh;
+    }
+
+    .quote{
+        bottom: 40%;
     }
 }

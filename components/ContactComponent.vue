@@ -18,9 +18,7 @@
                         Blandit
                         aliquam donec sed morbi congue eget lorem viverra porta id lobortis.
                     </p>
-                    <button class="button contact-content-button">
-                        Get In Touch
-                    </button>
+                    <ButtonComponent :text="text"/>
                 </div>
 
             </div>
@@ -30,9 +28,16 @@
 </template>
 
 <script>
+import ButtonComponent from './ButtonComponent.vue';
 
 export default {
-    name: 'ContactComponent'
+    name: "ContactComponent",
+    components: { ButtonComponent },
+    data(){
+        return{
+            text:'Get In Touch'
+        }
+    }
 }
 </script>
 

@@ -13,8 +13,7 @@ a {
 .footer {
     margin-bottom: 0;
     background-color: $footerbackground;
-    font-size: 14px;
-
+    font-size: 18px;
     &-content {
         padding: 100px 0;
         position: relative;
@@ -52,6 +51,7 @@ a {
 
         &-links {
             width: 75%;
+
             div {
                 margin-right: 20px;
                 display: flex;
@@ -72,6 +72,53 @@ a {
     &-bottom {
         padding: 20px 0;
         border-top: 1px solid #303A44;
+    }
+
+}
+
+@media screen and (max-width:$md) {
+    .footer-content {
+        flex-direction: column !important;
+        text-align: center;
+
+        span {
+            position: absolute;
+            width: 32px;
+            height: 31px;
+            top: 100px;
+            left: 38%;
+            background-color: $thirdcolor;
+            z-index: 0;
+        }
+
+        &-brand {
+            width: 100%;
+            margin-bottom: 60px;
+        }
+
+        &-links{
+            width: 100%;
+            margin: 0 !important;
+            justify-content: center !important;
+        }
+    }
+}
+
+@media screen and (max-width:$sm){
+    .footer-content-links{
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        text-align: center;
+
+        div{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            margin-bottom: 20px;
+        }
     }
 
 }
