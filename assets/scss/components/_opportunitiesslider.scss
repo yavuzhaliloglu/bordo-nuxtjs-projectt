@@ -2,22 +2,18 @@
 @use '../variables/variables' as *;
 
 
-
-.text-slider {
-    width: 60%;
-    margin: auto;
-    margin-top: 120px;
+.slider {
     position: relative;
+    width: 60%;
 }
 
 .quote {
     font-size: 260px;
     font-family: 'Work Sans', sans-serif;
     color: $thirdcolor;
+    margin-bottom: 0 !important;
     position: absolute;
-    left: 0;
-    bottom: 10%;
-
+    bottom: 70px;
 }
 
 .carousel-control-prev {
@@ -49,16 +45,16 @@
     }
 }
 
-@media screen and (max-width:$sm){
-    .text-slider{
+@media screen and (max-width:$sm) {
+    .text-slider {
         width: 80%;
     }
 
-    .carousel-inner{
+    .carousel-inner {
         height: 50vh;
     }
 
-    .quote{
+    .quote {
         bottom: 40%;
     }
 }

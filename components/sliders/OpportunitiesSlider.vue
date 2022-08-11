@@ -1,90 +1,16 @@
 <template>
-    <div class="text-slider">
+    <div class="slider my-5 container">
         <span class="quote">“</span>
-        <!-- <b-carousel id="myCarousel" v-model="slide" :interval="4000" controls background="transparent" img-width="1024"
-            img-height="480" style="text-shadow: 1px 1px 2px #333;" @sliding-start="onSlideStart"
-            @sliding-end="onSlideEnd">
-            <b-carousel-slide>
-                <template #img>
-                    <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eros felis, tincidunt
-                        a tincidunt eget, convallis vel est. Ut pellentesque ut lacus vel interdum.</p>
-                    <h5>Lorem, ipsum dolor.</h5>
-                    <p>Lorem ipsum dolor sit amet consectetur.
-                    </p>
-                </template>
-            </b-carousel-slide>
+        <div class="swiper swiper1">
+            <div class="swiper-wrapper">
+                <div v-for="i in content" :key="i" class="swiper-slide">
+                    <SlidersOpportunitiesOneSlide class="slider-content" :content="i" />
+                </div>
+            </div>
 
-
-            <b-carousel-slide>
-                <template #img>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fuga, ab nobis. Cumque quasi ipsa
-                        voluptatum sapiente aperiam expedita, cupiditate vitae suscipit voluptates adipisci voluptas?
-                        Obcaecati, voluptatum vel ad perspiciatis molestiae, deleniti vero quo expedita facilis labore
-                        placeat amet quibusdam aut voluptas, pariatur nisi iure dolor ex alias modi cum aspernatur.</p>
-                    <h5>Lorem, ipsum.</h5>
-                    <p>Lorem, ipsum dolor.</p>
-                </template>
-            </b-carousel-slide>
-
-
-            <b-carousel-slide>
-                <template #img>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem a rerum sequi. Rerum
-                        hic, totam autem ex expedita ad. Enim iste repudiandae, facere rerum quod autem consequuntur
-                        earum reprehenderit? Quod officia, cum consequuntur explicabo laborum quibusdam et excepturi
-                        nulla libero accusantium dolor! Sapiente, deleniti?</p>
-                    <h5>Lorem.</h5>
-                    <p>Lorem ipsum dolor sit amet.</p>
-                </template>
-            </b-carousel-slide>
-
-            <b-carousel-slide>
-                <template #img>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rem sapiente tenetur reprehenderit
-                        deserunt voluptate reiciendis? Similique accusamus laudantium officia excepturi. Laborum
-                        recusandae, ad ex dicta maxime officia dolore sunt! Nesciunt excepturi nulla at voluptatum sequi
-                        non natus.</p>
-                    <h5>lorem ipsm</h5>
-                    <p>Lorem ipsum dolor sit.</p>
-                </template>
-            </b-carousel-slide>
-
-        </b-carousel> -->
-        <swiper :slides-per-view="3" :space-between="50" @swiper="onSwiper" @slideChange="onSlideChange">
-            <swiper-slide>
-                <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eros felis, tincidunt
-                    a tincidunt eget, convallis vel est. Ut pellentesque ut lacus vel interdum.</p>
-                <h5>Lorem, ipsum dolor.</h5>
-                <p>Lorem ipsum dolor sit amet consectetur.
-                </p>
-            </swiper-slide>
-            <swiper-slide>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fuga, ab nobis. Cumque quasi ipsa
-                    voluptatum sapiente aperiam expedita, cupiditate vitae suscipit voluptates adipisci voluptas?
-                    Obcaecati, voluptatum vel ad perspiciatis molestiae, deleniti vero quo expedita facilis labore
-                    placeat amet quibusdam aut voluptas, pariatur nisi iure dolor ex alias modi cum aspernatur.</p>
-                <h5>Lorem, ipsum.</h5>
-                <p>Lorem, ipsum dolor.</p>
-            </swiper-slide>
-            <swiper-slide>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem a rerum sequi. Rerum
-                    hic, totam autem ex expedita ad. Enim iste repudiandae, facere rerum quod autem consequuntur
-                    earum reprehenderit? Quod officia, cum consequuntur explicabo laborum quibusdam et excepturi
-                    nulla libero accusantium dolor! Sapiente, deleniti?</p>
-                <h5>Lorem.</h5>
-                <p>Lorem ipsum dolor sit amet.</p>
-            </swiper-slide>
-            <swiper-slide>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rem sapiente tenetur reprehenderit
-                    deserunt voluptate reiciendis? Similique accusamus laudantium officia excepturi. Laborum
-                    recusandae, ad ex dicta maxime officia dolore sunt! Nesciunt excepturi nulla at voluptatum sequi
-                    non natus.</p>
-                <h5>lorem ipsm</h5>
-                <p>Lorem ipsum dolor sit.</p>
-            </swiper-slide>
-
-        </swiper>
-
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
     </div>
 </template>
 
@@ -92,40 +18,50 @@
 import { Swiper, Navigation, Autoplay } from 'swiper'
 import 'swiper/swiper-bundle.min.css'
 
+
 export default {
-    name: 'OpportunitiesSlider',
-    // components: {
-    //     Swiper,
-    //     SwiperSlide,
-    // },
+    name: "OpportunitiesSlider",
+    data() {
+        return {
+            content: [
+                {
+                    text: ' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eros felis, tincidun a tincidunt eget, convallis vel est. Ut pellentesque ut lacus vel interdum.',
+                    header: 'Lorem, ipsum dolor',
+                    title: 'Lorem ipsum dolor sit amet consectetur.'
+                },
+                {
+                    text: ' Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elitLorem ipsum dolor sit amet, consectetur adipiscing elit Suspendisse eros felis, tincidun a tincidunt eget, convallis vel est. Ut pellentesque ut lacus vel interdum.',
+                    header: 'Lorem, ipsum dolor',
+                    title: 'Lorem ipsum dolor sit amet consectetur.'
+                }, {
+                    text: ' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut pellentesque ut lacus vel interdum.',
+                    header: 'Lorem, ipsum dolor',
+                    title: 'Lorem ipsum dolor sit amet consectetur.'
+                }, {
+                    text: ' Lorem Lorem Lorem Lorem Lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eros felis, tincidun a tincidunt eget, convallis vel est. Ut pellentesque ut lacus vel interdum.',
+                    header: 'Lorem, ipsum dolor',
+                    title: 'Lorem ipsum dolor sit amet consectetur.'
+                },
+            ]
+        };
+    },
     mounted() {
 
         Swiper.use([Navigation, Autoplay]);
 
         /* eslint-disable no-unused-vars */
-        const swiper = new Swiper(".swiper", {
+        const swiper = new Swiper(".swiper1", {
 
             direction: "horizontal",
 
             loop: true,
 
-            spaceBetween: 20,
+            spaceBetween: 10,
 
             slidesPerView: 1,
 
             modules: [Navigation, Autoplay],
 
-            breakpoints: {
-                776: {
-                    slidesPerView: 3,
-                    spaceBetween: 10,
-                },
-
-                550: {
-                    spaceBetween: 15,
-                    slidesPerView: 2,
-                }
-            },
 
             autoplay: {
                 delay: 3000
@@ -138,25 +74,31 @@ export default {
 
         });
     },
-
-    // data() {
-    //     return {
-    //         slide: 0,
-    //         sliding: null
-    //     }
-    // },
-    // methods: {
-    //     onSlideStart(slide) {
-    //         this.sliding = true
-    //     },
-    //     onSlideEnd(slide) {
-    //         this.sliding = false
-    //     },
-    // }
-
+    methods: {
+        onSwiper: (swiper) => {
+            console.log(swiper);
+        },
+    },
 }
-
 </script>
 
 <style lang="scss" scoped>
+
+.swiper1 {
+    
+    position: relative;
+    .swiper-button-prev {
+        position: absolute;
+        top: 80%;
+        left: 85%;
+    }
+
+    .swiper-button-next {
+        position: absolute;
+        top: 80%;
+        right: 3%;
+    }
+}
 </style>
+
+

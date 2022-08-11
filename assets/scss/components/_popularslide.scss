@@ -3,13 +3,14 @@
 
 
 .swiper {
-    min-height: 60vh;
+    min-height: 50vh;
     overflow: hidden;
     position: relative;
     width: 100%;
 
-    &-button-next, &-button-prev{
-        &::after{
+    &-button-next,
+    &-button-prev {
+        &::after {
             color: $thirdcolor;
         }
     }
@@ -21,24 +22,25 @@
     justify-content: center;
 }
 
-.slider-content{
+.slider-content {
     height: 100%;
     width: 100%;
 
-    .oneslide{
-        
-        &-img{
+    .oneslide {
+
+        &-img {
             height: 70%;
             width: 100%;
             margin-bottom: 20px;
         }
 
 
-        &-icons{
+        &-icons {
 
-            .cont{
+            .cont {
                 margin-right: 20px;
-                &:last-child{
+
+                &:last-child {
                     margin-right: 0;
                 }
             }
@@ -46,4 +48,11 @@
 
     }
 
+}
+
+@media screen and (max-width:$sm) {
+    .swiper-button-prev-unique,
+    .swiper-button-next-unique {
+        display: none;
+    }
 }
