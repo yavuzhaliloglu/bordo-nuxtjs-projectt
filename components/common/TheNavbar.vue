@@ -94,9 +94,7 @@ export default {
                 mobilemenu.style.transform = 'scale(0)'
             }
         },
-        logout() {
-            this.$auth.logout()
-        }
+
     },
     computed: {
         colorChange() {

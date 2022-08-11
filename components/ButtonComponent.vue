@@ -1,6 +1,6 @@
 <template>
     <div>
-        <button class="button">
+        <button class="button" :type="type">
             {{text}}
         </button>
     </div>
@@ -14,6 +14,10 @@
                 type:String,
                 required:true,
             },
+            type:{
+                type:String,
+                required:true
+            }
         }
     }
 </script>

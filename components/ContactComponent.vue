@@ -18,7 +18,7 @@
                         Blandit
                         aliquam donec sed morbi congue eget lorem viverra porta id lobortis.
                     </p>
-                    <ButtonComponent :text="text"/>
+                    <LinkComponent :text="text" :path="path"/>
                 </div>
 
             </div>
@@ -28,14 +28,16 @@
 </template>
 
 <script>
-import ButtonComponent from './ButtonComponent.vue';
+
+import LinkComponent from './LinkComponent.vue';
 
 export default {
     name: "ContactComponent",
-    components: { ButtonComponent },
+    components: { LinkComponent },
     data(){
         return{
-            text:'Get In Touch'
+            text:'Get In Touch',
+            path:'/signup'
         }
     }
 }

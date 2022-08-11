@@ -19,8 +19,10 @@ import BeginComponent from '~/components/BeginComponent.vue';
 
 export default {
   name: "IndexPage",
+  components: { HeroComponent, PopularResidence, OpportunitiesComponent, ContactComponent, BeginComponent },
   layout: "DefaultLayout",
-  components: { HeroComponent, PopularResidence, OpportunitiesComponent, ContactComponent, BeginComponent }
+
+
 }
 </script>
 

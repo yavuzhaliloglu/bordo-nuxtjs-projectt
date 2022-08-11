@@ -4,7 +4,7 @@
             <h2 class="popular-residence-header text-center">Popular Residence</h2>
             <PopularSlider />
             <div class="text-center">
-                <ButtonComponent :text="text"/>
+                <LinkComponent :text="text" :path="path"/>
             </div>
         </div>
     </div>
@@ -12,17 +12,18 @@
 
 <script>
 import PopularSlider from './sliders/PopularSlider.vue'
-import ButtonComponent from './ButtonComponent.vue';
+import LinkComponent from './LinkComponent.vue';
 
 export default {
     name: "PopularResidance",
 
     data() {
         return {
-            text:'View All Properties'
+            text:'View All Properties',
+            path:'/signin'
         };
     },
-    components: { PopularSlider, ButtonComponent }
+    components: { PopularSlider, LinkComponent }
 }
 </script>
 

@@ -60,3 +60,8 @@ button {
     background-color: $thirdcolor;
     padding: 10px 12px;
 }
+
+
+.nuxtlink{
+    @extend button
+}
