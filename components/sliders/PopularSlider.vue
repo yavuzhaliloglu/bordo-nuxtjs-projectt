@@ -16,9 +16,6 @@
             <font-awesome-icon icon="fa-solid fa-circle-chevron-right" />
         </div>
 
-
-
-
     </div>
 </template>
 
@@ -84,9 +81,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.slider {
-    position: relative
-}
+
 
 .swiper2 {
     position: relative;

@@ -135,3 +135,14 @@ nav {
         display: block;
     }
 }
+
+.loggedin-buttons{
+    border: 1px solid white;
+    p{
+        border: 1px solid blue;
+    }
+    button{
+        border: 1px solid red;
+        font-size: 14px;
+    }
+}

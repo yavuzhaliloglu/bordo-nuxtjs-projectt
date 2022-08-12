@@ -4,8 +4,28 @@
 
 .slider {
     position: relative;
+}
+
+.op-slider {
     width: 60%;
 }
+
+.swiper1 {
+    position: relative;
+
+    .swiper-button-prev {
+        position: absolute;
+        top: 80%;
+        left: 85%;
+    }
+
+    .swiper-button-next {
+        position: absolute;
+        top: 80%;
+        right: 3%;
+    }
+}
+
 
 .quote {
     font-size: 260px;
@@ -16,45 +36,21 @@
     bottom: 70px;
 }
 
-.carousel-control-prev {
-    margin-left: 68%;
-    margin-bottom: -20px;
-}
-
-.carousel-control-next {
-    margin-bottom: -20px;
-}
-
-.carousel-control-prev-icon {
-    position: absolute !important;
-    bottom: 0;
-    right: 0;
-}
-
-.carousel-control-next-icon {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-}
-
-.carousel {
-    position: relative;
-
-    &-inner {
-        height: 30vh;
-    }
-}
-
 @media screen and (max-width:$sm) {
-    .text-slider {
-        width: 80%;
-    }
-
-    .carousel-inner {
-        height: 50vh;
-    }
-
     .quote {
         bottom: 40%;
     }
+
+    .op-slider{
+        width: 90%;
+    }
+
+    .swiper {
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            display: none;
+        }
+    }
+
 }

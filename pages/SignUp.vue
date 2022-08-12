@@ -65,6 +65,7 @@ export default {
     methods: {
         async registerUser() {
             const response = await this.$axios.post('user/register', this.registerinfo);
+            // this.$auth.setUser(this.registerinfo)
             console.log(response)
             console.log(this.registerinfo);
             this.$router.push('/signin');

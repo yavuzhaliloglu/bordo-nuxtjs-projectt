@@ -5,15 +5,6 @@
 .swiper {
     min-height: 50vh;
     overflow: hidden;
-    position: relative;
-    width: 100%;
-
-    &-button-next,
-    &-button-prev {
-        &::after {
-            color: $thirdcolor;
-        }
-    }
 }
 
 .swiper-slide {
@@ -23,8 +14,7 @@
 }
 
 .slider-content {
-    height: 100%;
-    width: 100%;
+
 
     .oneslide {
 

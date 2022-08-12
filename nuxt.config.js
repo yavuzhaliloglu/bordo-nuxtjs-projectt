@@ -58,18 +58,18 @@ export default {
     strategies: {
       local: {
         token: {
-          property: 'token',
+          property: 'data.accessToken',
           global: true,
-          // required: true,
-          type: ''
+          required: true,
+          type: 'bearer'
         },
         user: {
-          property: 'user',
+          property: '',
           // autoFetch: true
         },
         endpoints: {
           login: { url: 'user/login', method: 'post'},
-          logout: { url: '/api/auth/logout', method: 'delete' }, // method delete olacak
+          logout: { url: 'user/logout', method: 'delete' }, // method delete olacak
           user: { url: 'user/profile', method: 'get' }
         }
       }
@@ -88,7 +88,7 @@ export default {
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: 'https://estate-bordo-55.herokuapp.com/',
+    baseURL: 'https://949a-78-187-64-85.eu.ngrok.io/',
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

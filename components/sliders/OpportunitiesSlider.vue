@@ -1,5 +1,5 @@
 <template>
-    <div class="slider my-5 container">
+    <div class="slider op-slider my-5 container">
         <span class="quote">“</span>
         <div class="swiper swiper1">
             <div class="swiper-wrapper">
@@ -84,21 +84,7 @@ export default {
 
 <style lang="scss" scoped>
 
-.swiper1 {
-    
-    position: relative;
-    .swiper-button-prev {
-        position: absolute;
-        top: 80%;
-        left: 85%;
-    }
 
-    .swiper-button-next {
-        position: absolute;
-        top: 80%;
-        right: 3%;
-    }
-}
 </style>
 
 

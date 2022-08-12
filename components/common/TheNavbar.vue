@@ -27,13 +27,16 @@
                 </li>
             </ul>
 
-            <div class="buttons">
+
+            <div v-if="$auth.loggedIn"
+                class="loggedin-buttons d-flex flex-row justify-content-between align-items-center">
+                <p>{{ $auth.user.data.userName }}</p>
+                
+            </div>
+
+            <div v-else class="buttons">
                 <nuxt-link to="/signin">Login</nuxt-link>
                 <nuxt-link to="/signup">Sign up</nuxt-link>
-                <div v-if="$auth.loggedIn">
-                    <p>şwdkjqwlk</p>
-                    <button @click="$auth.logout()">Log Out</button>
-                </div>
             </div>
         </div>
 
@@ -83,6 +86,19 @@ export default {
             isClicked: false
         }
     },
+    computed: {
+        colorChange() {
+            if (this.$nuxt.$route.path === '/') {
+                return '#fff'
+            }
+            else {
+                return '#111'
+            }
+        }
+    },
+    created() {
+        console.log(this.$auth.user)
+    },
     methods: {
         toggleMobileMenu() {
             this.isClicked = !this.isClicked
@@ -100,16 +116,7 @@ export default {
         },
 
     },
-    computed: {
-        colorChange() {
-            if (this.$nuxt.$route.path === '/') {
-                return '#fff'
-            }
-            else {
-                return '#111'
-            }
-        }
-    },
+
 }
 </script>
 

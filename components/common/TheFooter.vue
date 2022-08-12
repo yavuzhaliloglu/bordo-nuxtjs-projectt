@@ -7,20 +7,7 @@
                 <h1>Rentiz</h1>
                 <p>Neque, vestibulum sed varius magna et at. Eu, adipiscing morbi augue.</p>
                 <div class="footer-content-brand-social">
-                    <!-- <FooterSocial v-for="i in social" :key='i' :social="i" /> -->
-
-                    <a href="#">
-                        <font-awesome-icon :icon="['fab', 'facebook']" />
-                    </a>
-                    <a href="#">
-                        <font-awesome-icon :icon="['fab', 'instagram']" />
-                    </a>
-                    <a href="#">
-                        <font-awesome-icon :icon="['fab', 'twitter']" />
-                    </a>
-                    <a href="#">
-                        <font-awesome-icon :icon="['fab', 'youtube']" />
-                    </a>
+                    <FooterSocial v-for="i in social" :key='i' :social="i" />
                 </div>
             </div>
 
@@ -45,7 +32,7 @@ export default {
 
     data() {
         return {
-        // social: [{item:'facebook'}, {item:'instagram'}, {item:'twitter'}, {item:'youtube'}],
+        social: ['facebook', 'instagram', 'twitter', 'youtube'],
             links: [
                 { header: 'Project', items: ['Houses', 'Rooms', 'Flats', 'Apartments'] },
                 { header: 'Company', items: ['How we work?', 'Capital', 'Security'] },

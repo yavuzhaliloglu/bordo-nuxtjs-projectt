@@ -36,17 +36,19 @@ export default {
             text: 'Giriş Yap',
             type: 'submit',
             logininfo: {
-                email: "",
-                password: ""
+                email: "yavuz.haliloglu@hotmail.com",
+                password: "Yavuz123*Yavuz"
             }
         };
     },
     methods: {
         async loginUser() {
             try {
-                const response = await this.$auth.loginWith('local', { data: this.logininfo });
-                console.log(response)
-                console.log(this.$auth.loggedIn)
+                await this.$auth.loginWith('local', { data: this.logininfo });
+                // this.$auth.setUserToken(response.data.data.accessToken, response.data.data.refreshToken)
+                //     .then(() => this.$toast.success('User set!'))
+                // console.log(response)
+                console.log(this.$auth.user)
                 // this.$router.push('/');
             }
             catch (err) {
