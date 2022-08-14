@@ -7,12 +7,12 @@
                 <h1>Rentiz</h1>
                 <p>Neque, vestibulum sed varius magna et at. Eu, adipiscing morbi augue.</p>
                 <div class="footer-content-brand-social">
-                    <FooterSocial v-for="i in social" :key='i' :social="i" />
+                    <LinksFooterSocial v-for="i in social" :key='i' :social="i" />
                 </div>
             </div>
 
             <div class="footer-content-links d-flex flex-row justify-content-between flex-wrap mx-5">
-                <FooterLink v-for="i in links" :key="i" :links="i" />
+                <LinksFooterLink v-for="i in links" :key="i" :links="i" />
             </div>
         </div>
 

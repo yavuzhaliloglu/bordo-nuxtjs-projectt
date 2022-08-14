@@ -3,7 +3,7 @@
         <div class="container d-flex flex-column justify-content-center align-items-center">
             <h2 class="opportunities-header">Why To Choose Us</h2>
             <div class="opportunities-content w-100 d-flex flex-row justify-content-around align-items-stretch">
-                <OpportunitiesCart v-for="i in opportunityList" :key="i" :opportunity="i" />
+                <IndexOpportunitiesCart v-for="i in opportunityList" :key="i" :opportunity="i" />
             </div>
         </div>
 

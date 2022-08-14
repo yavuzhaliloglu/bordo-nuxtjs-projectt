@@ -23,7 +23,7 @@
                 <img src="~/assets/images/hero.png" alt="">
             </div>
         </div>
-        <FeaturedComponent />
+        <IndexFeaturedComponent />
     </section>
 </template>
 

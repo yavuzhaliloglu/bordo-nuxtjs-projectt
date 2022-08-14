@@ -30,8 +30,8 @@
 
             <div v-if="$auth.loggedIn"
                 class="loggedin-buttons d-flex flex-row justify-content-between align-items-center">
-                <p>{{ $auth.user.data.userName }}</p>
-                
+                <LinksLinkComponent :path="pathprofile" :text="$auth.user.data.userName" />
+                <button class="logout-button" @click="$auth.logout()">{{ this.text }}</button>
             </div>
 
             <div v-else class="buttons">
@@ -79,51 +79,47 @@
 </template>
 
 <script>
+
 export default {
-    name: 'TheNavbar',
+    name: "TheNavbar",
     data() {
         return {
-            isClicked: false
-        }
+            isClicked: false,
+            pathprofile: "/profilepage",
+            text: "Log Out",
+        };
     },
     computed: {
         colorChange() {
-            if (this.$nuxt.$route.path === '/') {
-                return '#fff'
+            if (this.$nuxt.$route.path === "/") {
+                return "#fff";
             }
             else {
-                return '#111'
+                return "#111";
             }
         }
     },
     created() {
-        console.log(this.$auth.user)
+        console.log(this.$auth.user);
     },
     methods: {
         toggleMobileMenu() {
-            this.isClicked = !this.isClicked
-            const menu = document.querySelector('#hamburger-icon')
-            const mobilemenu = document.querySelector('.mobile-menu')
-            const nav = document.querySelector('nav')
-            menu.classList.toggle('open')
-            nav.classList.toggle('mb')
-
+            this.isClicked = !this.isClicked;
+            const menu = document.querySelector("#hamburger-icon");
+            const mobilemenu = document.querySelector(".mobile-menu");
+            const nav = document.querySelector("nav");
+            menu.classList.toggle("open");
+            nav.classList.toggle("mb");
             if (this.isClicked) {
-                mobilemenu.style.transform = 'scale(1)'
-            } else {
-                mobilemenu.style.transform = 'scale(0)'
+                mobilemenu.style.transform = "scale(1)";
+            }
+            else {
+                mobilemenu.style.transform = "scale(0)";
             }
         },
-
     },
-
 }
 </script>
 
 <style lang="scss" scoped>
-button {
-    padding: 0;
-    background-color: transparent;
-    font-size: 20px;
-}
 </style>

@@ -1,6 +1,5 @@
-@use '../variables/reset' as *;
-@use '../variables/variables' as *;
-
+@use '/assets/scss/variables/reset' as *;
+@use '/assets/scss/variables/variables' as *;
 .popular-component {
     padding: 100px 0;
     background-color: lighten($black, 8%);

@@ -1,5 +1,5 @@
-@use '../variables/reset' as *;
-@use '../variables/variables' as *;
+@use '/assets/scss/variables/reset' as *;
+@use '/assets/scss/variables/variables' as *;
 
 nav {
     padding: 60px 0;
@@ -122,7 +122,7 @@ nav {
     text-align: center;
 }
 
-.mb{
+.mb {
     margin-bottom: 250px;
 }
 
@@ -136,13 +136,17 @@ nav {
     }
 }
 
-.loggedin-buttons{
+.loggedin-buttons {
     border: 1px solid white;
-    p{
-        border: 1px solid blue;
+    a {
+        font-size: 14px !important;
+        padding: 6px 4px;
+        margin-right: 10px;
+        background-color: transparent;
     }
-    button{
-        border: 1px solid red;
-        font-size: 14px;
+
+    button {
+        font-size: 14px !important;
+        padding: 6px 4px;
     }
 }

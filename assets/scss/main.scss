@@ -1,2 +1,3 @@
-@use '/assets/scss/pages/signin.scss';
-@import '/assets/scss/pages/index.scss';
+@use '/assets/scss/pages/signin.scss' as *;
+@use '/assets/scss/pages/index.scss' as *;
+@use '/assets/scss/pages/userprofile.scss' as *;

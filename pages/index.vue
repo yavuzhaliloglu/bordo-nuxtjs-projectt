@@ -1,10 +1,10 @@
 <template>
   <div>
-    <HeroComponent />
-    <PopularResidence />
-    <OpportunitiesComponent />
-    <ContactComponent />
-    <BeginComponent />
+    <IndexHeroComponent />
+    <IndexPopularResidence />
+    <IndexOpportunitiesComponent />
+    <IndexContactComponent />
+    <IndexBeginComponent />
   </div>
 </template>
 

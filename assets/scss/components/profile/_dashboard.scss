@@ -1,0 +1,20 @@
+.dashboard{
+    border: 1px solid red;
+    width: 80%;
+    &-container{
+        border: 1px solid blue;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &-content{
+            width: 70%;
+            border: 1px solid green;
+        }
+
+        &-detail{
+            border: 1px solid yellow;
+            width: 30%;
+        }
+    }
+}
