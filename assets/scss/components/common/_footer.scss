@@ -13,16 +13,16 @@ a {
 .footer {
     margin-bottom: 0;
     background-color: $footerbackground;
-    font-size: 18px;
+    font-size: 14px;
     &-content {
-        padding: 100px 0;
+        padding: 60px 0;
         position: relative;
 
         span {
             position: absolute;
             width: 32px;
             height: 31px;
-            top: 100px;
+            top: 56px;
             left: -10px;
             background-color: $thirdcolor;
             z-index: 0;

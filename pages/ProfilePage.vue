@@ -1,16 +1,19 @@
 <template>
-    <div class="dashboard">
-        <ProfileDashboard />
+    <div class="d-flex flex-row justify-content-start align-items-start dashboard">
+        <div class="dashboard-content container">
+            <!-- <ProfileHeader /> -->
+            <ProfileSearch />
+            <ProfileFavAdvert />
+        </div>
+        <ProfilePropertyDetail />
     </div>
+
 </template>
 
 <script>
-import ProfileDashboard from '~/components/profile/ProfileDashboard.vue';
-
 export default {
     name: "ProfilePage",
     layout: "UserProfile",
-    components: { ProfileDashboard }
 }
 </script>
 

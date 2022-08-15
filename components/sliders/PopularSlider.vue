@@ -1,10 +1,15 @@
 <template>
-    <div class="slider my-5">
-
+    <div class="slider my-3">
         <div class="swiper swiper2">
-            <div class="swiper-wrapper">
-                <div v-for="i in 6" :key="i" class="swiper-slide">
-                    <SlidersPopularOneSlide class="slider-content" />
+            <div class="swiper-wrapper" v-if="$route.path === '/'">
+                <div v-for="slide in sliderlist" :key="slide" class="swiper-slide">
+                    <SlidersPopularOneSlide :slide="slide" class="slider-content" />
+                </div>
+            </div>
+        
+            <div v-else class="swiper-wrapper">
+                <div @click="writeThis(slide)" v-for="slide in sliderlist" :key="slide" class="swiper-slide pointer">
+                    <SlidersPopularOneSlide :slide="slide" class="slider-content" />
                 </div>
             </div>
         </div>
@@ -23,11 +28,18 @@
 import { Swiper, Navigation, Autoplay } from 'swiper'
 import 'swiper/swiper-bundle.min.css'
 
-
 export default {
     name: "PopularSlider",
+    props: {
+        sliderlist: {
+            type: Array
+        },
+        loop: {
+            type: Boolean,
+            required: true
+        },
+    },
     mounted() {
-
         Swiper.use([Navigation, Autoplay]);
 
         /* eslint-disable no-unused-vars */
@@ -35,7 +47,7 @@ export default {
 
             direction: "horizontal",
 
-            loop: true,
+            loop: this.loop,
 
             spaceBetween: 20,
 
@@ -56,7 +68,7 @@ export default {
             },
 
             autoplay: {
-                delay: 3000
+                delay: 2000
             },
 
             navigation: {
@@ -65,8 +77,15 @@ export default {
             }
 
         });
-    },
 
+        if (this.$route.path === '/profilepage') {
+            const buttonleft = document.querySelector('.swiper-button-prev-unique');
+            const buttonright = document.querySelector('.swiper-button-next-unique');
+            buttonleft.style.display = 'none';
+            buttonright.style.display = 'none';
+
+        }
+    },
     data() {
         return {
 
@@ -76,36 +95,16 @@ export default {
         onSwiper: (swiper) => {
             console.log(swiper);
         },
+        writeThis(slide) {
+            console.log(slide)
+        }
     },
 }
 </script>
 
 <style lang="scss" scoped>
 
-
-.swiper2 {
-    position: relative;
-
-}
-
-.swiper-button-prev-unique,
-.swiper-button-next-unique {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    transform: translate(-50%);
-    z-index: 999999;
-
-    svg {
-        font-size: 30px;
-    }
-}
-
-.swiper-button-prev-unique {
-    left: -2.5%
-}
-
-.swiper-button-next-unique {
-    right: -5%
+.pointer{
+    cursor:pointer
 }
 </style>

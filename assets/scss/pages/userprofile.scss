@@ -1,3 +1,15 @@
 @import '/assets/scss/components/common/profilenavbar';
-@import '/assets/scss/components/profile/dashboard';
 @import '/assets/scss/components/profile/propertydetail';
+@import '/assets/scss/components/profile/profilesearch';
+@import '/assets/scss/components/profile/profileheader';
+@import '/assets/scss/components/profile/profilefavadvert';
+
+@import '/assets/scss/variables/variables';
+
+.dashboard{
+    width: 80%;
+    &-content{
+        width: 75%;
+        background-color: lighten($black, 3%);
+    }
+}

@@ -3,24 +3,23 @@
 
 
 .opportunities {
-    padding: 100px 0;
+    padding: 40px 0;
 
     &-header {
-        margin-bottom: 50px;
+        margin-bottom: 30px;
 
     }
 
     &-content {
-        margin-bottom: 70px;
+        margin-bottom: 50px;
         &-item {
             width: 30%;
             text-align: center;
-            margin-bottom: 100px;
             &-logo {
                 border-radius: 50%;
                 background-color: darken($thirdcolor, 25%);
-                width: 150px;
-                height: 150px;
+                width: 120px;
+                height: 120px;
                 display: flex;
                 justify-content: center;
                 align-items: center;

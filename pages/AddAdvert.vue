@@ -1,12 +1,13 @@
 <template>
-    <div class="dashboard-detail">
-        this is property detail
+    <div class="advert">
+        add advert
     </div>
 </template>
 
 <script>
     export default {
-        name:'PropertyDetail'
+        name:'AddAdvert',
+        layout:'UserProfile'
     }
 </script>
 
