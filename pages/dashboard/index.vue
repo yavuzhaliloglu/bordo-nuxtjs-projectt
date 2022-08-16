@@ -1,7 +1,7 @@
 <template>
     <div class="d-flex flex-row justify-content-start align-items-start dashboard">
         <div class="dashboard-content container">
-            <!-- <ProfileHeader /> -->
+            <ProfileHeader />
             <ProfileSearch />
             <ProfileFavAdvert />
         </div>

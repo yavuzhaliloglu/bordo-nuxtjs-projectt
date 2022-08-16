@@ -85,7 +85,7 @@ export default {
     data() {
         return {
             isClicked: false,
-            pathprofile: "/profilepage",
+            pathprofile: "/dashboard",
             text: "Log Out",
         };
     },

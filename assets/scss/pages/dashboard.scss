@@ -3,13 +3,15 @@
 @import '/assets/scss/components/profile/profilesearch';
 @import '/assets/scss/components/profile/profileheader';
 @import '/assets/scss/components/profile/profilefavadvert';
+@import '/assets/scss/components/profile/profilepropertyinfo';
+@import '/assets/scss/components/profile/profiledetailuser';
 
 @import '/assets/scss/variables/variables';
 
 .dashboard{
     width: 80%;
     &-content{
-        width: 75%;
+        width: 72%;
         background-color: lighten($black, 3%);
     }
 }

@@ -1,9 +1,8 @@
 @use '/assets/scss/variables/reset' as *;
 @use '/assets/scss/variables/variables' as *;
 
-.dashboard-content-header{
+.header{
     padding-top: 30px;
-
     &-text{
         opacity: .6;
     }

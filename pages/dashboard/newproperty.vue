@@ -1,12 +1,12 @@
 <template>
-    <div class="advert">
-        add advert
+    <div class="newproperty">
+        
     </div>
 </template>
 
 <script>
     export default {
-        name:'AddAdvert',
+        name:'NewProperty',
         layout:'UserProfile'
     }
 </script>

@@ -20,7 +20,7 @@ export default {
         return {
             text: 'View All Properties',
             path: '/signin',
-            loop:true,
+            loop: true,
             sliderlist: [
                 {
                     image: 'slider-1.png',
@@ -28,7 +28,7 @@ export default {
                     location: '1087 Pin Oak Drive, Clinton, USA',
                     beds: '4',
                     bath: '2',
-                    area: '1293'
+                    area: '1293',
                 },
                 {
                     image: 'slider-1.png',

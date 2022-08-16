@@ -1,12 +1,18 @@
 <template>
-    <div class="dashboard-detail">
-        this is property detail
+    <div class="dashboard-detail container">
+        <ProfileDetailUser />
+        <ProfilePropertyInfo />
     </div>
 </template>
 
 <script>
     export default {
-        name:'PropertyDetail'
+        name:'PropertyDetail',
+        data(){
+            return{
+                
+            }
+        },
     }
 </script>
 

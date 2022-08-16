@@ -15,7 +15,7 @@ export default {
         return {
             links: [
                 {
-                    path: '/profilepage',
+                    path: '/dashboard',
                     text: 'Dashboard',
                     icon: 'house-user'
                 },
@@ -40,7 +40,7 @@ export default {
                     icon:'circle-user'
                 },
                 {
-                    path:'/addadvert',
+                    path:'/dashboard/newproperty',
                     text:'İlan Ekle',
                     icon:'circle-plus'
                 }

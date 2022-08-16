@@ -8,7 +8,7 @@
             </div>
         
             <div v-else class="swiper-wrapper">
-                <div @click="writeThis(slide)" v-for="slide in sliderlist" :key="slide" class="swiper-slide pointer">
+                <div v-for="slide in sliderlist" :key="slide" class="swiper-slide pointer">
                     <SlidersPopularOneSlide :slide="slide" class="slider-content" />
                 </div>
             </div>
@@ -78,7 +78,7 @@ export default {
 
         });
 
-        if (this.$route.path === '/profilepage') {
+        if (this.$route.path === '/dashboard') {
             const buttonleft = document.querySelector('.swiper-button-prev-unique');
             const buttonright = document.querySelector('.swiper-button-next-unique');
             buttonleft.style.display = 'none';
@@ -95,9 +95,6 @@ export default {
         onSwiper: (swiper) => {
             console.log(swiper);
         },
-        writeThis(slide) {
-            console.log(slide)
-        }
     },
 }
 </script>

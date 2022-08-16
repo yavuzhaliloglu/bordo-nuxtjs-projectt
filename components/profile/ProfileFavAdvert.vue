@@ -18,18 +18,20 @@ export default {
                 {
                     image: "slider-1.png",
                     header: "Aliva Priva Jalvin",
-                    location: "1087 Pin Oak Drive, Clinton, USA",
+                    location: "1087 Pin Oak Drive, Pin Oak Drive, Clinton, USA",
                     beds: "4",
                     bath: "2",
-                    area: "1293"
+                    area: "1293",
+                    description: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure ipsa quas cumque dolor exercitationem ipsam quia atque quasi architecto sequi, accusamus sunt facilis reprehenderit, et neque, odio obcaecati inventore aspernatur. Ea consequatur voluptatum alias voluptates laudantium, odio eum maxime pariatur!'
                 },
                 {
                     image: "slider-1.png",
-                    header: "Aliva Priva Aliva Priva",
+                    header: "Aliva Priva",
                     location: "lorem ipsum dor simet amet",
                     beds: "2",
                     bath: "1",
-                    area: "793"
+                    area: "793",
+                    description: 'Lorem ipsum dolor sit, amet consectetur adipisicing eli Lorem ipsum dolor sit, amet consectetur adipisicing eli Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure ipsa quas cumque dolor exercitationem ipsam quia atque quasi architecto sequi, accusamus sunt facilis reprehenderit, et neque, odio obcaecati inventore aspernatur. Ea consequatur voluptatum alias voluptates laudantium, odio eum maxime pariatur!'
                 },
             ],
             loop: false,

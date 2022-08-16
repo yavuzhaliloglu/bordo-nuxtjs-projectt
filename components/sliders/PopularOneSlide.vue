@@ -1,5 +1,5 @@
 <template>
-    <div class="oneslide d-flex flex-column align-items-start justify-content-end">
+    <div class="oneslide d-flex flex-column align-items-start justify-content-end" @click="updateDetail(slide)">
         <!-- <img class="oneslide-img" src="~/assets/images/slider-1.png" alt=""> -->
         <img class="oneslide-img" :src="require(`~/assets/images/${slide.image}`)" alt="" />
 
@@ -53,6 +53,11 @@ export default {
             text: 'View'
         }
     },
+    methods: {
+        updateDetail(slide) {
+            this.$store.commit("UPDATE_DETAIL",slide)
+        },
+    }
 }
 </script>
 
@@ -62,5 +67,4 @@ export default {
     padding: 10px 12px;
     border-radius: 8px;
 }
-
 </style>
