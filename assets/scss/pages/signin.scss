@@ -74,3 +74,15 @@
         background-position: center;
     }
 }
+
+@media screen and (max-width:$md){
+    .form{
+        &-content{
+            width: 90%;
+        }
+
+        &-image{
+            display: none;
+        }
+    }
+}

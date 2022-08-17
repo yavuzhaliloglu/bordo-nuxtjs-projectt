@@ -85,8 +85,8 @@ a {
             position: absolute;
             width: 32px;
             height: 31px;
-            top: 100px;
-            left: 38%;
+            top: 50px;
+            left: 40%;
             background-color: $thirdcolor;
             z-index: 0;
         }
@@ -105,20 +105,29 @@ a {
 }
 
 @media screen and (max-width:$sm){
-    .footer-content-links{
-        flex-direction: column !important;
-        justify-content: center !important;
-        align-items: center !important;
-        text-align: center;
 
-        div{
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            margin: 0;
-            margin-bottom: 20px;
+    .footer-content{
+        span{
+            left: 32%;
+        }
+
+        &-links{
+            flex-direction: column !important;
+            justify-content: center !important;
+            align-items: center !important;
+            text-align: center;
+    
+            div{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                margin: 0;
+                margin-bottom: 20px;
+            }
         }
     }
+
+
 
 }

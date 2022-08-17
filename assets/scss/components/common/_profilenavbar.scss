@@ -12,38 +12,45 @@
     position: sticky;
     top: 0;
     left: 0;
+
+    &-brand{
+        p{
+            font-size: 26px;
+        }
+    }
+
     .userlink {
         font-size: 16px;
 
-        svg{
+        svg {
             width: 20px;
             height: 20px;
         }
 
-        &:hover,&:focus{
+        &:hover,
+        &:focus {
             opacity: 1;
-            path,p{
+
+            path,
+            p {
                 color: $thirdcolor;
             }
         }
 
 
-        &:first-child{
-            font-size: 28px !important;
+        &:first-child {
             margin-bottom: 30px;
             opacity: 1;
-            svg{
+
+            svg {
                 width: 32px;
                 height: 32px;
             }
-            path{
-                color:$thirdcolor;
+
+            path {
+                color: $thirdcolor;
             }
         }
-
-    }
-
-    &-brand {
 
     }
 

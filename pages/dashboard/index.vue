@@ -1,7 +1,10 @@
 <template>
     <div class="d-flex flex-row justify-content-start align-items-start dashboard">
         <div class="dashboard-content container">
-            <ProfileHeader />
+            <ProfileHeader>
+                <h1 slot="header">Merhaba, {{ $auth.user.data.userName }}</h1>
+                <p slot="text">Yeni emlakları keşfet, ilan ver, mesajlaş</p>
+            </ProfileHeader>
             <ProfileSearch />
             <ProfileFavAdvert />
         </div>

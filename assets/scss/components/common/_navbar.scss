@@ -30,10 +30,12 @@ nav {
     }
 
     .menu {
+        // border: 1px solid red;
         width: 80%;
 
         &-list {
             margin-left: 100px;
+            // border: 1px solid blue;
 
             li {
                 list-style: none;
@@ -123,7 +125,7 @@ nav {
 }
 
 .mb {
-    margin-bottom: 250px;
+    margin-bottom: 300px;
 }
 
 @media screen and (max-width: $md) {
@@ -137,7 +139,7 @@ nav {
 }
 
 .loggedin-buttons {
-    border: 1px solid white;
+    // border: 1px solid white;
 
     a {
         font-size: 14px !important;

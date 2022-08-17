@@ -6,7 +6,7 @@
                     <SlidersPopularOneSlide :slide="slide" class="slider-content" />
                 </div>
             </div>
-        
+
             <div v-else class="swiper-wrapper">
                 <div v-for="slide in sliderlist" :key="slide" class="swiper-slide pointer">
                     <SlidersPopularOneSlide :slide="slide" class="slider-content" />
@@ -44,17 +44,13 @@ export default {
 
         /* eslint-disable no-unused-vars */
         const swiper = new Swiper(".swiper2", {
-
             direction: "horizontal",
-
-            loop: this.loop,
-
-            spaceBetween: 20,
-
+            loop: this.loop, 
+            setWrapperSize: true,
+            spaceBetween: 20,     
             slidesPerView: 1,
-
+            // autoHeight: true,
             modules: [Navigation, Autoplay],
-
             breakpoints: {
                 776: {
                     slidesPerView: 3,
@@ -66,16 +62,13 @@ export default {
                     slidesPerView: 2,
                 }
             },
-
             autoplay: {
                 delay: 2000
             },
-
             navigation: {
                 nextEl: ".swiper-button-next-unique",
                 prevEl: ".swiper-button-prev-unique"
             }
-
         });
 
         if (this.$route.path === '/dashboard') {
@@ -101,7 +94,4 @@ export default {
 
 <style lang="scss" scoped>
 
-.pointer{
-    cursor:pointer
-}
 </style>

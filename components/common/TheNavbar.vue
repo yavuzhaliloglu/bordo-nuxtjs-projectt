@@ -5,7 +5,7 @@
             <nuxt-link class="logo-link" to="/">Rentiz</nuxt-link>
         </div>
 
-        <div class="menu d-flex flex-row justify-content-between">
+        <div class="menu d-flex flex-row justify-content-between align-items-start">
             <ul class="d-flex flex-row justify-content-evenly menu-list">
                 <li>
                     <nuxt-link class="home-link" to="/">Home</nuxt-link>
@@ -65,12 +65,33 @@
                 <li>
                     <nuxt-link to="/">Contact Us</nuxt-link>
                 </li>
-                <li>
+                <div v-if="!$auth.loggedIn" class="w-100">
+                    <li>
+                        <nuxt-link to="/signin">Login</nuxt-link>
+                    </li>
+                    <li class="mt-2">
+                        <nuxt-link class="nav-button" to="/signup">Sign up</nuxt-link>
+                    </li>
+                </div>
+                <div v-else class="w-100">
+                    <li>
+                        <nuxt-link to="/dashboard">{{$auth.user.data.userName}}</nuxt-link>
+                    </li>
+                    <li class="mt-2">
+                        <button class="nav-button" @click="$auth.logout()">Log Out</button>
+                    </li>
+                </div>
+
+                <!-- <div v-if="$auth.loggedIn"
+                    class="loggedin-buttons d-flex flex-row justify-content-between align-items-center">
+                    <LinksLinkComponent :path="pathprofile" :text="$auth.user.data.userName" />
+                    <button class="logout-button" @click="$auth.logout()">{{ this.text }}</button>
+                </div>
+
+                <div v-else class="buttons">
                     <nuxt-link to="/signin">Login</nuxt-link>
-                </li>
-                <li class="mt-2">
-                    <nuxt-link class="nav-button" to="/signup">Sign up</nuxt-link>
-                </li>
+                    <nuxt-link to="/signup">Sign up</nuxt-link>
+                </div> -->
 
             </ul>
         </div>

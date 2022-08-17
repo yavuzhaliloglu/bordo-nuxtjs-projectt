@@ -1,4 +1,35 @@
-.newproperty{
-    border: 3px solid red;
+@use '/assets/scss/variables/reset' as *;
+@use '/assets/scss/variables/variables' as *;
+
+.newproperty {
     width: 80%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &-container {
+        background-color: lighten($black, 5%);
+        height: 50vh;
+        width: 30%;
+        padding: 15px;
+        border-radius: 10px;
+    }
+}
+
+.button-container {
+    margin-bottom: 10px;
+
+    button {
+        width: 100%;
+        background: transparent;
+        padding: 10px;
+        border-radius: 10px;
+
+        &:hover{
+            outline: solid 1px;
+            background-color: lighten($black, 9%);
+        }
+    }
 }

@@ -24,7 +24,7 @@ export default {
             sliderlist: [
                 {
                     image: 'slider-1.png',
-                    header: 'Aliva Priva Jalvin',
+                    header: 'Aliva Priva Jalvin Aliva Aliva Aliva Priva Jalvin Aliva Aliva Aliva Priva',
                     location: '1087 Pin Oak Drive, Clinton, USA',
                     beds: '4',
                     bath: '2',

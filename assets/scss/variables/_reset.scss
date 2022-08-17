@@ -67,6 +67,10 @@ button {
     border: none;
 }
 
+input,select,option{
+    color: $black;
+}
+
 .nav-button {
     background-color: $thirdcolor;
     padding: 10px 12px;

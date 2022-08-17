@@ -51,27 +51,19 @@ export default {
 
         /* eslint-disable no-unused-vars */
         const swiper = new Swiper(".swiper1", {
-
             direction: "horizontal",
-
             loop: true,
-
             spaceBetween: 10,
-
+            setWrapperSize: true,
             slidesPerView: 1,
-
             modules: [Navigation, Autoplay],
-
-
             autoplay: {
                 delay: 3000
             },
-
             navigation: {
                 nextEl: ".swiper-button-next",
                 prevEl: ".swiper-button-prev"
             }
-
         });
     },
     methods: {
@@ -83,8 +75,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
-
 </style>
 
 

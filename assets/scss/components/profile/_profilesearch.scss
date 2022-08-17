@@ -16,14 +16,18 @@
             border-radius: 8px;
             background-color: lighten($black, 7%);
             padding: 10px 20px;
+
             &-select {
                 border: none;
                 border-radius: 8px;
                 background-color: inherit;
                 outline: none;
                 padding: 0 14px;
-                option{
+                color: $white;
+
+                option {
                     background-color: inherit;
+                    color: $white;
                 }
             }
         }
