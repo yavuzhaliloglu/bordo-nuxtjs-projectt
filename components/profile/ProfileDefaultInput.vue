@@ -1,38 +1,51 @@
 <template>
     <div>
-        <div class="group-row">
-            <div class="input-group">
-                <label for="image">İmages</label>
-                <input name="image" type="file" v-on:change="image">
-            </div>
 
-            <div class="input-group">
-                <label for="title">Başlık</label>
-                <input name="title" type="text" v-model="title">
-            </div>
+        <div class="input-group">
+            <label for="image">İmages</label>
+            <input name="image" type="file" multiple="multiple" v-on:change="image">
+            <button @click="print">asd</button>
         </div>
 
-        <div class="group-row">
-            <div class="input-group">
-                <label for="description">Açıklama</label>
-                <input name="description" type="textarea" v-model="description">
-            </div>
-
-            <div class="input-group">
-                <label for="price">Fiyat</label>
-                <input name="price" type="number" v-model="price">
-            </div>
-        </div>
-
+        <CommonInputComponent v-for="input in defaultInputs" :key="input" :type="input.type" :name="input.name"
+            v-model="input.data" />
+            
         <slot></slot>
+
+        <div class="input-group">
+            <label for="description">Açıklama</label>
+            <textarea name="description" cols="30" rows="10" v-model="description" />
+        </div>
+
     </div>
 </template>
 
 <script>
 export default {
-    name: 'ProfileDefaultInput'
+    name: 'ProfileDefaultInput',
+    data() {
+        return {
+            description: '',
+            image: [],
+            defaultInputs: [
+                {
+                    name: 'title',
+                    type: 'text',
+                    data: ''
+                },
+                {
+                    name: 'price',
+                    type: 'number',
+                    data: ''
+                },
+            ],
+        }
+    },
+    methods:{
+    }
 }
 </script>
 
 <style lang="scss" scoped>
+
 </style>

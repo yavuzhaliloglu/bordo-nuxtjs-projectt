@@ -1,29 +1,41 @@
 <template>
-    <!-- <div>
-        <div class="input-group">
-            <label for="squareMeters">Metrekare</label>
-            <input name="squareMeters" type="number">
-        </div>
-        <div class="input-group">
-            <label for="landStatus">Arazi Durumu</label>
-            <select name="landStatus" id="">
-                <option value="ekili">Ekili</option>
-                <option value="bos">Boş</option>
-            </select>
-        </div>
-        <div class="input-group">
-            <label for="parcel">Parsel</label>
-            <input name="parcel" type="number">
-        </div>
-    </div> -->
     <div>
-        
+        <CommonInputComponent v-for="input in defaultInputs" :key="input" :name="input.name" :type="input.type"
+            v-model="input.data" />
+        <CommonSelectComponent v-for="input in selectInputs" :key="input" :name="input.name" :options="input.options"
+            v-model="input.data" />
     </div>
 </template>
 
 <script>
 export default {
-    name: 'ArsaInput'
+    name: 'ArsaInput',
+    data() {
+        return {
+            selectInputs: [
+                {
+                    name: 'landStatus',
+                    options: [
+                        { value: 'Ekili' },
+                        { value: 'Boş' }
+                    ],
+                    data: ''
+                }
+            ],
+            defaultInputs: [
+                {
+                    name: 'squareMeters',
+                    type: 'number',
+                    data: ''
+                },
+                {
+                    name: 'parcel',
+                    type: 'number',
+                    data: ''
+                },
+            ]
+        }
+    }
 }
 </script>
 

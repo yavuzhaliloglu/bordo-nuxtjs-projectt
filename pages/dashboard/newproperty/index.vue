@@ -26,8 +26,7 @@
             </div>
         </div>
 
-        <!-- <ProfilePropertyInputs v-if="isClicked" :id="categoryId" :allId="allId" :path="path"/> -->
-
+        <button v-if="isClicked" @click="changePage">Bir sonraki adım</button>
     </div>
 </template>
 
@@ -43,13 +42,17 @@ export default {
             categoryId: '',
             allId: [],
             isClicked: false,
-            path:''
         }
     },
     created() {
         this.getCategories()
     },
     methods: {
+        changePage() {
+            this.$store.state.categoryId = this.categoryId;
+            this.$store.state.allId = this.allId;
+            this.$router.push('/dashboard/newproperty/features');
+        },
         print(i) {
             this.purpose = [];
             this.type = [];
@@ -57,16 +60,18 @@ export default {
                 this.purpose.push(item)
             });
             this.categoryId = i._id;
+            this.isClicked = false
         },
         print2(i) {
             this.type = [];
             i.children.forEach(item => {
                 this.type.push(item)
             });
+            this.isClicked = false
         },
         print3(i) {
             this.path = i.path
-            this.isClicked = !this.isClicked;
+            this.isClicked = true;
         },
         async getCategories() {
             try {

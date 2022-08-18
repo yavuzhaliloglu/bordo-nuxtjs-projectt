@@ -41,20 +41,21 @@ h2 {
     font-size: 30px;
 }
 
-h3{
+h3 {
     font-size: 24px;
 }
 
-p{
+p {
     font-size: 14px;
     line-height: 1.75;
 }
 
-@media screen and (max-width:$sm){
-    h1{
+@media screen and (max-width:$sm) {
+    h1 {
         font-size: 30px;
     }
-    h2{
+
+    h2 {
         font-size: 26px;
     }
 }
@@ -67,7 +68,10 @@ button {
     border: none;
 }
 
-input,select,option{
+input,
+select,
+option,
+textarea {
     color: $black;
 }
 
@@ -76,7 +80,13 @@ input,select,option{
     padding: 10px 12px;
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
 
-.nuxtlink{
+
+.nuxtlink {
     @extend button
 }
