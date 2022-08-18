@@ -1,0 +1,15 @@
+@use '/assets/scss/variables/reset' as *;
+@use '/assets/scss/variables/variables' as *;
+
+.features{
+    border: 1px solid blue;
+    &-inputs{
+        border: 1px solid red;
+        display: flex;
+        flex-wrap: wrap;
+        .input-group{
+            border: 2px solid green;
+            width: 50%;
+        }
+    }   
+}

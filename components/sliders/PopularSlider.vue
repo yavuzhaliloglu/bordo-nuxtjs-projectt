@@ -26,7 +26,8 @@
 
 <script>
 import { Swiper, Navigation, Autoplay } from 'swiper'
-import 'swiper/swiper-bundle.min.css'
+// import 'swiper/swiper-bundle.min.css'
+import 'swiper/swiper-bundle.css'
 
 export default {
     name: "PopularSlider",
@@ -45,9 +46,9 @@ export default {
         /* eslint-disable no-unused-vars */
         const swiper = new Swiper(".swiper2", {
             direction: "horizontal",
-            loop: this.loop, 
+            loop: this.loop,
             setWrapperSize: true,
-            spaceBetween: 20,     
+            spaceBetween: 20,
             slidesPerView: 1,
             // autoHeight: true,
             modules: [Navigation, Autoplay],
@@ -93,5 +94,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 </style>

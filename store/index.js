@@ -171,14 +171,14 @@ export const mutations = {
     UPDATE_DETAIL(state, slide) {
         state.propertyDetail = slide
     },
-    // UPDATE_LIST(state,id,list){
-    //     state.categoryId = id;
-    //     state.allId = list;
-    // }
+    UPDATE_LIST(state,id,list){
+        state.categoryId = id;
+        state.allId = list;
+    }
 }
 
 export const actions = {
-    // updateList({commit},id,list){
-    //     commit('UPDATE_LIST',id,list)
-    // }
+    updateList(context,id,list){
+        context.commit('UPDATE_LIST',id,list)
+    }
 }

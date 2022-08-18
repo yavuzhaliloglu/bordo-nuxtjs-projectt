@@ -51,6 +51,7 @@ export default {
         changePage() {
             this.$store.state.categoryId = this.categoryId;
             this.$store.state.allId = this.allId;
+            // this.$store.dispatch('updateList',this.categoryId,this.allId);
             this.$router.push('/dashboard/newproperty/features');
         },
         print(i) {

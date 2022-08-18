@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="features-inputs-block">
         <CommonInputComponent v-for="input in defaultInputs" :key="input" :name="input.name"
             :type="input.type" v-model="input.data" />
         <CommonSelectComponent v-for="input in selectInputs" :key="input" :name="input.name"

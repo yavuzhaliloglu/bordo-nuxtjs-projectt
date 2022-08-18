@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container features">
         <ProfileHeader>
             <h1 slot="header">İlan Özelliklerinizi seçin</h1>
             <p slot="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus nostrum ducimus similique
@@ -25,8 +25,6 @@ export default {
             allId:[]
         }
     },
-
-
     created() {
         this.setValues()
     },
@@ -42,7 +40,6 @@ export default {
         setValues() {
             this.categoryId = this.categoryid;
             this.allId = this.list;
-
             console.log(this.list);
             console.log(this.categoryid)
         },

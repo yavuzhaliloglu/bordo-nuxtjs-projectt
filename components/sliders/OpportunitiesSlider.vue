@@ -16,8 +16,8 @@
 
 <script>
 import { Swiper, Navigation, Autoplay } from 'swiper'
-import 'swiper/swiper-bundle.min.css'
-
+// import 'swiper/swiper-bundle.min.css'
+import 'swiper/swiper-bundle.css'
 
 export default {
     name: "OpportunitiesSlider",
