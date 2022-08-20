@@ -1,7 +1,7 @@
 export const state = () => ({
     propertyDetail: {},
-    categoryId: '',
-    allId: [],
+    categoryName: '',
+    allNames: [],
     // isInput: {
     //     selectInputs: [
     //         {
@@ -152,7 +152,6 @@ export const state = () => ({
     //         }
     //     ]
     // },
-    // inputToSend: {}
 })
 
 export const getters = {
@@ -160,10 +159,10 @@ export const getters = {
         return state.propertyDetail;
     },
     getList(state){
-        return state.allId;
+        return state.allNames;
     },
-    getId(state){
-        return state.categoryId;
+    getName(state){
+        return state.categoryName;
     }
 }
 
@@ -171,14 +170,14 @@ export const mutations = {
     UPDATE_DETAIL(state, slide) {
         state.propertyDetail = slide
     },
-    UPDATE_LIST(state,id,list){
-        state.categoryId = id;
-        state.allId = list;
+    UPDATE_LIST(state,name,list){
+        state.categoryName = name;
+        state.allNames = list;
     }
 }
 
 export const actions = {
-    updateList(context,id,list){
-        context.commit('UPDATE_LIST',id,list)
+    updateList(context,name,list){
+        context.commit('UPDATE_LIST',name,list)
     }
 }

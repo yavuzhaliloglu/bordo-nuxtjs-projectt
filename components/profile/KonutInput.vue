@@ -1,9 +1,31 @@
 <template>
     <div class="features-inputs-block">
-        <CommonInputComponent v-for="input in defaultInputs" :key="input" :name="input.name"
-            :type="input.type" v-model="input.data" />
-        <CommonSelectComponent v-for="input in selectInputs" :key="input" :name="input.name"
-            :options="input.options" v-model="input.data" />
+        <CommonInputComponent v-for="input in defaultInputs" :key="input" v-model="input.data" :name="input.name"
+            :type="input.type" />
+        <CommonSelectComponent v-for="input in selectInputs" :key="input" v-model="input.data" :name="input.name"
+            :options="input.options" />
+
+        <div class="d-flex justify-content-center my-4">
+            <div class="mx-2">
+                <h4>İç özellikler</h4>
+                <CommonInputComponent v-for="item in checkBoxInt" :key="item._id" :name="item.item"
+                    :type="'checkbox'" />
+            </div>
+
+            <div class="mx-2">
+                <h4>Dış özellikler</h4>
+                <!-- <CommonCheckBoxInput v-for="item in checkBoxExt" :key="item._id" :name="item.item" :text="item.item" /> -->
+                <CommonInputComponent v-for="item in checkBoxExt" :key="item._id" :name="item.item"
+                    :type="'checkbox'" />
+            </div>
+
+            <div class="mx-2">
+                <h4>Konum özellikleri</h4>
+                <CommonInputComponent v-for="item in checkBoxLoc" :key="item._id" :name="item.item"
+                    :type="'checkbox'" />
+            </div>
+        </div>
+
     </div>
 </template>
 
@@ -71,9 +93,37 @@ export default {
                     name: 'floor',
                     type: 'number',
                     data: '',
+
                 }
-            ]
+            ],
+            checkBoxInt: [],
+            checkBoxExt: [],
+            checkBoxLoc: [],
         }
+    },
+    created() {
+        this.getCheckBoxes()
+        this.getCity()
+    },
+    methods: {
+        async getCheckBoxes() {
+            const resInt = await this.$axios.get('https://estate-bordo-55.herokuapp.com/features/interior');
+            resInt.data.data.forEach(element => {
+                this.checkBoxInt.push(element)
+            });
+
+            const resExt = await this.$axios.get('https://estate-bordo-55.herokuapp.com/features/external');
+            resExt.data.data.forEach(element => {
+                this.checkBoxExt.push(element)
+            })
+
+            const resLoc = await this.$axios.get('https://estate-bordo-55.herokuapp.com/features/location');
+            resLoc.data.data.forEach(element => {
+                this.checkBoxLoc.push(element)
+            });
+
+        },
+
     }
 }
 </script>

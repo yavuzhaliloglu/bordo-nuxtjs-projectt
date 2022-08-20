@@ -1,6 +1,6 @@
 <template>
     <div class="input-group">
-        <label class="input-group-label" :for="name">{{name}}</label>
+        <label class="input-group-label mx-2" :for="name">{{name}}</label>
         <input class="input-group-input" :type="type" :name="name" :value="value" @input="updateValue($event.target.value)">
     </div>
 </template>

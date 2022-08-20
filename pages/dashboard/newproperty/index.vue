@@ -39,8 +39,8 @@ export default {
             categories: [],
             purpose: [],
             type: [],
-            categoryId: '',
-            allId: [],
+            categoryName: '',
+            allNames: [],
             isClicked: false,
         }
     },
@@ -49,9 +49,8 @@ export default {
     },
     methods: {
         changePage() {
-            this.$store.state.categoryId = this.categoryId;
-            this.$store.state.allId = this.allId;
-            // this.$store.dispatch('updateList',this.categoryId,this.allId);
+            this.$store.state.categoryName = this.categoryName;
+            this.$store.state.allNames = this.allNames;
             this.$router.push('/dashboard/newproperty/features');
         },
         print(i) {
@@ -60,7 +59,7 @@ export default {
             i.children.forEach(item => {
                 this.purpose.push(item)
             });
-            this.categoryId = i._id;
+            this.categoryName = i.categoryName;
             this.isClicked = false
         },
         print2(i) {
@@ -81,8 +80,9 @@ export default {
                     this.categories.push(element)
                 });
                 this.categories.forEach(item => {
-                    this.allId.push(item._id)
+                    this.allNames.push(item.categoryName)
                 });
+                console.log(this.allNames)
             }
             catch (err) {
                 alert(err);

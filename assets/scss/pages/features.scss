@@ -1,15 +1,27 @@
 @use '/assets/scss/variables/reset' as *;
 @use '/assets/scss/variables/variables' as *;
 
-.features{
+.features {
     border: 1px solid blue;
-    &-inputs{
-        border: 1px solid red;
+
+    &-inputs {
         display: flex;
         flex-wrap: wrap;
-        .input-group{
-            border: 2px solid green;
-            width: 50%;
+        align-items: flex-start;
+        justify-content: center;
+        .input-group {
+            margin: 10px 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
-    }   
+
+        .features-inputs-block {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+        }
+    }
 }

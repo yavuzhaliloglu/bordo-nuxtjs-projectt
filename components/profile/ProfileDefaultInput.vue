@@ -4,13 +4,24 @@
             <vue-upload-multiple-image @upload-success="uploadImageSuccess" @before-remove="beforeRemove"
                 @edit-image="editImage" :data-images="images" idUpload="myIdUpload" editUpload="myIdEdit"
                 dragText="Resim sürükleyin" browseText="(veya tıklayarak arayın)" primaryText="Varsayılan Resim"
-                markIsPrimaryText="Varsayılan olarak ayarla" popupText="Bu resim ilanda varsayılan olarak gösterilecek"
-                dropText="Drag and drop" accept=image/jpeg,image/png,image/jpg,image/tif,image/tiff>
+                markIsPrimaryText="Varsayılan olarak ayarla" dropText="Drag and drop"
+                accept=image/jpeg,image/png,image/jpg,image/tif,image/tiff>
             </vue-upload-multiple-image>
         </div>
 
-        <CommonInputComponent v-for="input in defaultInputs" :key="input" :type="input.type" :name="input.name"
-            v-model="input.data" />
+        <CommonSelectComponent v-model="cityId" :name="'Şehir'" :options="selectCity" />
+        <button @click="getIlce(cityId)"></button>
+        <CommonSelectComponent v-model="ilceId" :name="'İlçe'" :options="selectIlce" />
+        <button @click="getMahalle(ilceId)"></button>
+        <CommonSelectComponent v-model="mahalleId" :name="'Mahalle'" :options="selectMahalle" />
+        
+        <!-- <CommonInputComponent v-for="input in defaultInputs" :key="input" :type="input.type" :name="input.name" v-model="inputlist" /> -->
+        
+        <button @click="yazdir">asd</button>
+
+        <CommonInputComponent :type="text" :name="'title'" v-model="title" />
+        <CommonInputComponent :type="number" :name="'price'" v-model="price" />
+
         <slot></slot>
 
         <div class="input-group">
@@ -18,7 +29,6 @@
             <textarea name="description" cols="30" rows="10" v-model="description" />
         </div>
 
-        <button @click="print">slda</button>
 
     </div>
 </template>
@@ -28,9 +38,16 @@ export default {
     name: 'ProfileDefaultInput',
     data() {
         return {
+            title:'',
             description: '',
             file: "",
             images: [],
+            cityId: '',
+            ilceId: '',
+            mahalleId: '',
+            selectCity: [],
+            selectIlce: [],
+            selectMahalle: [],
             defaultInputs: [
                 {
                     name: 'title',
@@ -45,9 +62,37 @@ export default {
             ],
         }
     },
+    created() {
+        this.getCity();
+        // const title = ''
+        // const price = ''
+        // this.setValues(title,price)
+    },
     methods: {
-        print() {
-            console.log(this.images)
+        yazdir(){
+            console.log(this.inputlist)
+        },
+        // setValues(title,price){
+
+        // },
+        async getCity() {
+            const res = await this.$axios.get('https://estate-bordo-55.herokuapp.com/location/city');
+            res.data.data.forEach(element => {
+                this.selectCity.push(element)
+            })
+        },
+        async getIlce(id) {
+            const res = await this.$axios.get(`https://estate-bordo-55.herokuapp.com/location/district/${id}`);
+            res.data.data.forEach(element => {
+                this.selectIlce.push(element)
+            })
+            console.log(this.selectIlce);
+        },
+        async getMahalle(id) {
+            const res = await this.$axios.get(`https://estate-bordo-55.herokuapp.com/location/town/${id}`);
+            res.data.data.forEach(element => {
+                this.selectMahalle.push(element)
+            })
         },
 
         uploadImageSuccess(formData, index, fileList) {

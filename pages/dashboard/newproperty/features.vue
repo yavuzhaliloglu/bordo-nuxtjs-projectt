@@ -8,9 +8,9 @@
         </ProfileHeader>
 
         <ProfileDefaultInput>
-            <ProfileKonutInput v-if="this.categoryId === this.allId[0]" />
-            <ProfileArsaInput v-else-if="this.categoryId === this.allId[1]" />
-            <ProfileIsInput v-else-if="this.categoryId === this.allId[2]" />
+            <ProfileKonutInput v-if="categoryName === allList[0]" />
+            <ProfileArsaInput v-else-if="categoryName === allList[1]" />
+            <ProfileIsInput v-else-if="categoryName === allList[2]" />
         </ProfileDefaultInput>
     </div>
 </template>
@@ -21,27 +21,19 @@ export default {
     layout: 'UserProfile',
     data() {
         return {
-            categoryId:'',
-            allId:[]
+            categoryName: '',
+            allList: [],
+            selectInputList:[],
+            defaultInputList:[]
         }
     },
     created() {
         this.setValues()
     },
-    computed:{
-        list(){
-            return this.$store.getters.getList
-        },
-        categoryid(){
-            return this.$store.getters.getId
-        }
-    },
     methods: {
         setValues() {
-            this.categoryId = this.categoryid;
-            this.allId = this.list;
-            console.log(this.list);
-            console.log(this.categoryid)
+            this.allList = this.$store.state.allNames;
+            this.categoryName = this.$store.state.categoryName;
         },
     }
 }
