@@ -1,7 +1,7 @@
 <template>
     <div class="input-group">
-        <label class="input-group-label mx-2" :for="name">{{name}}</label>
-        <input class="input-group-input" :type="type" :name="name" :value="value" @input="updateValue($event.target.value)">
+        <label class="input-group-label mx-2">{{title}}</label>
+        <input class="input-group-input" :type="type" :value="value" @input="updateValue($event.target.value)">
     </div>
 </template>
 
@@ -16,10 +16,9 @@
             value:{
                 type:String,
             },
-            name:{
-                type:String,
-                required:true
-            }
+            title:{
+                type:String
+            },
         },
         methods:{
             updateValue(value){

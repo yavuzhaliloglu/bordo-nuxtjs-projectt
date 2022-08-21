@@ -32,4 +32,11 @@
             background-color: lighten($black, 9%);
         }
     }
+
+
+}
+
+.clickedButton {
+    outline: solid 1px;
+    background-color: lighten($black, 9%);
 }

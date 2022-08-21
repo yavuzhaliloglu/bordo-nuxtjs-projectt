@@ -1,5 +1,5 @@
 <template>
-    <div class="d-flex justify-content-between align-items-start">
+    <div class="d-flex align-items-start">
         <CommonProfileNavbar />
         <Nuxt />
     </div>

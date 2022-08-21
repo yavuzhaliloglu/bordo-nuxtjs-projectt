@@ -1,12 +1,8 @@
 <template>
   <div class="input-group">
-    <label :for="name">{{ name }}</label>
-    <select
-      :name="name"
-      :value="value"
-      @input="updateValue($event.target.value)"
-    >
-      <option v-for="item in options" :key="item" :value="item._id">
+    <label>{{ title }}</label>
+    <select :value="value" @input="updateValue($event.target.value)">
+      <option v-for="item in options" :key="item._id" :value="item._id">
         {{ item.name }}
       </option>
     </select>
@@ -17,7 +13,7 @@
 export default {
   name: 'SelectComponent',
   props: {
-    name: {
+    title: {
       type: String
     },
     options: {
