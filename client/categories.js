@@ -4,9 +4,3 @@ export default axios =>({
     }   
 });
 
-// export default {
-//   getCategories: async () => {
-//     const res = await this.$axios.get('categories');
-//     return res.data.data
-//   }
-// }

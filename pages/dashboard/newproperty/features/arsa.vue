@@ -1,7 +1,22 @@
 <template>
   <div>
     <ProfileDefaultInput :obj="obj">
+      <CommonInputComponent
+        v-for="(item, index) in inputlist.defaultInputs"
+        :key="item.name"
+        v-model="obj.defaults[index]"
+        :type="item.type"
+        :title="item.name"
+      />
       <CommonSelectComponent
+        v-for="(item, index) in inputlist.selectInputs"
+        :key="item.name"
+        v-model="obj.selects[index]"
+        :title="item.name"
+        :options="item.options"
+      />
+
+      <!-- <CommonSelectComponent
         v-model="obj.landStatus"
         :title="inputlist.landStatus.title"
         :options="inputlist.landStatus.options"
@@ -17,7 +32,7 @@
         v-model="obj.parcel"
         :title="inputlist.parcel.title"
         :type="inputlist.parcel.type"
-      />
+      /> -->
     </ProfileDefaultInput>
   </div>
 </template>
@@ -30,9 +45,11 @@ export default {
     return {
       inputlist: null,
       obj: {
-        landStatus: '',
-        squareMeters: '',
-        parcel: ''
+        // landStatus: '',
+        // squareMeters: '',
+        // parcel: ''
+        selects: [],
+        defaults: []
       }
     }
   },
@@ -42,7 +59,6 @@ export default {
   methods: {
     setValues() {
       this.inputlist = this.$store.getters.getLandInputs
-      console.log(this.inputlist)
     }
   }
 }

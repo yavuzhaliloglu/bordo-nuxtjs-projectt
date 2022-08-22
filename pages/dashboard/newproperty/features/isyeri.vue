@@ -1,7 +1,21 @@
 <template>
   <div>
     <ProfileDefaultInput :obj="obj">
+      <CommonInputComponent
+        v-for="(item, index) in inputlist.defaultInputs"
+        :key="item.name"
+        v-model="obj.defaults[index]"
+        :type="item.type"
+        :title="item.name"
+      />
       <CommonSelectComponent
+        v-for="(item, index) in inputlist.selectInputs"
+        :key="item.name"
+        v-model="obj.selects[index]"
+        :title="item.name"
+        :options="item.options"
+      />
+      <!-- <CommonSelectComponent
         v-model="obj.roomCount"
         :title="inputlist.roomCount.title"
         :options="inputlist.roomCount.options"
@@ -21,7 +35,6 @@
         :title="inputlist.itemStatus.title"
         :options="inputlist.itemStatus.options"
       />
-      <!--default-->
       <CommonInputComponent
         v-model="obj.grossSquareMeters"
         :title="inputlist.grossSquareMeters.title"
@@ -36,7 +49,7 @@
         v-model="obj.floor"
         :title="inputlist.floor.title"
         :type="inputlist.floor.type"
-      />
+      /> -->
     </ProfileDefaultInput>
   </div>
 </template>
@@ -49,13 +62,15 @@ export default {
     return {
       inputlist: null,
       obj: {
-        roomCount: '',
-        buildingAge: '',
-        heatingType: '',
-        itemStatus: '',
-        grossSquareMeters: '',
-        netSquareMeters: '',
-        floor: ''
+        // roomCount: '',
+        // buildingAge: '',
+        // heatingType: '',
+        // itemStatus: '',
+        // grossSquareMeters: '',
+        // netSquareMeters: '',
+        // floor: ''
+        defaults: [],
+        selects: []
       }
     }
   },
@@ -64,9 +79,6 @@ export default {
   },
 
   methods: {
-    print() {
-      alert('hi')
-    },
     setInputs() {
       this.inputlist = this.$store.getters.getWorkPlaceInputs
     }

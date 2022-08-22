@@ -3,21 +3,21 @@
     <slot></slot>
 
     <label>Şehir</label>
-    <select v-model="location.cityId" @change="getDistrict(location.cityId)">
+    <select v-model="location.city" @change="getDistrict(location.city)">
       <option v-for="item in selectCity" :key="item._id" :value="item._id">
         {{ item.name }}
       </option>
     </select>
 
     <label>İlçe</label>
-    <select v-model="location.districtId" @change="getTown(location.districtId)">
+    <select v-model="location.district" @change="getTown(location.district)">
       <option v-for="item in selectDistrict" :key="item._id" :value="item._id">
         {{ item.name }}
       </option>
     </select>
 
     <label>Mahalle</label>
-    <select v-model="location.townId" @change="updateValue()">
+    <select v-model="location.town" @change="updateValue()">
       <option v-for="item in selectTown" :key="item._id" :value="item._id">
         {{ item.name }}
       </option>
@@ -31,9 +31,9 @@ export default {
   data() {
     return {
       location: {
-        cityId: '',
-        districtId: '',
-        townId: ''
+        city: '',
+        district: '',
+        town: ''
       },
       selectCity: [],
       selectDistrict: [],

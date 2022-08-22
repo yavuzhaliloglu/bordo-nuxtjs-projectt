@@ -26,6 +26,7 @@
       </div>
 
       <div class="newproperty-container">
+        n
         <div v-for="i in type" :key="i._id" class="button-container">
           <button @click="getPath(i)">{{ i.categoryName }}</button>
         </div>
@@ -47,7 +48,8 @@ export default {
       categories: [],
       purpose: [],
       type: [],
-      isClicked: false
+      isClicked: false,
+      data: 'yavuz'
     }
   },
   created() {
@@ -67,6 +69,7 @@ export default {
           `/dashboard/newproperty/features/${this.categoryName}`
         )
       }
+      localStorage.setItem("path",this.path);
     },
     getChildren(i, list) {
       i.children.forEach((item) => {
@@ -87,8 +90,7 @@ export default {
     },
     getTypes(i, e) {
       this.type = []
-      const buttons = document.querySelectorAll('.middle-buttons');
-      console.log(buttons)
+      const buttons = document.querySelectorAll('.middle-buttons')
       buttons.forEach((item) => {
         item.classList.remove('clickedButton')
       })
