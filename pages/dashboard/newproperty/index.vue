@@ -1,39 +1,42 @@
 <template>
-  <div class="newproperty container">
-    <ProfileHeader>
-      <h1 slot="header" class="header-head">İlan Ver</h1>
-      <p slot="text" class="header-text">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod modi odit
-        aspernatur vel? Illo quae, sed ex omnis mollitia excepturi.
-      </p>
-    </ProfileHeader>
+  <div class="newproperty">
+    <div class="container">
+      <ProfileHeader>
+        <h1 slot="header" class="header-head">İlan Ver</h1>
+        <p slot="text" class="header-text">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod modi
+          odit aspernatur vel? Illo quae, sed ex omnis mollitia excepturi.
+        </p>
+      </ProfileHeader>
 
-    <div class="d-flex w-100 justify-content-around my-3">
-      <div class="newproperty-container">
-        <div v-for="i in categories" :key="i._id" class="button-container">
-          <button class="first-buttons" @click="getPurpose(i, $event.target)">
-            {{ i.categoryName }}
-          </button>
+      <div
+        class="newproperty-container d-flex w-100 justify-content-between my-3"
+      >
+        <div class="newproperty-container-item">
+          <div v-for="i in categories" :key="i._id" class="button-container">
+            <button class="fb" @click="getPurpose(i, $event.target)">
+              {{ i.categoryName }}
+            </button>
+          </div>
+        </div>
+
+        <div class="newproperty-container-item">
+          <div v-for="i in purpose" :key="i._id" class="button-container">
+            <button class="mbb" @click="getTypes(i, $event.target)">
+              {{ i.categoryName }}
+            </button>
+          </div>
+        </div>
+
+        <div class="newproperty-container-item">
+          <div v-for="i in type" :key="i._id" class="button-container">
+            <button class="lb" @click="getPath(i)">{{ i.categoryName }}</button>
+          </div>
         </div>
       </div>
 
-      <div class="newproperty-container">
-        <div v-for="i in purpose" :key="i._id" class="button-container">
-          <button class="middle-buttons" @click="getTypes(i, $event.target)">
-            {{ i.categoryName }}
-          </button>
-        </div>
-      </div>
-
-      <div class="newproperty-container">
-        
-        <div v-for="i in type" :key="i._id" class="button-container">
-          <button @click="getPath(i)">{{ i.categoryName }}</button>
-        </div>
-      </div>
+      <button v-if="isClicked" @click="changePage">Bir sonraki adım</button>
     </div>
-
-    <button v-if="isClicked" @click="changePage">Bir sonraki adım</button>
   </div>
 </template>
 
@@ -48,7 +51,7 @@ export default {
       categories: [],
       purpose: [],
       type: [],
-      isClicked: false,
+      isClicked: false
     }
   },
   created() {
@@ -68,7 +71,7 @@ export default {
           `/dashboard/newproperty/features/${this.categoryName}`
         )
       }
-      localStorage.setItem("path",this.path);
+      localStorage.setItem('path', this.path)
     },
     getChildren(i, list) {
       i.children.forEach((item) => {
@@ -76,24 +79,23 @@ export default {
       })
       this.isClicked = false
     },
-    getPurpose(i, e) {
-      this.type = []
-      this.purpose = []
-      const buttons = document.querySelectorAll('.first-buttons')
-      buttons.forEach((item) => {
+    changeStyle(e) {
+      const btn = document.querySelectorAll(`.${e.classList[0]}`)
+      btn.forEach((item) => {
         item.classList.remove('clickedButton')
       })
       e.classList.add('clickedButton')
+    },
+    getPurpose(i, e) {
+      this.type = []
+      this.purpose = []
+      this.changeStyle(e)
       this.categoryName = i.categoryName
       this.getChildren(i, this.purpose)
     },
     getTypes(i, e) {
       this.type = []
-      const buttons = document.querySelectorAll('.middle-buttons')
-      buttons.forEach((item) => {
-        item.classList.remove('clickedButton')
-      })
-      e.classList.add('clickedButton')
+      this.changeStyle(e)
       this.getChildren(i, this.type)
     },
     getPath(i) {

@@ -1,10 +1,12 @@
 <template>
     <nav class="profile-nav">
-        <div>
-            <UserLinkComponent class="profile-nav-brand" :path="brandlink.path" :text="brandlink.text"
+        <div class="profile-nav-brand-container">
+            <UserLinkComponent class="profile-nav-brand-container-brand" :path="brandlink.path" :text="brandlink.text"
                 :icon="brandlink.icon" />
         </div>
-        <UserLinkComponent v-for="link in links" :key="link" :path="link.path" :text="link.text" :icon="link.icon" />
+        <div class="profile-nav-links-container mt-3">
+            <UserLinkComponent v-for="link in links" :key="link.text" :path="link.path" :text="link.text" :icon="link.icon" />
+        </div>
     </nav>
 </template>
 

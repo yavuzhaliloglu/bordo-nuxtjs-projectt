@@ -2,8 +2,10 @@
 @use '/assets/scss/variables/variables' as *;
 
 .header{
+    width: 100%;
     padding-top: 30px;
     &-text{
+        padding-top: 10px;
         opacity: .6;
     }
 }

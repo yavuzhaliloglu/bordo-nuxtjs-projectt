@@ -1,6 +1,9 @@
 $white: #FFFFFF;
 $hoverwhite: #CCCCCC;
 $black: #121B25;
+$backgroundblack:lighten($black,3%);
+$lightblack:lighten($black, 5%);
+$extralightblack:lighten($black,9%);
 $thirdcolor: #1AA090;
 $footerbackground: #1A242F;
 

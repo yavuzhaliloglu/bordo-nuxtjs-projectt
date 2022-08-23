@@ -13,45 +13,80 @@
     top: 0;
     left: 0;
 
-    &-brand{
-        p{
-            font-size: 26px;
+    &-brand-container {
+        width: 90%;
+
+        &-brand {
+            .iconlink-icon {
+                width: 42px !important;
+                height: 42px !important;
+
+                path {
+                    color: $thirdcolor  !important;
+                }
+            }
+
+            .iconlink-text {
+                font-size: 32px;
+            }
         }
     }
 
-    .userlink {
-        font-size: 16px;
+    &-links-container {
+        width: 90%;
 
-        svg {
-            width: 20px;
-            height: 20px;
-        }
+        .iconlink {
+            width: 100%;
+            opacity: .7;
 
-        &:hover,
-        &:focus {
-            opacity: 1;
+            &:hover,
+            &:focus {
+                opacity: 1;
 
-            path,
-            p {
-                color: $thirdcolor;
-            }
-        }
-
-
-        &:first-child {
-            margin-bottom: 30px;
-            opacity: 1;
-
-            svg {
-                width: 32px;
-                height: 32px;
+                path,
+                p {
+                    color: $thirdcolor;
+                }
             }
 
-            path {
-                color: $thirdcolor;
+            &-icon {
+                width: 20px;
+                height: 20px;
+            }
+
+            &-text {
+                width: calc(100% - 20px);
             }
         }
-
     }
+}
 
+@media screen and (max-width: $sm) {
+    .profile-nav {
+        width: 15%;
+        align-items: center;
+
+        &-brand-container {
+            .iconlink-icon {
+                width: 30px !important;
+                height: 30px !important;
+            }
+        }
+
+        &-links-container {
+            .iconlink {
+                justify-content: center;
+            }
+        }
+
+        .iconlink {
+            &-icon {
+                margin: 10px 0
+            }
+
+            &-text {
+                display: none;
+            }
+        }
+    }
 }

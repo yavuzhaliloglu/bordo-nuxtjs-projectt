@@ -12,7 +12,7 @@
 
     <!--IMAGE-->
     <div class="input-group">
-      <vue-upload-multiple-image @upload-success="uploadImageSuccess" @before-remove="beforeRemove"
+      <vue-upload-multiple-image maxImage="15" @upload-success="uploadImageSuccess" @before-remove="beforeRemove"
         :data-images="images" @edit-image="editImage" idUpload="myIdUpload" editUpload="myIdEdit"
         dragText="Resim sürükleyin" browseText="(veya tıklayarak arayın)" primaryText="Varsayılan Resim"
         markIsPrimaryText="Varsayılan olarak ayarla" accept=image/jpeg,image/png,image/jpg,image/tif,image/tiff>

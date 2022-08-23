@@ -2,19 +2,27 @@
 @use '/assets/scss/variables/variables' as *;
 
 .newproperty {
-    width: 80%;
     min-height: 100vh;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
+    width: 80%;
+    background-color: $backgroundblack;
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
     &-container {
-        background-color: lighten($black, 5%);
-        height: 50vh;
-        width: 30%;
-        padding: 15px;
-        border-radius: 10px;
+
+        &-item {
+            background-color: $lightblack;
+            height: 50vh;
+            width: 30%;
+            padding: 15px;
+            border-radius: 10px;
+        }
     }
 }
 
@@ -27,9 +35,10 @@
         padding: 10px;
         border-radius: 10px;
 
-        &:hover {
+        &:hover,
+        &:focus {
             outline: solid 1px;
-            background-color: lighten($black, 9%);
+            background-color: $extralightblack
         }
     }
 
@@ -39,4 +48,22 @@
 .clickedButton {
     outline: solid 1px;
     background-color: lighten($black, 9%);
+}
+
+@media screen and (max-width:$sm) {
+    .newproperty {
+        width: 100%;
+        &-container {
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 90%;
+
+            &-item {
+                height: 30vh;
+                width: 70%;
+                margin: 20px 0;
+            }
+        }
+    }
 }
