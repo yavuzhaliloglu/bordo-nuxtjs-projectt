@@ -1,12 +1,12 @@
 <template>
   <div class="input-group">
-    <label class="input-group-label mx-2">{{ title }}</label>
+    <label class="input-group-label mx-2" :for="id" >{{ title }}</label>
     <input
-      :id="id"
       class="input-group-input"
+      :id="id"
       :type="type"
-      :value="value"
-      @input="updateValue($event.target.value, $event.target.id)"
+      :value="id"
+      @change="updateValue($event.target.value)"
     />
   </div>
 </template>
@@ -30,14 +30,9 @@ export default {
     }
   },
   methods: {
-    updateValue(valueNormal,valueCheckbox) {
-      if(this.type === 'checkbox'){
-        this.$emit('input',valueCheckbox)
-      }
-      else{
-        this.$emit('input', valueNormal)
-      }
-    },
+    updateValue(value) {
+      this.$emit('input', value)
+    }
   }
 }
 </script>

@@ -26,7 +26,7 @@
       </div>
 
       <div class="newproperty-container">
-        n
+        
         <div v-for="i in type" :key="i._id" class="button-container">
           <button @click="getPath(i)">{{ i.categoryName }}</button>
         </div>

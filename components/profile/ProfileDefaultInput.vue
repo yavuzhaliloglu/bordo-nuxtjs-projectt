@@ -1,5 +1,5 @@
 <template>
-  <form class="features-inputs" @submit.prevent="post" enctype='multipart/form-data'>
+  <form class="features-inputs" @submit.prevent="set">
     <!--HEADER-->
     <ProfileHeader>
       <h1 slot="header">İlan Özelliklerinizi seçin</h1>
@@ -13,11 +13,10 @@
     <!--IMAGE-->
     <div class="input-group">
       <vue-upload-multiple-image @upload-success="uploadImageSuccess" @before-remove="beforeRemove"
-                :data-images="images" @edit-image="editImage" idUpload="myIdUpload" editUpload="myIdEdit"
-                dragText="Resim sürükleyin" browseText="(veya tıklayarak arayın)" primaryText="Varsayılan Resim"
-                markIsPrimaryText="Varsayılan olarak ayarla" dropText="Drag and drop"
-                accept=image/jpeg,image/png,image/jpg,image/tif,image/tiff>
-        </vue-upload-multiple-image>
+        :data-images="images" @edit-image="editImage" idUpload="myIdUpload" editUpload="myIdEdit"
+        dragText="Resim sürükleyin" browseText="(veya tıklayarak arayın)" primaryText="Varsayılan Resim"
+        markIsPrimaryText="Varsayılan olarak ayarla" accept=image/jpeg,image/png,image/jpg,image/tif,image/tiff>
+      </vue-upload-multiple-image>
     </div>
 
     <!--SEARCH-->
@@ -47,6 +46,7 @@
 </template>
 
 <script>
+import { serialize } from 'object-to-formdata';
 export default {
   name: 'ProfileDefaultInput',
   props: {
@@ -61,12 +61,12 @@ export default {
       price: null,
       description: '',
       images: [],
-      imagestosend:[],
+      imagestosend: [],
       file: "",
       location: {},
       features: {},
       data: {
-        imagestosend:[],
+        imagestosend: [],
         title: '',
         description: '',
         price: null,
@@ -93,8 +93,71 @@ export default {
       const path = localStorage.getItem('path')
       this.path = path
     },
+    set() {
+      const object = {
+        title: this.title,
+        images: this.imagestosend,
+        description:this.description,
+        price:this.price,
+        squareMeters:Number(this.obj.defaults[0]),
+        categoryPath:this.path,
+        address:this.location,
+        roomCount:this.obj.selects[0],
+        netSquareMeters:Number(this.obj.defaults[1]),
+        buildingAge:this.obj.selects[1],
+        floor:Number(this.obj.defaults[2]),
+        heatingType:this.obj.selects[2],
+        itemStatus:this.obj.selects[3],
+        interiorFeatures:this.features.interior,
+        externalFeatures:this.features.external,
+        locationFeatures:this.features.location,
+      };
+      const options = {
+        /**
+         * include array indices in FormData keys
+         * defaults to false
+         */
+        indices: false,
+
+        /**
+         * treat null values like undefined values and ignore them
+         * defaults to false
+         */
+        nullsAsUndefineds: false,
+
+        /**
+         * convert true or false to 1 or 0 respectively
+         * defaults to false
+         */
+        booleansAsIntegers: false,
+
+        /**
+         * store arrays even if they're empty
+         * defaults to false
+         */
+        allowEmptyArrays: false,
+
+        /**
+         * don't include array notation in FormData keys for Files in arrays
+         * defaults to false
+         */
+        noFilesWithArrayNotation: false,
+
+        /**
+         * use dots instead of brackets for object notation in FormData keys
+         * defaults to false
+         */
+        dotsForObjectNotation: false,
+      };
+
+      const formData = serialize(object, options);
+      this.$axios.$post('advertHousing', formData,
+        { headers: { 'Content-Type': 'multipart/form-data',Accept: "application/json", } })
+
+    },
     getLocation(value) {
       this.location = value
+      console.log(this.location);
     },
     getFeatures(value) {
       this.features = value
@@ -120,60 +183,35 @@ export default {
     },
     post() {
       const fd = new FormData();
-      console.log(this.imagestosend)
-      fd.append('title',this.title);
-      fd.append('images',Array(this.imagestosend));
-      fd.append('description',this.description);
-      fd.append('price',Number(this.price));
-      fd.append('squareMeters',Number(this.obj.defaults[0]));
-      fd.append('categoryPath',this.path);
-      fd.append('address',this.location);
-      fd.append('roomCount',this.obj.selects[0]);
-      fd.append('netSquareMeters',Number(this.obj.defaults[1]));
-      fd.append('buildingAge',this.obj.selects[1])
-      fd.append('floor',Number(this.obj.defaults[2]))
-      fd.append('heatingType',this.obj.selects[2])
-      fd.append('itemStatus',this.obj.selects[3])
-      fd.append('interiorFeatures',this.features.interior)
-      fd.append('externalFeatures',this.features.external)
-      fd.append('locationFeatures',this.features.location)
+      fd.append('title', this.title);
+      fd.append('file', this.location);
+      fd.append('description', this.description);
+      fd.append('price', Number(this.price));
+      fd.append('squareMeters', Number(this.obj.defaults[0]));
+      fd.append('categoryPath', this.path);
+      fd.append('address', this.location);
+      fd.append('roomCount', this.obj.selects[0]);
+      fd.append('netSquareMeters', Number(this.obj.defaults[1]));
+      fd.append('buildingAge', this.obj.selects[1])
+      fd.append('floor', Number(this.obj.defaults[2]))
+      fd.append('heatingType', this.obj.selects[2])
+      fd.append('itemStatus', this.obj.selects[3])
+      fd.append('interiorFeatures', this.features.interior)
+      fd.append('externalFeatures', this.features.external)
+      fd.append('locationFeatures', this.features.location)
 
-      this.$axios.$post('advertHousing',fd,
-      {headers: {'Content-Type': 'multipart/form-data'}})
-
-
-    //   this.$API.post.postAdvert(this.data)
-    //   this.$axios.$post('advertHousing',this.data);
-    //   const route = '/dashboard/newproperty/features';
-    //   if(this.$route.path === `${route}/Arsa`){
-    //       this.$API.post.postLand(this.data)
-    //   }
-    //   else if(this.$route.path === `${route}/isyeri`){
-    //       this.$API.post.postWorkPlace(this.data)
-    //   }
-    //   else if(this.$route.path === `${route}/konut`){
-
-    //   }
-
-    //  
+      this.$axios.$post('advertHousing', fd,
+        { headers: { 'Content-Type': 'multipart/form-data;' } })
     },
 
     uploadImageSuccess(formData, index, fileList) {
-      const name = formData.get("file");
-      console.log(name);
-      this.imagestosend[index] = {
-        name:name.name,
-        lastModified:name.lastModified,
-        size:name.size,
-        type:name.type
-      };
+      this.imagestosend[index] = formData.get("file")
       console.log(this.imagestosend);
-      console.log(this.location);
-
+      console.log(fileList)
     },
-    beforeRemove(index, done, fileList) { 
-        const r = confirm("Resmi silmek istediğinizden emin misiniz?")
-        if (r === true) {done()}
+    beforeRemove(index, done, fileList) {
+      const r = confirm("Resmi silmek istediğinizden emin misiniz?")
+      if (r === true) { done() }
     },
     editImage(formData, index, fileList) {
       this.imagestosend[index] = formData.get("file")
@@ -182,4 +220,5 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+</style>
