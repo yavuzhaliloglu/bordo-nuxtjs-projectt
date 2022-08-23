@@ -1,5 +1,5 @@
 <template>
-  <form class="features-inputs" @submit.prevent="set">
+  <form class="features-inputs" @submit.prevent="post">
     <!--HEADER-->
     <ProfileHeader>
       <h1 slot="header">İlan Özelliklerinizi seçin</h1>
@@ -65,24 +65,6 @@ export default {
       file: "",
       location: {},
       features: {},
-      data: {
-        imagestosend: [],
-        title: '',
-        description: '',
-        price: null,
-        squareMeters: null,
-        categoryPath: '',
-        address: {},
-        roomCount: '',
-        netSquareMeters: null,
-        buildingAge: '',
-        floor: null,
-        heatingType: '',
-        itemStatus: '',
-        interiorFeatures: [],
-        externalFeatures: [],
-        locationFeatures: []
-      }
     }
   },
   mounted() {
@@ -93,7 +75,7 @@ export default {
       const path = localStorage.getItem('path')
       this.path = path
     },
-    set() {
+    setData(){
       const object = {
         title: this.title,
         images: this.imagestosend,
@@ -112,48 +94,12 @@ export default {
         externalFeatures:this.features.external,
         locationFeatures:this.features.location,
       };
-      const options = {
-        /**
-         * include array indices in FormData keys
-         * defaults to false
-         */
-        indices: false,
-
-        /**
-         * treat null values like undefined values and ignore them
-         * defaults to false
-         */
-        nullsAsUndefineds: false,
-
-        /**
-         * convert true or false to 1 or 0 respectively
-         * defaults to false
-         */
-        booleansAsIntegers: false,
-
-        /**
-         * store arrays even if they're empty
-         * defaults to false
-         */
-        allowEmptyArrays: false,
-
-        /**
-         * don't include array notation in FormData keys for Files in arrays
-         * defaults to false
-         */
-        noFilesWithArrayNotation: false,
-
-        /**
-         * use dots instead of brackets for object notation in FormData keys
-         * defaults to false
-         */
-        dotsForObjectNotation: false,
-      };
-
-      const formData = serialize(object, options);
-      this.$axios.$post('advertHousing', formData,
-        { headers: { 'Content-Type': 'multipart/form-data',Accept: "application/json", } })
-
+      const formData = serialize(object);
+      return formData
+    },
+    post() {
+      const formData = this.setData();
+      this.$API.post.postAdvert(formData)
     },
     getLocation(value) {
       this.location = value
@@ -162,58 +108,15 @@ export default {
     getFeatures(value) {
       this.features = value
     },
-    setData() {
-      // const vm = this.data
-      // vm.imagestosend = this.imagestosend;
-      // vm.title = this.title
-      // vm.description = this.description
-      // vm.price = Number(this.price)
-      // vm.squareMeters = Number(this.obj.defaults[0])
-      // vm.categoryPath = this.path
-      // vm.address = this.location
-      // vm.roomCount = this.obj.selects[0]
-      // vm.netSquareMeters = Number(this.obj.defaults[1])
-      // vm.buildingAge = this.obj.selects[1]
-      // vm.floor = Number(this.obj.defaults[2])
-      // vm.heatingType = this.obj.selects[2]
-      // vm.itemStatus = this.obj.selects[3]
-      // vm.interiorFeatures = this.features.interior
-      // vm.externalFeatures = this.features.external
-      // vm.locationFeatures = this.features.location
-    },
-    post() {
-      const fd = new FormData();
-      fd.append('title', this.title);
-      fd.append('file', this.location);
-      fd.append('description', this.description);
-      fd.append('price', Number(this.price));
-      fd.append('squareMeters', Number(this.obj.defaults[0]));
-      fd.append('categoryPath', this.path);
-      fd.append('address', this.location);
-      fd.append('roomCount', this.obj.selects[0]);
-      fd.append('netSquareMeters', Number(this.obj.defaults[1]));
-      fd.append('buildingAge', this.obj.selects[1])
-      fd.append('floor', Number(this.obj.defaults[2]))
-      fd.append('heatingType', this.obj.selects[2])
-      fd.append('itemStatus', this.obj.selects[3])
-      fd.append('interiorFeatures', this.features.interior)
-      fd.append('externalFeatures', this.features.external)
-      fd.append('locationFeatures', this.features.location)
-
-      this.$axios.$post('advertHousing', fd,
-        { headers: { 'Content-Type': 'multipart/form-data;' } })
-    },
-
-    uploadImageSuccess(formData, index, fileList) {
+    uploadImageSuccess(formData, index) {
       this.imagestosend[index] = formData.get("file")
-      console.log(this.imagestosend);
-      console.log(fileList)
     },
-    beforeRemove(index, done, fileList) {
+    beforeRemove(index, done) {
       const r = confirm("Resmi silmek istediğinizden emin misiniz?")
       if (r === true) { done() }
+      this.imagestosend.splice(index,1)
     },
-    editImage(formData, index, fileList) {
+    editImage(formData, index) {
       this.imagestosend[index] = formData.get("file")
     }
   }
