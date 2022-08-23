@@ -49,7 +49,6 @@ export default {
       purpose: [],
       type: [],
       isClicked: false,
-      data: 'yavuz'
     }
   },
   created() {

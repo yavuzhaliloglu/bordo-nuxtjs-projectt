@@ -40,7 +40,6 @@
       <textarea v-model="description" name="description" cols="30" rows="10" />
     </div>
 
-    <!-- <LinksButtonComponent :text="'İlan ver'" :type="submit" /> -->
     <button type="submit">asdşkjql</button>
   </form>
 </template>
