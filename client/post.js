@@ -1,9 +1,13 @@
 export default (axios) => ({
-  postAdvert: (payload, ...parameters) => {
-    axios.post('advertHousing', payload, {
+  post: (payload,endpoint , ...parameters) => {
+    return axios.post(`${endpoint}`, payload)
+  },
+
+  postImage: (payload, ...parameters) => {
+    return axios.post('advert/image/upload', payload, {
       headers: {
         'Content-Type': 'multipart/form-data',
-        Accept: 'application/json'
+        // Accept: 'application/json'
       }
     })
   }

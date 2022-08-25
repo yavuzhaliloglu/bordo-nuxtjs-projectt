@@ -1,7 +1,7 @@
 <template>
   <div class="input-group">
-    <label>{{ title }}</label>
-    <select :value="value" @input="updateValue($event.target.value)">
+    <select class="input-group-input" :value="value" @input="updateValue($event.target.value)">
+      <option value="" disabled selected hidden>{{ title }}</option>
       <option v-for="item in options" :key="item._id" :value="item._id">
         {{ item.name }}
       </option>

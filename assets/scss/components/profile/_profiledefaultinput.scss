@@ -1,2 +1,73 @@
 @use '/assets/scss/variables/reset' as *;
 @use '/assets/scss/variables/variables' as *;
+
+.features {
+    background-color: $lightblack;
+    width: 100%;
+    &-inputs {
+        width: 100%;
+        .multiple-image {
+            display: flex;
+            justify-content: center;
+
+            .add-image-svg {
+                fill: $white  !important;
+            }
+        }
+
+        &-defaults {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+
+            .input-group {
+                width: 49%;
+                margin: 10px 0;
+
+                &-input {
+                    width: 100%;
+                    border: 1px solid white;
+                    @extend .common-input;
+                    border: none;
+                }
+            }
+        }
+
+        .description-container {
+            display: flex;
+            flex-direction: column;
+            margin-top: 40px;
+            margin-bottom: 16px;
+
+            &-label {
+                font-size: 24px;
+                font-weight: bold;
+                display: block;
+            }
+
+            &-input {
+                min-height: 30vh;
+                height: 30vh;
+                max-height: 40vh;
+
+                &::placeholder {
+                    opacity: .5;
+                }
+
+                @extend .common-input;
+            }
+
+        }
+
+        .b-container {
+            margin-top: 20px;
+            margin-bottom: 50px;
+
+            &-button {
+                width: 30%;
+                border-radius: 10px;
+            }
+        }
+    }
+}

@@ -1,0 +1,30 @@
+@use '/assets/scss/variables/reset' as *;
+@use '/assets/scss/variables/variables' as *;
+
+.search {
+    width: 100%;
+
+    &-content {
+        display: flex;
+        justify-content: space-between;
+
+        &-container {
+            width: 33%;
+            margin: 10px 0;
+            margin-right: 12px;
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            &-input {
+                @extend .common-input;
+                width: 100%;
+
+                &-placeholder {}
+
+                &-option {}
+            }
+        }
+    }
+}

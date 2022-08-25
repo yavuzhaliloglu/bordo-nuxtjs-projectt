@@ -1,0 +1,32 @@
+@use '/assets/scss/variables/reset' as *;
+@use '/assets/scss/variables/variables' as *;
+
+.selectbox{
+    // border: 2px solid green;
+    display: flex;
+    justify-content: space-between;
+    margin: 30px 0;
+    &-container{
+        // border: 1px solid pink;
+        width: 30%;
+
+        &-header{
+            // border: 1px solid blue;
+            margin-bottom: 20px;
+        }
+
+        &-content{
+            // border: 1px solid red;
+
+            &-input{
+                width: 16px;
+                height: 16px;
+            }
+
+            &-label{
+                // border: 1px solid aqua;
+                padding-left: 20px;
+            }
+        }
+    }
+}

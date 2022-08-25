@@ -1,5 +1,5 @@
 <template>
-  <form class="features-inputs" @submit.prevent="post">
+  <form class="features-inputs container" @submit.prevent="post">
     <!--HEADER-->
     <ProfileHeader>
       <h1 slot="header">İlan Özelliklerinizi seçin</h1>
@@ -11,11 +11,11 @@
     </ProfileHeader>
 
     <!--IMAGE-->
-    <div class="input-group">
+    <div class="input-group multiple-image my-3">
       <vue-upload-multiple-image maxImage="15" @upload-success="uploadImageSuccess" @before-remove="beforeRemove"
-        :data-images="images" @edit-image="editImage" idUpload="myIdUpload" editUpload="myIdEdit"
-        dragText="Resim sürükleyin" browseText="(veya tıklayarak arayın)" primaryText="Varsayılan Resim"
-        markIsPrimaryText="Varsayılan olarak ayarla" accept=image/jpeg,image/png,image/jpg,image/tif,image/tiff>
+        :data-images="images" idUpload="myIdUpload" dragText="Resim sürükleyin" browseText="(veya tıklayarak arayın)"
+        primaryText="Varsayılan Resim" markIsPrimaryText="Varsayılan olarak ayarla"
+        accept=image/jpeg,image/png,image/jpg,image/tif,image/tiff>
       </vue-upload-multiple-image>
     </div>
 
@@ -24,23 +24,29 @@
       <h3>İlan Konumunu seçin</h3>
     </ProfileSearchComponent>
 
+    <h3>Genel Özellikleri Seçin</h3>
     <!--DEFAULT INPUTS-->
-    <CommonInputComponent v-model="title" :type="'text'" :title="'title'" />
-    <CommonInputComponent v-model="price" :type="'number'" :title="'price'" />
+    <div class="features-inputs-defaults">
+      <CommonInputComponent v-model="title" :type="'text'" :title="'İlan Başlığı'" />
+      <CommonInputComponent v-model="price" :type="'number'" :title="'Fiyat (₺)'" />
 
-    <!--SLOT-->
-    <slot></slot>
+      <!--SLOT-->
+      <slot></slot>
+    </div>
 
     <!--SELECT BOX-->
     <ProfileSelectBox @features="getFeatures" />
 
     <!--TEXTAREA-->
-    <div class="input-group">
-      <label for="description">Açıklama</label>
-      <textarea v-model="description" name="description" cols="30" rows="10" />
+    <div class="input-group description-container">
+      <label class="description-container-label" for="description">İlan Açıklaması</label>
+      <textarea class="description-container-input" placeholder="İlan açıklamanızı buraya yazın" v-model="description"
+        name="description" cols="30" rows="10" />
     </div>
 
-    <button type="submit">asdşkjql</button>
+    <div class="b-container">
+      <button class="b-container-button" type="submit">İlan Ver</button>
+    </div>
   </form>
 </template>
 
@@ -64,6 +70,7 @@ export default {
       file: "",
       location: {},
       features: {},
+      endpoint: ''
     }
   },
   mounted() {
@@ -74,31 +81,47 @@ export default {
       const path = localStorage.getItem('path')
       this.path = path
     },
-    setData(){
-      const object = {
+    setData() {
+      const baseObject = {
         title: this.title,
         images: this.imagestosend,
-        description:this.description,
-        price:this.price,
-        squareMeters:Number(this.obj.defaults[0]),
-        categoryPath:this.path,
-        address:this.location,
-        roomCount:this.obj.selects[0],
-        netSquareMeters:Number(this.obj.defaults[1]),
-        buildingAge:this.obj.selects[1],
-        floor:Number(this.obj.defaults[2]),
-        heatingType:this.obj.selects[2],
-        itemStatus:this.obj.selects[3],
-        interiorFeatures:this.features.interior,
-        externalFeatures:this.features.external,
-        locationFeatures:this.features.location,
+        description: this.description,
+        price: this.price,
+        squareMeters: Number(this.obj.defaults[0]),
+        categoryPath: this.path,
+        address: this.location,
+        interiorFeatures: this.features.interior,
+        externalFeatures: this.features.external,
+        locationFeatures: this.features.location,
       };
-      const formData = serialize(object);
-      return formData
+      if (this.$route.path === '/dashboard/newproperty/features/Konut') {
+        baseObject.roomCount = this.obj.selects[0]
+        baseObject.netSquareMeters = Number(this.obj.defaults[1])
+        baseObject.buildingAge = this.obj.selects[1]
+        baseObject.floor = Number(this.obj.defaults[2])
+        baseObject.heatingType = this.obj.selects[2]
+        baseObject.itemStatus = this.obj.selects[3]
+        this.endpoint = 'advertHousing'
+      }
+      else if (this.$route.path === '/dashboard/newproperty/features/isyeri') {
+        baseObject.roomCount = this.obj.selects[0]
+        baseObject.netSquareMeters = Number(this.obj.defaults[1])
+        baseObject.buildingAge = this.obj.selects[1]
+        baseObject.floor = Number(this.obj.defaults[2])
+        baseObject.heatingType = this.obj.selects[2]
+        baseObject.itemStatus = this.obj.selects[3]
+        this.endpoint = 'advertWorkPlace'
+      }
+      else if(this.$route.path === '/dashboard/newproperty/features/Arsa'){
+        baseObject.landStatus = this.obj.selects[0]
+        baseObject.parcel = this.obj.defaults[1]
+        this.endpoint = 'advertLand'
+      }
+      return baseObject
     },
     post() {
       const formData = this.setData();
-      this.$API.post.postAdvert(formData)
+      this.$API.post.post(formData,this.endpoint)
     },
     getLocation(value) {
       this.location = value
@@ -107,17 +130,25 @@ export default {
     getFeatures(value) {
       this.features = value
     },
-    uploadImageSuccess(formData, index) {
-      this.imagestosend[index] = formData.get("file")
+    uploadImageSuccess(formData, index, fileList) {
+      const object = {
+        image: formData.get("file")
+      }
+
+      const fd = serialize(object);
+
+      this.$API.post.postImage(fd).then(response => {
+        this.imagestosend[index] = response.data.data.remoteId
+      })
+
+
     },
     beforeRemove(index, done) {
       const r = confirm("Resmi silmek istediğinizden emin misiniz?")
       if (r === true) { done() }
-      this.imagestosend.splice(index,1)
+      this.$API.delete.deleteImage(this.imagestosend[index])
+      this.imagestosend.splice(index, 1)
     },
-    editImage(formData, index) {
-      this.imagestosend[index] = formData.get("file")
-    }
   }
 }
 </script>

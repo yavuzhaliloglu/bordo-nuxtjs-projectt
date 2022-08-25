@@ -1,27 +1,86 @@
 <template>
-  <div>
+  <div class="search">
     <slot></slot>
 
-    <label>Şehir</label>
-    <select v-model="location.city" @change="getDistrict(location.city)">
-      <option v-for="item in selectCity" :key="item._id" :value="item._id">
-        {{ item.name }}
-      </option>
-    </select>
+    <div class="search-content">
+      <div class="search-content-container">
+        <select
+          v-model="location.city"
+          class="search-content-container-input"
+          @change="getDistrict(location.city)"
+        >
+          <option
+            class="search-content-container-input-placeholder"
+            value=""
+            disabled
+            selected
+            hidden
+          >
+            Şehir
+          </option>
+          <option
+            v-for="item in selectCity"
+            :key="item._id"
+            class="search-content-container-input-option"
+            :value="item._id"
+          >
+            {{ item.name }}
+          </option>
+        </select>
+      </div>
 
-    <label>İlçe</label>
-    <select v-model="location.district" @change="getTown(location.district)">
-      <option v-for="item in selectDistrict" :key="item._id" :value="item._id">
-        {{ item.name }}
-      </option>
-    </select>
+      <div class="search-content-container">
+        <select
+          v-model="location.district"
+          class="search-content-container-input"
+          @change="getTown(location.district)"
+        >
+          <option
+            class="search-content-container-input-placeholder"
+            value=""
+            disabled
+            selected
+            hidden
+          >
+            İlçe
+          </option>
+          <option
+            v-for="item in selectDistrict"
+            :key="item._id"
+            class="search-content-container-input-option"
+            :value="item._id"
+          >
+            {{ item.name }}
+          </option>
+        </select>
+      </div>
 
-    <label>Mahalle</label>
-    <select v-model="location.town" @change="updateValue()">
-      <option v-for="item in selectTown" :key="item._id" :value="item._id">
-        {{ item.name }}
-      </option>
-    </select>
+      <div class="search-content-container">
+        <select
+          v-model="location.town"
+          class="search-content-container-input"
+          @change="updateValue()"
+        >
+          <option
+            class="search-content-container-input-placeholder"
+            value=""
+            disabled
+            selected
+            hidden
+          >
+            Mahalle
+          </option>
+          <option
+            v-for="item in selectTown"
+            :key="item._id"
+            class="search-content-container-input-option"
+            :value="item._id"
+          >
+            {{ item.name }}
+          </option>
+        </select>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -44,8 +103,8 @@ export default {
     this.getCity()
   },
   methods: {
-    updateValue(){
-        this.$emit('location',this.location)
+    updateValue() {
+      this.$emit('location', this.location)
     },
     getCity() {
       this.$API.locations.getCity().then((res) => {

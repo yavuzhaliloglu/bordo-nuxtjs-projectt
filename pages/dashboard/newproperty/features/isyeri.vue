@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="features">
     <ProfileDefaultInput :obj="obj">
       <CommonInputComponent
         v-for="(item, index) in inputlist.defaultInputs"

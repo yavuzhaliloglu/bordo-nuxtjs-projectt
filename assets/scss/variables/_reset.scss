@@ -68,12 +68,23 @@ button {
     border: none;
 }
 
-input,
-select,
-option,
-textarea {
-    color: $black;
+.common-input {
+    background-color: $extralightblack;
+    color: $white;
+    border-radius: 8px;
+    padding: 12px 10px;
+
+    &:focus {
+        outline: none;
+    }
+
+    &::placeholder {
+        color: $white;
+        // opacity: .8;
+    }
+
 }
+
 
 .nav-button {
     background-color: $thirdcolor;

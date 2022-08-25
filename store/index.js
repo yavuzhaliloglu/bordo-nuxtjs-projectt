@@ -3,7 +3,7 @@ export const state = () => ({
   workplace: {
     selectInputs: [
       {
-        name: 'roomCount',
+        name: 'Oda Sayısı',
         options: [
           { _id: '1+0', name: '1+0' },
           { _id: '1+1', name: '1+1' },
@@ -12,7 +12,7 @@ export const state = () => ({
         ],
       },
       {
-        name: 'buildingAge',
+        name: 'Bina Yaşı',
         options: [
           { _id: '1', name: '1' },
           { _id: '2', name: '2' },
@@ -24,7 +24,7 @@ export const state = () => ({
         ]
       },
       {
-        name: 'heatingType',
+        name: 'Isıtma Tipi',
         options: [
           { _id: 'Yok', name: 'Yok' },
           { _id: 'Doğalgaz', name: 'Doğalgaz' },
@@ -34,7 +34,7 @@ export const state = () => ({
         ]
       },
       {
-        name: 'itemStatus',
+        name: 'Eşya Durumu',
         options: [
           { _id: 'Boş', name: 'Boş' },
           { _id: 'Eşyalı', name: 'Eşyalı' }
@@ -43,15 +43,15 @@ export const state = () => ({
     ],
     defaultInputs: [
       {
-        name: 'squareMeters',
+        name: 'Metrekare (m²)',
         type: 'number'
       },
       {
-        name: 'netSquareMeters',
+        name: 'Net Metrekare (m²)',
         type: 'number'
       },
       {
-        name: 'floor',
+        name: 'Kat',
         type: 'number'
       }
     ]
@@ -59,7 +59,7 @@ export const state = () => ({
   land: {
     selectInputs: [
       {
-        name: 'landStatus',
+        name: 'Arazi Durumu',
         options: [
           { _id: 'Ekili', name: 'Ekili' },
           { _id: 'Boş', name: 'Boş' }
@@ -68,11 +68,11 @@ export const state = () => ({
     ],
     defaultInputs: [
       {
-        name: 'squareMeters',
+        name: 'Metrekare (m²)',
         type: 'number'
       },
       {
-        name: 'parcel',
+        name: 'Parsel',
         type: 'number'
       }
     ]

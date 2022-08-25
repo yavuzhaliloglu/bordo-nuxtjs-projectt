@@ -1,11 +1,11 @@
 <template>
   <div class="input-group">
-    <label class="input-group-label mx-2" :for="id" >{{ title }}</label>
     <input
-      class="input-group-input"
       :id="id"
+      class="input-group-input"
       :type="type"
       :value="id"
+      :placeholder="title"
       @change="updateValue($event.target.value)"
     />
   </div>
