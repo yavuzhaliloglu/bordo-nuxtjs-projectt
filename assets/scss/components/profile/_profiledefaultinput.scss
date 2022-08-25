@@ -4,8 +4,8 @@
 .features {
     background-color: $lightblack;
     width: 100%;
+
     &-inputs {
-        width: 100%;
         .multiple-image {
             display: flex;
             justify-content: center;
@@ -39,18 +39,19 @@
             flex-direction: column;
             margin-top: 40px;
             margin-bottom: 16px;
-
+            width: 100%;
             &-label {
                 font-size: 24px;
                 font-weight: bold;
                 display: block;
+                width: 100%;
             }
 
             &-input {
                 min-height: 30vh;
                 height: 30vh;
                 max-height: 40vh;
-
+                width: 100%;
                 &::placeholder {
                     opacity: .5;
                 }
@@ -67,6 +68,28 @@
             &-button {
                 width: 30%;
                 border-radius: 10px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:$sm) {
+    .features {
+        &-inputs {
+            &-defaults {
+                flex-direction: column;
+                flex-wrap: nowrap;
+
+                .input-group {
+                    width: 100%;
+                }
+            }
+
+            .b-container {
+                &-button {
+                    width: 100%;
+                    border-radius: 10px;
+                }
             }
         }
     }

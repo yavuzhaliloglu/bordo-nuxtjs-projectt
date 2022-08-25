@@ -20,10 +20,19 @@
             &-input {
                 @extend .common-input;
                 width: 100%;
+            }
+        }
+    }
+}
 
-                &-placeholder {}
+@media screen and (max-width:$sm){
+    .search{
+        &-content{
+            flex-direction: column;
 
-                &-option {}
+            &-container{
+                width: 100%;
+                margin-right: 0;
             }
         }
     }

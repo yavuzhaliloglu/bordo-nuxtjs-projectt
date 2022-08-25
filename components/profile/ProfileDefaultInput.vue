@@ -101,7 +101,7 @@ export default {
         baseObject.floor = Number(this.obj.defaults[2])
         baseObject.heatingType = this.obj.selects[2]
         baseObject.itemStatus = this.obj.selects[3]
-        this.endpoint = 'advertHousing'
+        this.endpoint = 'advert/housing'
       }
       else if (this.$route.path === '/dashboard/newproperty/features/isyeri') {
         baseObject.roomCount = this.obj.selects[0]
@@ -110,12 +110,12 @@ export default {
         baseObject.floor = Number(this.obj.defaults[2])
         baseObject.heatingType = this.obj.selects[2]
         baseObject.itemStatus = this.obj.selects[3]
-        this.endpoint = 'advertWorkPlace'
+        this.endpoint = 'advert/workPlace'
       }
       else if(this.$route.path === '/dashboard/newproperty/features/Arsa'){
         baseObject.landStatus = this.obj.selects[0]
         baseObject.parcel = this.obj.defaults[1]
-        this.endpoint = 'advertLand'
+        this.endpoint = 'advert/land'
       }
       return baseObject
     },

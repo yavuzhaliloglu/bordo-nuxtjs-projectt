@@ -4,7 +4,7 @@ export default (axios) => ({
   },
 
   postImage: (payload, ...parameters) => {
-    return axios.post('advert/image/upload', payload, {
+    return axios.post('image/upload', payload, {
       headers: {
         'Content-Type': 'multipart/form-data',
         // Accept: 'application/json'

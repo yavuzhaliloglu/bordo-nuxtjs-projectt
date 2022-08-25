@@ -28,7 +28,7 @@ export default {
                     icon: 'building'
                 },
                 {
-                    path: '/',
+                    path: '/dashboard/myadverts',
                     text: 'İlanlarım',
                     icon: 'building-user'
                 },
@@ -38,7 +38,7 @@ export default {
                     icon: 'message'
                 },
                 {
-                    path: '/',
+                    path: '/dashboard/profile',
                     text: 'Profilim',
                     icon: 'circle-user'
                 },
