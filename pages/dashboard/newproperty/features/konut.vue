@@ -62,13 +62,6 @@ export default {
     return {
       inputlist: null,
       obj: {
-        // roomCount: '',
-        // buildingAge: '',
-        // heatingType: '',
-        // itemStatus: '',
-        // grossSquareMeters: '',
-        // netSquareMeters: '',
-        // floor: ''
         defaults: [],
         selects: []
       }

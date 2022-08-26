@@ -1,16 +1,15 @@
 <template>
-    <div>
-        this is my adverts
-    </div>
+  <div>
+      <ProfileMyAdverts />
+  </div>
 </template>
 
 <script>
-    export default {
-        name:'MyAdverts',
-        layout:'UserProfile'
-    }
+export default {
+  name: 'MyAdverts',
+  layout: 'UserProfile',
+  
+}
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

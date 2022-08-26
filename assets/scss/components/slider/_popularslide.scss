@@ -30,6 +30,29 @@
             border-radius: 14px;
         }
 
+        &-content {
+            width: 100%;
+            border: 1px solid red;
+
+            &-header {
+                h5 {
+                    width: 100%;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+            }
+
+            &-location {
+                p {
+                    width: 100%;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+            }
+        }
+
         &-icons {
             .cont {
                 margin-right: 14px;

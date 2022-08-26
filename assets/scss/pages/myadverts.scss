@@ -1,0 +1,9 @@
+@use '/assets/scss/variables/reset' as *;
+@use '/assets/scss/variables/variables' as *;
+
+@import '/assets/scss/components/common/advertcard';
+
+.myadverts {
+    background-color: $lightblack;
+    min-height: 100vh;
+}
