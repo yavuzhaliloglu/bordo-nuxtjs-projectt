@@ -10,6 +10,13 @@
     margin: 30px 10px;
     box-shadow: 4px 4px 6px 1px darken($extralightblack, 10%);
     border-radius: 20px;
+    
+    div{
+        margin: 10px 0;
+        &:first-child{
+            margin: 0;
+        }
+    }
 
     &:hover {
         background-color: $extralightblack;
@@ -30,42 +37,27 @@
     }
 
     &-title {
-        margin: 10px 0;
+        // margin: 10px 0;
 
         &-text {
             width: 100%;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-        }
-    }
-
-    &-price {
-        &-text {
-            font-size: 20px;
             margin: 0;
         }
     }
 
-    &-features {
-        display: flex;
-        width: 100%;
-        margin-bottom: 8px;
-        justify-content: space-between;
-
-        &-item {
-            &-icon {
-                width: 10px;
-            }
-
-            &-text {
-                font-size: 10px;
-            }
+    &-price {
+        // margin: 10px 0;
+        &-text {
+            font-size: 18px;
+            margin: 0;
         }
     }
 
     &-location {
-        margin-bottom: 12px;
+        // margin: 10px 0;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -76,6 +68,19 @@
 
         &-text {
             font-size: 10px;
+        }
+    }
+
+    &-buttons{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        // margin: 10px 0;
+        &-item{
+            font-size: 14px;
+            font-weight: normal;
+            padding: 10px 12px;
+            border-radius: 6px;
         }
     }
 }

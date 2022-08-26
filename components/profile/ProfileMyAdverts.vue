@@ -28,18 +28,17 @@ export default {
   name: 'ProfileMyAdverts',
   data() {
     return {
-      cards: [
-      ]
+      cards: []
     }
   },
-  created(){
+  created() {
     this.getAdverts()
   },
-  methods:{
-    getAdverts(){
-        this.$API.adverts.getAdverts().then(res=>{
-            this.cards = res.data.data
-        })
+  methods: {
+    getAdverts() {
+      this.$API.adverts.getAdverts().then((res) => {
+        this.cards = res.data.data.cards
+      })
     }
   }
 }

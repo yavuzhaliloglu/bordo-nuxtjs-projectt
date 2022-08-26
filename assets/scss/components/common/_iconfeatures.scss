@@ -1,0 +1,27 @@
+@use '/assets/scss/variables/reset' as *;
+@use '/assets/scss/variables/variables' as *;
+
+
+.features {
+    background-color: transparent;
+    display: flex;
+    width: 100%;
+    margin-bottom: 8px;
+    justify-content: space-between;
+
+    &-item {
+        &-icon {
+            width: 14px;
+        }
+
+        &-text {
+            font-size: 10px;
+        }
+    }
+}
+
+.icon{
+    path{
+        color: $thirdcolor;
+    }
+}

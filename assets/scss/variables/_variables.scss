@@ -6,6 +6,9 @@ $lightblack:lighten($black, 5%);
 $extralightblack:lighten($black,9%);
 $thirdcolor: #1AA090;
 $footerbackground: #1A242F;
+$darkred: darken(red, 10%);
+$red:red;
+$darkthirdcolor:darken($thirdcolor,10%);
 
 $md:999px;
 $sm:776px;
