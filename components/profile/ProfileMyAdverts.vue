@@ -10,7 +10,10 @@
           eligendi beatae quae aperiam aspernatur.
         </p>
       </ProfileHeader>
+      <CommonLoadingCircle v-if="isLoading" />
+
       <div
+        v-else
         :per-page="perPage"
         :current-page="currentPage"
         class="d-flex justify-content-start align-items-start flex-wrap w-100"
@@ -39,22 +42,27 @@ export default {
     return {
       cards: [],
       perPage: 3,
-      currentPage: 1
+      currentPage: 1,
+      isLoading: false
     }
   },
   watch: {
-    currentPage () {
+    currentPage() {
       this.getAdverts(this.currentPage)
     }
   },
-  created(){
+  created() {
     this.getAdverts(this.currentPage)
   },
   methods: {
-    getAdverts(currentPage) {
-      this.$API.adverts.getAdverts(currentPage,this.perPage).then((res) => {
-        this.cards = res.data.data.cards
-      })
+    async getAdverts(currentPage) {
+      this.isLoading = true
+      await this.$API.adverts
+        .getAdverts(currentPage, this.perPage)
+        .then((res) => {
+          this.cards = res.data.data.cards
+          this.isLoading = false
+        })
     }
   }
 }
