@@ -22,7 +22,7 @@
                 <template #button-content>
                     <font-awesome-icon icon="fa-solid fa-angle-down" />
                 </template>
-                <b-dropdown-item v-for="i in links" :key="i" :href="`${i.path}`">{{i.text}}</b-dropdown-item>
+                <b-dropdown-item v-for="i in links" :key="i.path" :href="`${i.path}`">{{i.text}}</b-dropdown-item>
             </b-dropdown>
         </div>
     </div>

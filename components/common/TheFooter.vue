@@ -12,7 +12,7 @@
             </div>
 
             <div class="footer-content-links d-flex flex-row justify-content-between flex-wrap mx-5">
-                <LinksFooterLink v-for="i in links" :key="i" :links="i" />
+                <LinksFooterLink v-for="i in links.header" :key="i" :links="i" />
             </div>
         </div>
 

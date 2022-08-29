@@ -18,7 +18,10 @@
         :date="format_date(card.date)"
       />
       <div class="advertcard-location">
-        <font-awesome-icon class="advertcard-location-icon icon" icon="fa-solid fa-location-dot" />
+        <font-awesome-icon
+          class="advertcard-location-icon icon"
+          icon="fa-solid fa-location-dot"
+        />
         <span class="advertcard-location-text"
           >{{ card.address.city.name }},</span
         >
@@ -31,10 +34,11 @@
       </div>
 
       <div class="advertcard-buttons">
-        <button class="advertcard-buttons-item edit">
-          İlanı Düzenle
-        </button>
-        <button @click="deleteAdvert(card.id)" class="advertcard-buttons-item delete">
+        <button class="advertcard-buttons-item edit">İlanı Düzenle</button>
+        <button
+          class="advertcard-buttons-item delete"
+          @click="deleteAdvert(card.id)"
+        >
           İlanı Sil
         </button>
       </div>
@@ -61,7 +65,7 @@ export default {
         return moment(value).format('DD.MM.YYYY')
       }
     },
-    deleteAdvert(cardId){
+    deleteAdvert(cardId) {
       this.$API.adverts.deleteAdvert(cardId)
     }
   }

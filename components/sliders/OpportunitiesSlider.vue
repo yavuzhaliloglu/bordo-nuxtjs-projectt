@@ -3,7 +3,7 @@
         <span class="quote">“</span>
         <div class="swiper swiper1">
             <div class="swiper-wrapper">
-                <div v-for="i in content" :key="i" class="swiper-slide">
+                <div v-for="i in content" :key="i.header" class="swiper-slide">
                     <SlidersOpportunitiesOneSlide class="slider-content" :content="i" />
                 </div>
             </div>

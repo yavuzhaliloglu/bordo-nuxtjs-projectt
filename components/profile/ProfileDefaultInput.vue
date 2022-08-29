@@ -13,16 +13,16 @@
     <!--IMAGE-->
     <div class="input-group multiple-image my-3">
       <vue-upload-multiple-image
-        maxImage="15" 
-        @upload-success="uploadImageSuccess"
-        @before-remove="beforeRemove"
         :data-images="images"
         idUpload="myIdUpload"
         dragText="Resim sürükleyin"
         browseText="(veya tıklayarak arayın)"
         primaryText="Varsayılan Resim"
         markIsPrimaryText="Varsayılan olarak ayarla"
-        accept=image/jpeg,image/png,image/jpg,image/tif,image/tiff>
+        accept=image/jpeg,image/png,image/jpg,image/tif,image/tiff
+        @upload-success="uploadImageSuccess"
+        @before-remove="beforeRemove"
+>
       </vue-upload-multiple-image>
     </div>
 
@@ -47,8 +47,14 @@
     <!--TEXTAREA-->
     <div class="input-group description-container">
       <label class="description-container-label" for="description">İlan Açıklaması</label>
-      <textarea class="description-container-input" placeholder="İlan açıklamanızı buraya yazın" v-model="description"
-        name="description" cols="30" rows="10" />
+      <textarea
+        v-model="description"
+        class="description-container-input"
+        placeholder="İlan açıklamanızı buraya yazın"
+        name="description"
+        cols="30"
+        rows="10"
+      />
     </div>
 
     <div class="b-container">

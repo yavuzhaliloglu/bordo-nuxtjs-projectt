@@ -15,9 +15,6 @@
                 required:true
             }
         },
-        created(){
-            console.log(this.content)
-        }
     }
 </script>
 

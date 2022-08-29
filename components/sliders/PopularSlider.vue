@@ -2,7 +2,11 @@
   <div class="slider my-3">
     <div class="swiper swiper2">
       <div v-if="$route.path === '/'" class="swiper-wrapper">
-        <div v-for="slide in sliderlist" :key="slide" class="swiper-slide">
+        <div
+          v-for="slide in sliderlist"
+          :key="slide.header"
+          class="swiper-slide"
+        >
           <SlidersPopularOneSlide :slide="slide" class="slider-content" />
         </div>
       </div>
@@ -10,7 +14,7 @@
       <div v-else class="swiper-wrapper">
         <div
           v-for="slide in sliderlist"
-          :key="slide"
+          :key="slide.header"
           class="swiper-slide pointer"
         >
           <SlidersPopularOneSlide :slide="slide" class="slider-content" />
@@ -29,7 +33,6 @@
 
 <script>
 import { Swiper, Navigation, Autoplay } from 'swiper'
-// import 'swiper/swiper-bundle.min.css'
 import 'swiper/swiper-bundle.css'
 
 export default {
@@ -37,7 +40,7 @@ export default {
   props: {
     sliderlist: {
       type: Array,
-      default:null
+      default: null
     },
     loop: {
       type: Boolean,
@@ -57,7 +60,6 @@ export default {
       setWrapperSize: true,
       spaceBetween: 20,
       slidesPerView: 1,
-      // autoHeight: true,
       modules: [Navigation, Autoplay],
       breakpoints: {
         776: {

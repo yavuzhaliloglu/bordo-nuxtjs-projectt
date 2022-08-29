@@ -1,5 +1,5 @@
 <template>
-  <div class="cont">
+  <div class="circle-container">
     <span class="circle"></span>
     <span class="mt-3">Yükleniyor...</span>
   </div>
