@@ -97,9 +97,6 @@ export default {
         squareMeters: Number(this.obj.defaults[0]),
         categoryPath: this.path,
         address: this.location,
-        interiorFeatures: this.features.interior,
-        externalFeatures: this.features.external,
-        locationFeatures: this.features.location,
       };
       if (this.$route.path === '/dashboard/newproperty/features/Konut') {
         baseObject.roomCount = this.obj.selects[0]
@@ -108,6 +105,9 @@ export default {
         baseObject.floor = Number(this.obj.defaults[2])
         baseObject.heatingType = this.obj.selects[2]
         baseObject.itemStatus = this.obj.selects[3]
+        baseObject.interiorFeatures = this.features.interior
+        baseObject.externalFeatures = this.features.external
+        baseObject.locationFeatures = this.features.location
         this.endpoint = 'advert/housing'
       }
       else if (this.$route.path === '/dashboard/newproperty/features/isyeri') {
@@ -117,11 +117,15 @@ export default {
         baseObject.floor = Number(this.obj.defaults[2])
         baseObject.heatingType = this.obj.selects[2]
         baseObject.itemStatus = this.obj.selects[3]
+        baseObject.interiorFeatures = this.features.interior
+        baseObject.externalFeatures = this.features.external
+        baseObject.locationFeatures = this.features.location
         this.endpoint = 'advert/workPlace'
       }
       else if(this.$route.path === '/dashboard/newproperty/features/Arsa'){
         baseObject.landStatus = this.obj.selects[0]
         baseObject.parcel = this.obj.defaults[1]
+        baseObject.locationFeatures = this.features.location
         this.endpoint = 'advert/land'
       }
       return baseObject
@@ -132,12 +136,11 @@ export default {
     },
     getLocation(value) {
       this.location = value
-      console.log(this.location);
     },
     getFeatures(value) {
       this.features = value
     },
-    uploadImageSuccess(formData, index, fileList) {
+    uploadImageSuccess(formData, index) {
       const object = {
         image: formData.get("file")
       }
@@ -147,8 +150,6 @@ export default {
       this.$API.post.postImage(fd).then(response => {
         this.imagestosend[index] = response.data.data.remoteId
       })
-
-
     },
     beforeRemove(index, done) {
       const r = confirm("Resmi silmek istediğinizden emin misiniz?")

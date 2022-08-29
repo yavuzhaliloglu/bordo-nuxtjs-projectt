@@ -11,6 +11,8 @@
         </p>
       </ProfileHeader>
       <div
+        :per-page="perPage"
+        :current-page="currentPage"
         class="d-flex justify-content-start align-items-start flex-wrap w-100"
       >
         <CommonAdvertCard
@@ -19,6 +21,13 @@
           :card="card"
         />
       </div>
+      <b-pagination
+        v-model="currentPage"
+        class="myadverts-pagination"
+        :total-rows="9"
+        :per-page="3"
+        :hide-goto-end-buttons="true"
+      ></b-pagination>
     </div>
   </div>
 </template>
@@ -28,15 +37,22 @@ export default {
   name: 'ProfileMyAdverts',
   data() {
     return {
-      cards: []
+      cards: [],
+      perPage: 3,
+      currentPage: 1
     }
   },
-  created() {
-    this.getAdverts()
+  watch: {
+    currentPage () {
+      this.getAdverts(this.currentPage)
+    }
+  },
+  created(){
+    this.getAdverts(this.currentPage)
   },
   methods: {
-    getAdverts() {
-      this.$API.adverts.getAdverts().then((res) => {
+    getAdverts(currentPage) {
+      this.$API.adverts.getAdverts(currentPage,this.perPage).then((res) => {
         this.cards = res.data.data.cards
       })
     }

@@ -34,7 +34,7 @@ export default {
         return {
         social: ['facebook', 'instagram', 'twitter', 'youtube'],
             links: [
-                { header: 'Project', items: ['Houses', 'Rooms', 'Flats', 'Apartments'] },
+                { header: 'Project', items: ['Houses', ' ', 'Flats', 'Apartments'] },
                 { header: 'Company', items: ['How we work?', 'Capital', 'Security'] },
                 { header: 'Movement', items: ['Who we are', 'Support us'] },
                 { header: 'Help', items: ['Privacy', 'Condition', 'Blog', 'FAQs'] },                

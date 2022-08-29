@@ -34,7 +34,7 @@
         <button class="advertcard-buttons-item edit">
           İlanı Düzenle
         </button>
-        <button class="advertcard-buttons-item delete">
+        <button @click="deleteAdvert(card.id)" class="advertcard-buttons-item delete">
           İlanı Sil
         </button>
       </div>
@@ -61,6 +61,9 @@ export default {
         return moment(value).format('DD.MM.YYYY')
       }
     },
+    deleteAdvert(cardId){
+      this.$API.adverts.deleteAdvert(cardId)
+    }
   }
 }
 </script>

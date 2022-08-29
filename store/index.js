@@ -77,6 +77,7 @@ export const state = () => ({
       }
     ]
   }
+  // veriler backend
   // residence: {
   //   selectInputs: [
   //     {

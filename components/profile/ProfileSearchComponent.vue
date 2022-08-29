@@ -80,6 +80,8 @@
           </option>
         </select>
       </div>
+
+      <button v-if="this.$route.path === '/dashboard'">Ara</button>
     </div>
   </div>
 </template>

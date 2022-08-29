@@ -27,7 +27,9 @@
         </div>
       </div>
     </div>
-
+<!--RECURSİVE ARAŞTIR-->
+<!--disabled-->
+<!---->
     <button v-if="isClicked" @click="changePage">Bir sonraki adım</button>
   </div>
 </template>

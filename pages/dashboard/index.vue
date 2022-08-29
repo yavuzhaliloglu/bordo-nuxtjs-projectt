@@ -5,7 +5,9 @@
                 <h1 slot="header">Merhaba, {{ $auth.user.data.userName }}</h1>
                 <p slot="text">Yeni emlakları keşfet, ilan ver, mesajlaş</p>
             </ProfileHeader>
-            <ProfileSearch />
+            <ProfileSearchComponent>
+            </ProfileSearchComponent>
+
             <ProfileFavAdvert />
         </div>
         <ProfilePropertyDetail />
@@ -21,4 +23,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+// scss leri buraya import et
 </style>
