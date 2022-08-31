@@ -37,7 +37,7 @@
         <button class="advertcard-buttons-item edit">İlanı Düzenle</button>
         <button
           class="advertcard-buttons-item delete"
-          @click="deleteAdvert(card.id)"
+          @click="deleteAdvert(card._id)"
         >
           İlanı Sil
         </button>
@@ -66,6 +66,7 @@ export default {
       }
     },
     deleteAdvert(cardId) {
+      console.log(cardId)
       this.$API.adverts.deleteAdvert(cardId)
     }
   }

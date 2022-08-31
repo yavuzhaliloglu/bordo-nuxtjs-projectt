@@ -60,8 +60,9 @@ export default {
       await this.$API.adverts
         .getAdverts(currentPage, this.perPage)
         .then((res) => {
-          this.cards = res.data.data.cards
+          this.cards = res.data.data
           this.isLoading = false
+          console.log(res)
         })
     }
   }

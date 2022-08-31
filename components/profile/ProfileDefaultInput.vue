@@ -114,7 +114,7 @@ export default {
         baseObject.interiorFeatures = this.features.interior
         baseObject.externalFeatures = this.features.external
         baseObject.locationFeatures = this.features.location
-        this.endpoint = 'advert/housing'
+        this.endpoint = 'adverts/housing'
       }
       else if (this.$route.path === '/dashboard/newproperty/features/isyeri') {
         baseObject.roomCount = this.obj.selects[0]
@@ -126,13 +126,13 @@ export default {
         baseObject.interiorFeatures = this.features.interior
         baseObject.externalFeatures = this.features.external
         baseObject.locationFeatures = this.features.location
-        this.endpoint = 'advert/workPlace'
+        this.endpoint = 'adverts/workPlace'
       }
       else if(this.$route.path === '/dashboard/newproperty/features/Arsa'){
         baseObject.landStatus = this.obj.selects[0]
         baseObject.parcel = this.obj.defaults[1]
         baseObject.locationFeatures = this.features.location
-        this.endpoint = 'advert/land'
+        this.endpoint = 'adverts/land'
       }
       return baseObject
     },

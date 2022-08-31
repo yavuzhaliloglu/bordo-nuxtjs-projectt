@@ -9,13 +9,9 @@
 </template>
 
 <script>
-
-
-
-
 export default {
-  name: "IndexPage",
-  layout: "DefaultLayout",
+  name: 'IndexPage',
+  layout: 'DefaultLayout'
 }
 </script>
 

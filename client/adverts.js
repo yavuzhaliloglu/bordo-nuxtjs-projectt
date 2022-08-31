@@ -1,11 +1,10 @@
 export default (axios) => ({
   getAdverts: (currentPage, psize, parameters = {}) => {
-    return axios.get('advert/getByUser', {
+    return axios.get('adverts/user', {
       params: { page: currentPage, pageSize: psize }
     })
   },
   deleteAdvert: (cardId, parameters = {}) => {
-    // return axios.delete(`advert/${cardId}`)
-    console.log(cardId)
+    return axios.delete(`adverts/${cardId}`)
   }
 })

@@ -3,15 +3,15 @@ export default {
   head: {
     title: 'bordo-nuxtjs-project',
     htmlAttrs: {
-      lang: 'en',
+      lang: 'en'
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
-      { name: 'format-detection', content: 'telephone=no' },
+      { name: 'format-detection', content: 'telephone=no' }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -34,7 +34,8 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     // https://go.nuxtjs.dev/eslint
-    '@nuxtjs/eslint-module', '@nuxtjs/fontawesome'
+    '@nuxtjs/eslint-module',
+    '@nuxtjs/fontawesome'
   ],
 
   fontawesome: {
@@ -53,8 +54,8 @@ export default {
     '@nuxtjs/auth-next'
   ],
 
-  server:{
-    port:8000
+  server: {
+    port: 8000
   },
 
   auth: {
@@ -67,21 +68,21 @@ export default {
           type: 'bearer'
         },
         user: {
-          property: '',
+          property: ''
           // autoFetch: true
         },
         endpoints: {
-          login: { url: 'user/login', method: 'post'},
-          logout: { url: 'user/logout', method: 'delete' }, // method delete olacak
-          user: { url: 'user/profile', method: 'get' }
+          login: { url: 'users/login', method: 'post' },
+          logout: { url: 'users/logout', method: 'delete' }, // method delete olacak
+          user: { url: 'users/profile', method: 'get' }
         }
       }
     },
     redirect: {
-      "login": "/signin",
-      "logout": "/",
-      "home": "/",
-      "callback": "/"
+      login: '/signin',
+      logout: '/',
+      home: '/',
+      callback: '/'
     }
   },
   router: {
@@ -91,9 +92,9 @@ export default {
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: 'https://estate-bordo-55.herokuapp.com/',
+    baseURL: 'https://806b-78-163-58-28.eu.ngrok.io/'
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
+  build: {}
 }
