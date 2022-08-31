@@ -1,25 +1,49 @@
 <template>
-  <div class="d-flex justify-content-center align-items-start my-3">
+  <div class="detail d-flex justify-content-center align-items-start my-3">
     <div class="detail-main">
-      <h1>{{ advert.title }}</h1>
+      <h1 class="detail-main__title">{{ advert.title }}</h1>
 
-      <img :src="require(`~/assets/images/${advert.images[0].url}.jpg`)" alt="">
+      <img
+        class="detail-main__img"
+        :src="require(`~/assets/images/${advert.images[0].url}.jpg`)"
+        alt=""
+      />
 
       <div class="detail-main__location">
         <p>
           <font-awesome-icon class="mr-1" icon="fa-solid fa-location-dot" />
-          <span>{{advert.location.city.name}} - </span>
-          <span>{{advert.location.district.name}} - </span>
-          <span>{{advert.location.town.name}}</span>
+          <span>{{ advert.location.city.name }} - </span>
+          <span>{{ advert.location.district.name }} - </span>
+          <span>{{ advert.location.town.name }}</span>
         </p>
       </div>
 
       <div class="detail-main__info">
-        
+        <h3>İlan Bilgileri</h3>
+        <div class="detail-main__info__container">
+          <div class="detail-main__info__container__item">
+            <p>Net Metrekare: {{ advert.squareMeters }} m²</p>
+          </div>
+          <div class="detail-main__info__container__item">
+            <p>Brüt Metrekare: {{ advert.netSquareMeters }} m²</p>
+          </div>
+          <div class="detail-main__info__container__item">
+            <p>Oda Sayısı: {{ advert.roomCount }} m²</p>
+          </div>
+          <div class="detail-main__info__container__item">
+            <p>Bina Yaşı: {{ advert.buildingAge }} m²</p>
+          </div>
+          <div class="detail-main__info__container__item">
+            <p>Bulunduğu Kat: {{ advert.floor }} m²</p>
+          </div>
+          <div class="detail-main__info__container__item">
+            <p>Isıtma Tipi: {{ advert.squareMeters }} m²</p>
+          </div>
+        </div>
       </div>
     </div>
     <div class="detail-aside">
-      <h2>{{ advert.price }} ₺</h2>
+      <h2 class="detail-aside__price">{{ advert.price }} ₺</h2>
     </div>
   </div>
 </template>

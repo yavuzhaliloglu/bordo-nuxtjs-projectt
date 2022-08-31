@@ -1,8 +1,8 @@
-@use '/assets/scss/variables/reset' as *;
-@use '/assets/scss/variables/variables' as *;
 
-@import '/assets/scss/components/common/advertcard';
-@import '/assets/scss/components/common/iconfeatures';
+@use '/assets/scss/variables/variables'  as *;
+
+@use '/assets/scss/components/common/advertcard';
+@use '/assets/scss/components/common/iconfeatures';
 
 .myadverts {
     background-color: $lightblack;

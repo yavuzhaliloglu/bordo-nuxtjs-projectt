@@ -6,5 +6,8 @@ export default (axios) => ({
   },
   deleteAdvert: (cardId, parameters = {}) => {
     return axios.delete(`adverts/${cardId}`)
+  },
+  getSingleAdvert: (id, parameters = {}) => {
+    return axios.get(`adverts/${id}`)
   }
 })

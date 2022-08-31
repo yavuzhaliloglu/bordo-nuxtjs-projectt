@@ -1,12 +1,12 @@
-@import '/assets/scss/components/common/profilenavbar';
-@import '/assets/scss/components/profile/propertydetail';
-@import '/assets/scss/components/profile/profilesearch';
-@import '/assets/scss/components/profile/profileheader';
-@import '/assets/scss/components/profile/profilefavadvert';
-@import '/assets/scss/components/profile/profilepropertyinfo';
-@import '/assets/scss/components/profile/profiledetailuser';
+@use '/assets/scss/components/common/profilenavbar' as *;
+@use '/assets/scss/components/profile/propertydetail' as *;
+@use '/assets/scss/components/profile/profilesearch' as *;
+@use '/assets/scss/components/profile/profileheader' as *;
+@use '/assets/scss/components/profile/profilefavadvert' as *;
+@use '/assets/scss/components/profile/profilepropertyinfo' as *;
+@use '/assets/scss/components/profile/profiledetailuser' as *;
 
-@import '/assets/scss/variables/variables';
+@use '/assets/scss/variables/variables' as *;
 
 .dashboard{
     width: 80%;

@@ -9,28 +9,35 @@
 
     li {
         outline: none !important;
-        span,button{
-            background-color: $extralightblack !important;
-            color: $white !important;
+
+        span,
+        button {
+            background-color: $extralightblack  !important;
+            color: $white  !important;
             outline: none !important;
-            &:hover, &:focus, &:visited, &:link{
-                background-color: $thirdcolor !important;
+
+            &:hover,
+            &:focus,
+            &:visited,
+            &:link {
+                background-color: $thirdcolor  !important;
                 outline: none !important;
             }
         }
     }
 }
 
-.page-item.active .page-link{
+.page-item.active .page-link {
     border: 1px solid $white;
-    background-color: $thirdcolor !important;
-}   
+    background-color: $thirdcolor  !important;
+}
 
 .advertcard {
     width: 30%;
     margin: 30px 10px;
     box-shadow: 4px 4px 6px 1px darken($extralightblack, 10%);
     border-radius: 20px;
+    cursor: pointer;
 
     div {
         margin: 10px 0;
@@ -38,10 +45,13 @@
         &:first-child {
             margin: 0;
         }
+
     }
 
-    &:hover {
-        background-color: $extralightblack;
+    div  {
+        &:hover {
+            // background-color: $extralightblack;
+        }
     }
 
     &-img {
@@ -59,7 +69,6 @@
     }
 
     &-title {
-        // margin: 10px 0;
 
         &-text {
             width: 100%;
@@ -71,8 +80,6 @@
     }
 
     &-price {
-
-        // margin: 10px 0;
         &-text {
             font-size: 18px;
             margin: 0;
@@ -80,7 +87,6 @@
     }
 
     &-location {
-        // margin: 10px 0;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -95,11 +101,12 @@
     }
 
     &-buttons {
+        border-top: 1px solid lighten($black, 20%);
+        padding-top: 10px;
         display: flex;
         justify-content: space-between;
         align-items: center;
 
-        // margin: 10px 0;
         &-item {
             font-size: 14px;
             font-weight: normal;

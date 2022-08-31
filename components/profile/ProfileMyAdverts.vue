@@ -19,6 +19,7 @@
         class="d-flex justify-content-start align-items-start flex-wrap w-100"
       >
         <CommonAdvertCard
+
           v-for="card in cards"
           :key="card.image"
           :card="card"
@@ -27,7 +28,7 @@
       <b-pagination
         v-model="currentPage"
         class="myadverts-pagination"
-        :total-rows="9"
+        :total-rows="totalPage*3"
         :per-page="3"
         :hide-goto-end-buttons="true"
       ></b-pagination>
@@ -42,8 +43,15 @@ export default {
     return {
       cards: [],
       perPage: 3,
-      currentPage: 1,
-      isLoading: false
+      currentPage:1,
+      totalPage: null,
+      isLoading: false,
+
+    }
+  },
+  computed: {
+    visibleCards() {
+      return this.cards
     }
   },
   watch: {
@@ -62,9 +70,10 @@ export default {
         .then((res) => {
           this.cards = res.data.data
           this.isLoading = false
-          console.log(res)
+          this.totalPage = res.data.pagination.totalPage
         })
-    }
+    },
+
   }
 }
 </script>

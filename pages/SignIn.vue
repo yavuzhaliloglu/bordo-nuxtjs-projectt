@@ -84,5 +84,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+@import '/assets/scss/pages/signin.scss';
 </style>
