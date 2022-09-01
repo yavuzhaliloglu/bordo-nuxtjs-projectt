@@ -1,5 +1,5 @@
 export default (axios) => ({
-  getAdverts: (currentPage, psize, parameters = {}) => {
+  getAdverts: (currentPage, psize , parameters = {}) => {
     return axios.get('adverts/user', {
       params: { page: currentPage, pageSize: psize }
     })

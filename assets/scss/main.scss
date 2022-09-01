@@ -1,7 +1,9 @@
-@use '/assets/scss/pages/signin.scss' as *;
-@use '/assets/scss/pages/index.scss' as *;
-@use '/assets/scss/pages/dashboard.scss' as *;
-@use '/assets/scss/pages/newproperty.scss' as *;
-@use '/assets/scss/pages/features.scss' as *;
-@use '/assets/scss/pages/myadverts.scss' as *;
-@use '/assets/scss/components/common/loadingcircle' as *;
+@use '/assets/scss/pages/signin.scss';
+@use '/assets/scss/pages/index.scss';
+@use '/assets/scss/pages/dashboard.scss';
+@use '/assets/scss/pages/newproperty.scss';
+@use '/assets/scss/pages/features.scss';
+@use '/assets/scss/pages/myadverts.scss';
+@use '/assets/scss/components/common/loadingcircle';
+@use '/assets/scss/pages/singleadvert.scss';
+@use '/assets/scss/pages/profile.scss';
