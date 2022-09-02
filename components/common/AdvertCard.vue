@@ -35,14 +35,19 @@
         </div>
       </div>
     </div>
-    <div class="advertcard-buttons container">
-      <button class="advertcard-buttons-item edit">İlanı Düzenle</button>
-      <button
-        class="advertcard-buttons-item delete"
-        @click="deleteAdvert(card._id)"
-      >
-        İlanı Sil
-      </button>
+    <div class="container">
+      <div v-if="!isMainDashboard" class="advertcard-buttons">
+        <button class="advertcard-buttons-item edit">İlanı Düzenle</button>
+        <button
+          class="advertcard-buttons-item delete"
+          @click="deleteAdvert(card._id)"
+        >
+          İlanı Sil
+        </button>
+      </div>
+      <div v-if="$route.path === '/dashboard'">
+        <button @click="updateDetail(card)">detay</button>
+      </div>
     </div>
   </div>
 </template>
@@ -60,6 +65,11 @@ export default {
   data() {
     return {}
   },
+  computed: {
+    isMainDashboard() {
+      return this.$route.path === '/' || this.$route.path === '/dashboard'
+    }
+  },
   methods: {
     format_date(value) {
       if (value) {
@@ -70,7 +80,11 @@ export default {
       this.$API.adverts.deleteAdvert(cardId)
     },
     print(id) {
-      this.$router.push(`/advert/${id}`);
+      this.$router.push(`/advert/${id}`)
+    },
+    updateDetail(card) {
+      this.$store.commit('UPDATE_DETAIL', card)
+      console.log(card)
     }
   }
 }

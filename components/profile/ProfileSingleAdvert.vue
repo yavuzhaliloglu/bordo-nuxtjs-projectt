@@ -1,5 +1,5 @@
 <template>
-  <div class="container my-4">
+  <div class="container my-5">
     <div class="row">
       <div class="col-lg-8">
         <div class="container advert-main py-4">
@@ -39,7 +39,7 @@
             <p>{{ advert.description }}</p>
           </div>
 
-          <div class="advert-main__feature my-5">
+          <div v-if="advert.type !== 'Arsa'" class="advert-main__feature my-5">
             <h5>İç Özellikler</h5>
             <ul class="row">
               <li
@@ -54,7 +54,7 @@
             </ul>
           </div>
 
-          <div class="advert-main__feature my-5">
+          <div v-if="advert.type !== 'Arsa'" class="advert-main__feature my-5">
             <h5>Dış Özellikler</h5>
             <ul class="row">
               <li
@@ -70,7 +70,7 @@
           </div>
 
           <div class="advert-main__feature my-5">
-            <h5>Lokasyon Özellikleri</h5>
+            <h5>Konum Özellikleri</h5>
             <ul class="row">
               <li
                 v-for="feature in advert.locationFeatures"
@@ -155,7 +155,9 @@
             </p>
           </div>
           <div class="advert-info-user">
-            <div class="d-flex flex-row align-items-start justify-content-between">
+            <div
+              class="d-flex flex-row align-items-start justify-content-between"
+            >
               <p>{{ advert.user.userName }}</p>
               <button class="ml-3">Mesaj At</button>
             </div>

@@ -16,19 +16,16 @@
         v-else
         :per-page="perPage"
         :current-page="currentPage"
-        class="d-flex justify-content-start align-items-start flex-wrap w-100"
+        class="row w-100"
       >
-        <CommonAdvertCard
-
-          v-for="card in cards"
-          :key="card.image"
-          :card="card"
-        />
+        <div v-for="card in cards" :key="card" class="container col-4">
+          <CommonAdvertCard :card="card" />
+        </div>
       </div>
       <b-pagination
         v-model="currentPage"
         class="myadverts-pagination"
-        :total-rows="totalPage*3"
+        :total-rows="totalPage * 3"
         :per-page="3"
         :hide-goto-end-buttons="true"
       ></b-pagination>
@@ -43,10 +40,9 @@ export default {
     return {
       cards: [],
       perPage: 3,
-      currentPage:1,
+      currentPage: 1,
       totalPage: null,
-      isLoading: false,
-
+      isLoading: false
     }
   },
   computed: {
@@ -72,8 +68,7 @@ export default {
           this.isLoading = false
           this.totalPage = res.data.pagination.totalPage
         })
-    },
-
+    }
   }
 }
 </script>

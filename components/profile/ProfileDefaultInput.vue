@@ -14,6 +14,7 @@
     <div class="input-group multiple-image my-3">
       <vue-upload-multiple-image
         :data-images="images"
+        maxImage="15"
         idUpload="myIdUpload"
         dragText="Resim sürükleyin"
         browseText="(veya tıklayarak arayın)"

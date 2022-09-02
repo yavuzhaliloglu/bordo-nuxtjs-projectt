@@ -1,24 +1,14 @@
 <template>
   <div class="slider my-3">
     <div class="swiper swiper2">
-      <div v-if="$route.path === '/'" class="swiper-wrapper">
+      <div class="swiper-wrapper">
         <div
           v-for="slide in sliderlist"
-          :key="slide.header"
+          :key="slide.price"
           class="swiper-slide"
         >
-          <SlidersPopularOneSlide :slide="slide" class="slider-content" />
-        </div>
+        <CommonAdvertCard :card="slide" />
       </div>
-
-      <div v-else class="swiper-wrapper">
-        <div
-          v-for="slide in sliderlist"
-          :key="slide.header"
-          class="swiper-slide pointer"
-        >
-          <SlidersPopularOneSlide :slide="slide" class="slider-content" />
-        </div>
       </div>
     </div>
 
