@@ -47,7 +47,9 @@
                 :key="feature.id"
                 class="col-4"
               >
-                {{ feature.item }}
+                <div>
+                  {{ feature.item }}
+                </div>
               </li>
             </ul>
           </div>
@@ -60,7 +62,9 @@
                 :key="feature.id"
                 class="col-4"
               >
-                {{ feature.item }}
+                <div>
+                  {{ feature.item }}
+                </div>
               </li>
             </ul>
           </div>
@@ -73,7 +77,9 @@
                 :key="feature.id"
                 class="col-4"
               >
-                {{ feature.item }}
+                <div>
+                  {{ feature.item }}
+                </div>
               </li>
             </ul>
           </div>
@@ -148,10 +154,11 @@
               Parsel: <span>{{ advert.parcel }}</span>
             </p>
           </div>
-
-          <div class="advert-info-user d-flex flex-row align-items-center">
-            <p>{{ advert.user.userName }}</p>
-            <button class="ml-3">Mesaj At</button>
+          <div class="advert-info-user">
+            <div class="d-flex flex-row align-items-start justify-content-between">
+              <p>{{ advert.user.userName }}</p>
+              <button class="ml-3">Mesaj At</button>
+            </div>
           </div>
         </div>
       </div>
