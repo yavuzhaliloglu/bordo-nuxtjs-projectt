@@ -81,7 +81,7 @@
         </select>
       </div>
 
-      <button v-if="this.$route.path === '/dashboard'">Ara</button>
+      <button v-if="$route.path === '/dashboard'">Ara</button>
     </div>
   </div>
 </template>

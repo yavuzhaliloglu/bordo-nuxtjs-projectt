@@ -1,6 +1,7 @@
 <template>
   <div>
-    <ProfileSingleAdvert :advert="singleAdvert" :address="address" :images="images" />
+    <CommonLoadingCircle v-if="isLoading" />
+    <ProfileSingleAdvert v-else :advert="singleAdvert" />
   </div>
 </template>
 
@@ -10,13 +11,8 @@ export default {
   data() {
     return {
       id: this.$route.params.id,
+      isLoading: false,
       singleAdvert: {},
-      address: {
-        city: {},
-        district: {},
-        town: {}
-      },
-      images:[]
     }
   },
   created() {
@@ -24,12 +20,10 @@ export default {
   },
   methods: {
     getSingleAdvert(id) {
+      this.isLoading = true
       this.$API.adverts.getSingleAdvert(id).then((res) => {
         this.singleAdvert = res.data.data[0]
-        this.address.city = res.data.data[0].address.city
-        this.address.district = res.data.data[0].address.district
-        this.address.town = res.data.data[0].address.town
-        this.images = res.data.data[0].images
+        this.isLoading = false
       })
     }
   }

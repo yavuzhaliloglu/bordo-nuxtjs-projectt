@@ -60,7 +60,6 @@ export default {
   data() {
     return {}
   },
-  created() {},
   methods: {
     format_date(value) {
       if (value) {

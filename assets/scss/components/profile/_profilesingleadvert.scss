@@ -1,7 +1,15 @@
 @use '/assets/scss/variables/variables' as *;
 
 .swiper-container {
-    width: 60%;
+    width: 100%;
+    background-color: $extralightblack;
+    // border:1px solid  $thirdcolor;
+    border-radius: 10px;
+
+    img {
+        width: 100%;
+        height: 100%;
+    }
 }
 
 .mySwiper2 {
@@ -9,21 +17,82 @@
 
     .swiper-slide {
         img {
-            height: 100%;
-            width: 100%;
+            border-radius: 10px;
         }
     }
-
 }
 
 .mySwiper {
     margin-top: 20px;
     height: 20vh;
+}
 
-    .swiper-slide {
-        img {
+.advert-main {
+    background-color: $lightblack;
+    border-radius: 16px;
+
+    &__description {
+        background-color: $extralightblack;
+        border-radius: 10px;
+
+        h5 {
+            background-color: $thirdcolor;
+            padding: 20px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        p {
+            padding: 20px;
             width: 100%;
-            height: 100%;
         }
     }
+
+    &__feature {
+        background-color: $extralightblack;
+        border-radius: 10px;
+
+        h5 {
+            background-color: $thirdcolor;
+            padding: 20px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        ul {
+            padding: 10px;
+            
+            li {
+                background-color: lighten($extralightblack, 10%);
+                padding: 8px;
+                border-radius: 8px;
+                text-align: center;
+                margin: 8px 0;    
+            }
+        }
+    }
+}
+
+
+.advert-info {
+    background-color: $lightblack;
+    // padding: 30px;
+    border-radius: 16px;
+
+    p {
+        padding-bottom: 16px;
+        border-bottom: 1px solid lighten($extralightblack, 10%);
+        color: $thirdcolor;
+        font-weight: bold;
+    }
+
+    &__price {
+        font-size: 26px;
+        color: $white  !important;
+    }
+
+    &__location {
+        color: $white  !important;
+    }
+
 }
