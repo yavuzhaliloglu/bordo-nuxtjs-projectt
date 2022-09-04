@@ -18,7 +18,7 @@
         :current-page="currentPage"
         class="row w-100"
       >
-        <div v-for="card in cards" :key="card" class="container col-4">
+        <div v-for="card in cards" :key="card" class="container col-md-4 col-sm-6">
           <CommonAdvertCard :card="card" />
         </div>
       </div>

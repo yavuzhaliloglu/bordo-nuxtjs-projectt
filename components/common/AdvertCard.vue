@@ -46,7 +46,7 @@
         </button>
       </div>
       <div v-if="$route.path === '/dashboard'">
-        <button @click="updateDetail(card)">detay</button>
+        <button class="radiusbutton" @click="updateDetail(card)">detay</button>
       </div>
     </div>
   </div>
@@ -84,7 +84,6 @@ export default {
     },
     updateDetail(card) {
       this.$store.commit('UPDATE_DETAIL', card)
-      console.log(card)
     }
   }
 }

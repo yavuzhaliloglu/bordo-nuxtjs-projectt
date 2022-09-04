@@ -4,6 +4,8 @@
 
 .swiper {
     overflow: hidden;
+
+    &-wrapper {}
 }
 
 .swiper-slide {
@@ -28,7 +30,6 @@
 
         &-content {
             width: 100%;
-
             &-header {
                 h5 {
                     width: 100%;

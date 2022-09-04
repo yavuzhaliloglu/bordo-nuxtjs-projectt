@@ -1,7 +1,6 @@
 @use '../variables/variables' as *;
 
 * {
-    color: $white;
     transition: .4s ease all;
     padding: 0;
     margin: 0;
@@ -11,6 +10,27 @@
 body {
     background-color: $black;
     font-family: 'Poppins', sans-serif;
+    color: $white;
+}
+
+.link,
+button {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.link {
+}
+
+.indexlink{
+    background-color: $thirdcolor;
+    padding: 18px 22px;
+}
+
+.radiusbutton{
+    background-color: $thirdcolor;
+    padding: 12px 14px;
+    border-radius: 8px;
 }
 
 a {
@@ -19,8 +39,14 @@ a {
 
     &:hover {
         color: $white;
-
     }
+}
+
+button {
+    border: none;
+    color: $white;
+    background-color: $thirdcolor;
+    padding: 10px;
 }
 
 h1,
@@ -48,7 +74,6 @@ h3 {
 p {
     font-size: 14px;
     line-height: 1.75;
-    // margin: 0;
 }
 
 @media screen and (max-width:$sm) {
@@ -59,14 +84,6 @@ p {
     h2 {
         font-size: 26px;
     }
-}
-
-button {
-    background-color: $thirdcolor;
-    padding: 18px 26px;
-    font-size: 16px;
-    font-weight: bold;
-    border: none;
 }
 
 .common-input {
@@ -81,7 +98,7 @@ button {
 
     &::placeholder {
         color: $white;
-        // opacity: .8;
+
     }
 
 }
@@ -102,10 +119,6 @@ button {
     }
 }
 
-.nav-button {
-    background-color: $thirdcolor;
-    padding: 10px 12px;
-}
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -114,15 +127,11 @@ input::-webkit-inner-spin-button {
 }
 
 
-.nuxtlink {
-    @extend button
-}
-
-ul{
+ul {
     width: 100%;
     margin: 0 !important;
-    li{
+
+    li {
         list-style-type: none;
-        list-style-position: outside;
     }
 }

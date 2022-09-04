@@ -31,13 +31,16 @@ export default {
   name: 'IconFeatures',
   props: {
     type: {
-      type: String
+      type: String,
+      default: null
     },
     sqm: {
-      type: Number
+      type: Number,
+      default: null
     },
     date: {
-      type: String
+      type: String,
+      default: null
     }
   }
 }

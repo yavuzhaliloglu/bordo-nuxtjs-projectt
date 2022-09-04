@@ -7,8 +7,8 @@
           :key="slide.price"
           class="swiper-slide"
         >
-        <CommonAdvertCard :card="slide" />
-      </div>
+          <CommonAdvertCard :card="slide" />
+        </div>
       </div>
     </div>
 
@@ -48,6 +48,7 @@ export default {
       direction: 'horizontal',
       loop: this.loop,
       setWrapperSize: true,
+      roundLengths:true,
       spaceBetween: 20,
       slidesPerView: 1,
       modules: [Navigation, Autoplay],
@@ -76,11 +77,6 @@ export default {
       const buttonright = document.querySelector('.swiper-button-next-unique')
       buttonleft.style.display = 'none'
       buttonright.style.display = 'none'
-    }
-  },
-  methods: {
-    onSwiper: (swiper) => {
-      console.log(swiper)
     }
   }
 }

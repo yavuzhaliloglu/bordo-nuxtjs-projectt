@@ -38,7 +38,7 @@
     box-shadow: 4px 4px 6px 1px darken($extralightblack, 10%);
     border-radius: 20px;
     cursor: pointer;
-
+    background-color: $extralightblack;
     div {
         margin: 10px 0;
 
@@ -48,15 +48,9 @@
 
     }
 
-    div  {
-        &:hover {
-            // background-color: $extralightblack;
-        }
-    }
-
     &-img {
         width: 100%;
-        aspect-ratio: 1 / 1;
+        aspect-ratio: 1 / .8;
         border-top-left-radius: 20px;
         border-top-right-radius: 20px;
 
@@ -116,22 +110,22 @@
     }
 }
 
-@media screen and (max-width:$md) {
-    .advertcard {
-        width: 46%;
+// @media screen and (max-width:$md) {
+//     .advertcard {
+//         width: 46%;
 
-        &-img {
-            height: 30vh;
-        }
-    }
-}
+//         &-img {
+//             height: 30vh;
+//         }
+//     }
+// }
 
-@media screen and (max-width:$sm) {
-    .advertcard {
-        width: 100%;
+// @media screen and (max-width:$sm) {
+//     .advertcard {
+//         width: 100%;
 
-        &-img {
-            height: 50vh;
-        }
-    }
-}
+//         &-img {
+//             height: 50vh;
+//         }
+//     }
+// }

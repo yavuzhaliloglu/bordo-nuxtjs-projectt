@@ -4,7 +4,7 @@
       <h2 class="popular-residence-header text-center">Popular Residence</h2>
       <SlidersPopularSlider :sliderlist="sliderlist" :loop="loop" />
       <div class="text-center mt-5">
-        <LinksLinkComponent :text="text" :path="path" />
+        <LinksLinkComponent class="indexlink" :text="text" :path="path" />
       </div>
     </div>
   </div>
@@ -28,7 +28,6 @@ export default {
   methods: {
     getFav() {
       this.sliderlist = this.$auth.user.data.favorities
-      console.log(this.sliderlist)
     }
   }
 }

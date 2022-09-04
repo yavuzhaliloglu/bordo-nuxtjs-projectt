@@ -1,6 +1,6 @@
 <template>
     <div>
-        <button class="button" :type="type">
+        <button class=button :type="type">
             {{ text }}
         </button>
     </div>
@@ -16,6 +16,7 @@ export default {
         },
         type: {
             type: String,
+            default:null
         }
     }
 }

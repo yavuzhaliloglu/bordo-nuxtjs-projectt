@@ -35,6 +35,7 @@
         &-text {
             width: 90%;
             font-size: 18px;
+
             h1 {
                 margin-bottom: 32px;
             }
@@ -62,10 +63,9 @@
         &-content {
             width: 100%;
             text-align: center;
-            color: red;
             z-index: 999;
 
-            &-text{
+            &-text {
                 margin: auto;
             }
 

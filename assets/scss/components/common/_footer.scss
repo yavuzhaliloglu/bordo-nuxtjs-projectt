@@ -2,15 +2,15 @@
 @use '/assets/scss/variables/variables' as *;
 
 
-a {
-    color: darken($hoverwhite, 30%);
-
-    &:hover {
-        color: $white;
-    }
-}
 
 .footer {
+    a {
+        color: darken($hoverwhite, 30%);
+
+        &:hover {
+            color: $white;
+        }
+    }
     margin-bottom: 0;
     background-color: $footerbackground;
     font-size: 14px;

@@ -20,13 +20,16 @@ export default {
       required: true
     },
     value: {
-      type: String
+      type: String,
+      default: null
     },
     id: {
-      type: String
+      type: String,
+      default: null
     },
     title: {
-      type: String
+      type: String,
+      default: null
     }
   },
   methods: {

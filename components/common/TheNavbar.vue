@@ -1,97 +1,66 @@
 <template>
-  <nav class="container d-flex flex-row justify-content-between flex-wrap">
-    <span></span>
-    <div class="logo">
-      <nuxt-link class="logo-link" to="/">Rentiz</nuxt-link>
-    </div>
-
-    <div class="menu d-flex flex-row justify-content-between align-items-start">
-      <ul class="d-flex flex-row justify-content-evenly menu-list">
-        <li>
-          <nuxt-link class="home-link" to="/">Home</nuxt-link>
-        </li>
-        <li>
-          <nuxt-link to="/">About Us</nuxt-link>
-        </li>
-        <li>
-          <nuxt-link to="/">Buying</nuxt-link>
-        </li>
-        <li>
-          <nuxt-link to="/">Renting</nuxt-link>
-        </li>
-        <li>
-          <nuxt-link to="/">Selling</nuxt-link>
-        </li>
-        <li>
-          <nuxt-link to="/">Contact Us</nuxt-link>
-        </li>
-      </ul>
-
-      <div
-        v-if="$auth.loggedIn"
-        class="loggedin-buttons d-flex flex-row justify-content-between align-items-center"
-      >
-        <LinksLinkComponent
-          :path="pathprofile"
-          :text="$auth.user.data.userName"
-        />
-        <button class="logout-button" @click="$auth.logout()">
-          {{ text }}
-        </button>
+  <div class="container">
+    <nav class="d-flex justify-content-between align-items-center">
+      <div class="nav-logo">
+        <span></span>
+        <LinksLinkComponent :path="'/'" :text="'Rentiz'" />
       </div>
 
-      <div v-else class="buttons">
-        <nuxt-link to="/signin">Login</nuxt-link>
-        <nuxt-link to="/signup">Sign up</nuxt-link>
+      <div class="nav-menu">
+        <ul class="d-flex justify-content-evenly">
+          <li v-for="link in links" :key="link.path">
+            <LinksLinkComponent :path="link.path" :text="link.text" />
+          </li>
+        </ul>
       </div>
-    </div>
 
-    <!--MOBİLE MENU-->
-    <div id="hamburger-icon" @click="toggleMobileMenu()">
-      <div class="bar1" />
-      <div class="bar2" />
-      <div class="bar3" />
-
-      <ul class="menu-list mobile-menu">
-        <li>
-          <nuxt-link class="home-link" to="/">Home</nuxt-link>
-        </li>
-        <li>
-          <nuxt-link to="/">About Us</nuxt-link>
-        </li>
-        <li>
-          <nuxt-link to="/">Buying</nuxt-link>
-        </li>
-        <li>
-          <nuxt-link to="/">Renting</nuxt-link>
-        </li>
-        <li>
-          <nuxt-link to="/">Selling</nuxt-link>
-        </li>
-        <li>
-          <nuxt-link to="/">Contact Us</nuxt-link>
-        </li>
-        <div v-if="!$auth.loggedIn" class="w-100">
-          <li>
-            <nuxt-link to="/signin">Login</nuxt-link>
-          </li>
-          <li class="mt-2">
-            <nuxt-link class="nav-button" to="/signup">Sign up</nuxt-link>
-          </li>
+      <div class="nav-buttons">
+        <div
+          v-if="$auth.loggedIn"
+          class="d-flex justify-content-between align-items-center"
+        >
+          <LinksLinkComponent
+            :path="profilepath"
+            :text="$auth.user.data.userName"
+            class="nav-buttons__dashboard"
+          />
+          <button class="nav-buttons__logout" @click="$auth.logout()">
+            Log Out
+          </button>
         </div>
-        <div v-else class="w-100">
-          <li>
-            <nuxt-link to="/dashboard">{{
+
+        <div v-else>
+          <nuxt-link to="/signin">Login</nuxt-link>
+          <nuxt-link to="/signup">Sign up</nuxt-link>
+        </div>
+      </div>
+
+      <!--MOBİLE MENU-->
+      <div id="hamburger-icon" @click="toggleMobileMenu()">
+        <div class="bar bar1" />
+        <div class="bar bar2" />
+        <div class="bar bar3" />
+
+        <ul class="mobile-menu">
+          <li v-for="link in links" :key="link.path">
+            <LinksLinkComponent :path="link.path" :text="link.text" />
+          </li>
+
+          <div v-if="!$auth.loggedIn">
+            <nuxt-link to="/signin">Login</nuxt-link>
+            <nuxt-link to="/signup">Sign up</nuxt-link>
+          </div>
+
+          <div v-else class="d-flex flex-column justify-content-center align-items-center">
+            <nuxt-link class="mt-2" to="/dashboard">{{
               $auth.user.data.userName
             }}</nuxt-link>
-          </li>
-          <li class="mt-2">
-            <button class="nav-button" @click="$auth.logout()">Log Out</button>
-          </li>
-        </div>
-      </ul>
-    </div>
-  </nav>
+            <button @click="$auth.logout()">Log Out</button>
+          </div>
+        </ul>
+      </div>
+    </nav>
+  </div>
 </template>
 
 <script>
@@ -100,8 +69,33 @@ export default {
   data() {
     return {
       isClicked: false,
-      pathprofile: '/dashboard',
-      text: 'Log Out'
+      profilepath: '/dashboard',
+      links: [
+        {
+          path: '/',
+          text: 'Home'
+        },
+        {
+          path: '/',
+          text: 'About Us'
+        },
+        {
+          path: '/',
+          text: 'Buying'
+        },
+        {
+          path: '/',
+          text: 'Renting'
+        },
+        {
+          path: '/',
+          text: 'Selling'
+        },
+        {
+          path: '/',
+          text: 'Contact Us'
+        }
+      ]
     }
   },
   computed: {

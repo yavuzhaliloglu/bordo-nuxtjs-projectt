@@ -1,80 +1,127 @@
-// @use '/assets/scss/variables/reset' as *;
 @use '/assets/scss/variables/variables' as *;
 
 nav {
     padding: 30px 0;
     position: relative;
 
-    span {
-        position: absolute;
-        width: 26px;
-        height: 26px;
-        top: 24px;
-        left: 0px;
-        background-color: $thirdcolor;
-    }
+    .nav {
+        &-logo {
+            position: relative;
 
-    .logo {
-        width: 20%;
-        font-size: 26px;
-        z-index: 999;
-        background-color: transparent;
-
-        &:hover {
-            transform: scale(1.1);
-        }
-
-        &-link {
-            background-color: transparent;
-        }
-    }
-
-    .menu {
-        width: 80%;
-
-        &-list {
-            margin-left: 100px;
-
-            li {
-                list-style: none;
-                margin-right: 10px;
-                font-size: 16px;
-                margin-bottom: 10px;
-
-                .home-link {
-                    position: relative;
-
-                    &::before {
-                        content: '';
-                        position: absolute;
-                        bottom: -2px;
-                        left: 0;
-                        width: 100%;
-                        height: 4px;
-                        background-color: $thirdcolor;
-                    }
-                }
-
-                &:last-child {
-                    margin-left: 0;
-                }
+            span {
+                position: absolute;
+                display: inline-block;
+                z-index: -1;
+                bottom: 20px;
+                left: -16px;
+                width: 33px;
+                height: 33px;
+                background-color: $thirdcolor;
             }
-        }
-
-
-        .buttons {
-            font-size: 16px;
 
             a {
-                margin-left: 10px;
+                font-size: 30px;
+                color: $white;
+                display: inline-block;
 
-                &:last-child {
-                    background-color: $thirdcolor;
-                    padding: 8px 12px;
+                &:hover {
+                    transform: scale(1.1);
                 }
             }
         }
+
+        &-menu {
+            ul {
+                li {
+                    margin-right: 12px;
+
+                    &:last-child {
+                        margin: 0;
+                    }
+                }
+            }
+        }
+
+        &-buttons {
+            &__dashboard {
+                margin-right: 10px;
+            }
+        }
     }
+
+    // span {
+    //     position: absolute;
+    //     width: 26px;
+    //     height: 26px;
+    //     top: 24px;
+    //     left: 0px;
+    //     background-color: $thirdcolor;
+    // }
+
+    // .logo {
+    //     border: 1px solid blue;
+    //     width: 20%;
+    //     font-size: 26px;
+    //     z-index: 999;
+    //     background-color: transparent;
+
+    //     &:hover {
+    //         transform: scale(1.1);
+    //     }
+
+    //     &-link {
+    //         background-color: transparent;
+    //     }
+    // }
+
+    // .menu {
+    //     width: 80%;
+    //     border: 1px solid green;
+    //     &-list {
+    //         margin-left: 100px;
+
+    //         li {
+    //             list-style: none;
+    //             margin-right: 10px;
+    //             font-size: 16px;
+    //             margin-bottom: 10px;
+
+    //             .home-link {
+    //                 border: 1px solid yellow;
+    //                 position: relative;
+
+    //                 &::before {
+    //                     content: '';
+    //                     position: absolute;
+    //                     bottom: -2px;
+    //                     left: 0;
+    //                     width: 100%;
+    //                     height: 4px;
+    //                     background-color: $thirdcolor;
+    //                 }
+    //             }
+
+    //             &:last-child {
+    //                 margin-left: 0;
+    //             }
+    //         }
+    //     }
+
+
+    //     .buttons {
+    //         border: 1px solid pink;
+    //         font-size: 16px;
+
+    //         a {
+    //             margin-left: 10px;
+
+    //             &:last-child {
+    //                 background-color: $thirdcolor;
+    //                 padding: 8px 12px;
+    //             }
+    //         }
+    //     }
+    // }
 
 }
 
@@ -84,7 +131,7 @@ nav {
     display: none;
     cursor: pointer;
 
-    & div {
+    .bar {
         width: 35px;
         height: 3px;
         background-color: $thirdcolor;
@@ -120,6 +167,11 @@ nav {
     width: 90%;
     z-index: 9999;
     text-align: center;
+
+    li {
+        margin-top: 8px;
+    }
+
 }
 
 .mb {
@@ -127,27 +179,14 @@ nav {
 }
 
 @media screen and (max-width: $md) {
-    .menu {
+
+    .nav-menu,
+    .nav-buttons {
         display: none !important;
     }
 
     #hamburger-icon {
         display: block;
     }
-}
 
-.loggedin-buttons {
-    // border: 1px solid white;
-
-    a {
-        font-size: 14px !important;
-        padding: 6px 4px;
-        margin-right: 10px;
-        background-color: transparent;
-    }
-
-    button {
-        font-size: 14px !important;
-        padding: 6px 4px;
-    }
 }
