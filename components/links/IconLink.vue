@@ -1,7 +1,7 @@
 <template>
-  <a href="#">
+  <nuxt-link :to="path">
     <font-awesome-icon :icon="`fa-brands fa-${social}`" />
-  </a>
+  </nuxt-link>
 </template>
 
 <script>
@@ -11,6 +11,10 @@ export default {
     social: {
       type: String,
       default: null
+    },
+    path:{
+      type:String,
+      default:null,
     }
   },
   data() {
