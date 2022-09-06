@@ -90,11 +90,10 @@
         <div class="advert-info container py-4">
           <h3>{{ advert.title }}</h3>
           <p class="advert-info__price">₺ {{ advert.price }}</p>
-          <p class="advert-info__location">
-            <font-awesome-icon icon="fa-solid fa-location-dot" />
-            {{ advert.address.city.name }}, {{ advert.address.district.name }},
-            {{ advert.address.town.name }}
-          </p>
+          <CommonLocationComponent
+            class="text-white"
+            :address="advert.address"
+          />
           <p>
             Oluşturma Tarihi: <span>{{ format_date(advert.createdAt) }}</span>
           </p>
@@ -104,56 +103,8 @@
           <p>
             Metrekare: <span>{{ advert.squareMeters }} m²</span>
           </p>
+          <ProfileSingleInputs :type="advert.type" :advert="advert" />
 
-          <div v-if="advert.type === 'Konut'">
-            <p>
-              Bina Yaşı: <span>{{ advert.buildingAge }}</span>
-            </p>
-            <p>
-              Bulunduğu Kat: <span>{{ advert.floor }}</span>
-            </p>
-            <p>
-              Isıtma Tipi: <span>{{ advert.heatingType }}</span>
-            </p>
-            <p>
-              Eşya Durumu: <span>{{ advert.itemStatus }}</span>
-            </p>
-            <p>
-              Oda Sayısı: <span>{{ advert.roomCount }}</span>
-            </p>
-
-            <p>
-              Net Metrekare : <span>{{ advert.netSquareMeters }} m²</span>
-            </p>
-          </div>
-          <div v-if="advert.type === 'İş Yeri'">
-            <p>
-              Bina Yaşı: <span>{{ advert.buildingAge }}</span>
-            </p>
-            <p>
-              Bulunduğu Kat: <span>{{ advert.floor }}</span>
-            </p>
-            <p>
-              Isıtma Tipi: <span>{{ advert.heatingType }}</span>
-            </p>
-            <p>
-              Eşya Durumu: <span>{{ advert.itemStatus }}</span>
-            </p>
-            <p>
-              Oda Sayısı: <span>{{ advert.roomCount }}</span>
-            </p>
-            <p>
-              Net Metrekare : <span>{{ advert.netSquareMeters }} m²</span>
-            </p>
-          </div>
-          <div v-if="advert.type === 'Arsa'">
-            <p>
-              Arazi Durumu: <span>{{ advert.landStatus }}</span>
-            </p>
-            <p>
-              Parsel: <span>{{ advert.parcel }}</span>
-            </p>
-          </div>
           <div class="advert-info-user">
             <div
               class="d-flex flex-row align-items-start justify-content-between"
