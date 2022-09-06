@@ -1,0 +1,13 @@
+.location {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    &__icon {
+        width: 12px;
+    }
+
+    &__text {
+        font-size: 10px;
+    }
+}

@@ -1,17 +1,22 @@
 <template>
-  <div
-    class="d-flex flex-row justify-content-start align-items-start dashboard"
-  >
-    <div class="dashboard-content container">
-      <ProfileHeader>
-        <h1 slot="header">Merhaba, {{ $auth.user.data.userName }}</h1>
-        <p slot="text">Yeni emlakları keşfet, ilan ver, mesajlaş</p>
-      </ProfileHeader>
-      <ProfileSearchComponent> </ProfileSearchComponent>
+  <div class="row no-gutters">
+    <div class="col-md-8 dashboard-main">
+      <div class="container">
+        <ProfileHeader>
+          <h1 slot="header">Merhaba, {{ $auth.user.data.userName }}</h1>
+          <p slot="text">Yeni emlakları keşfet, ilan ver, mesajlaş</p>
+        </ProfileHeader>
+        <ProfileSearchComponent> </ProfileSearchComponent>
 
-      <ProfileFavAdvert />
+        <ProfileFavAdvert />
+      </div>
     </div>
-    <ProfilePropertyDetail />
+
+    <div class="col-md-4 dashboard-aside">
+      <div class="container">
+        <ProfilePropertyDetail />
+      </div>
+    </div>
   </div>
 </template>
 

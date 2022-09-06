@@ -1,7 +1,7 @@
 <template>
   <nav class="profile-nav">
     <div class="profile-nav-brand-container">
-      <UserLinkComponent
+      <LinksUserLinkComponent
         class="profile-nav-brand-container-brand"
         :path="brandlink.path"
         :text="brandlink.text"
@@ -9,7 +9,7 @@
       />
     </div>
     <div class="profile-nav-links-container mt-3">
-      <UserLinkComponent
+      <LinksUserLinkComponent
         v-for="link in links"
         :key="link.text"
         :path="link.path"
@@ -21,10 +21,8 @@
 </template>
 
 <script>
-import UserLinkComponent from '../links/UserLinkComponent.vue'
 export default {
   name: 'ProfileNavbar',
-  components: { UserLinkComponent },
   data() {
     return {
       links: [

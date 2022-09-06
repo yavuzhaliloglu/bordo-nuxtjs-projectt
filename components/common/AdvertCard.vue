@@ -1,6 +1,6 @@
 <template>
   <div class="advertcard">
-    <div @click="print(card._id)">
+    <div @click="getSingleAdvert(card._id)">
       <div class="advertcard-img">
         <img class="advertcard-img-content" :src="card.images[0].url" alt="" />
       </div>
@@ -18,21 +18,7 @@
           :sqm="card.squareMeters"
           :date="card.createdAt"
         />
-        <div class="advertcard-location">
-          <font-awesome-icon
-            class="advertcard-location-icon icon"
-            icon="fa-solid fa-location-dot"
-          />
-          <span class="advertcard-location-text"
-            >{{ card.address.city.name }},</span
-          >
-          <span class="advertcard-location-text"
-            >{{ card.address.district.name }},</span
-          >
-          <span class="advertcard-location-text">{{
-            card.address.town.name
-          }}</span>
-        </div>
+        <CommonLocationComponent :address="card.address" />
       </div>
     </div>
     <div class="container">
@@ -73,7 +59,7 @@ export default {
     deleteAdvert(cardId) {
       this.$API.adverts.deleteAdvert(cardId)
     },
-    print(id) {
+    getSingleAdvert(id) {
       this.$router.push(`/advert/${id}`)
     },
     updateDetail(card) {

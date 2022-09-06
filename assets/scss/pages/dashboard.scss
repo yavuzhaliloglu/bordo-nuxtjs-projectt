@@ -1,17 +1,12 @@
-@use '/assets/scss/components/common/profilenavbar' as *;
-@use '/assets/scss/components/profile/propertydetail' as *;
-@use '/assets/scss/components/profile/profilesearch' as *;
-@use '/assets/scss/components/profile/profileheader' as *;
-@use '/assets/scss/components/profile/profilefavadvert' as *;
-@use '/assets/scss/components/profile/profilepropertyinfo' as *;
-@use '/assets/scss/components/profile/profiledetailuser' as *;
+@use '/assets/scss/components/common/profilenavbar';
+@use '/assets/scss/components/profile/profilesearch';
+@use '/assets/scss/components/profile/profileheader';
+@use '/assets/scss/components/profile/profilefavadvert';
+@use '/assets/scss/components/profile/profilepropertyinfo';
+@use '/assets/scss/components/profile/profiledetailuser';
 
 @use '/assets/scss/variables/variables' as *;
 
-.dashboard{
-    width: 80%;
-    &-content{
-        width: 72%;
-        background-color: lighten($black, 3%);
-    }
+.dashboard-main {
+    background-color: $lightblack;
 }
