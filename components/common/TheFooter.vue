@@ -52,7 +52,6 @@ export default {
   name: 'TheFooter',
   data() {
     return {
-      //   social: ['facebook', 'instagram', 'twitter', 'youtube'],
       social: [
         { name: 'facebook', path: '/' },
         { name: 'instagram', path: '/' },

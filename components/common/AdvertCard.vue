@@ -16,7 +16,7 @@
         <CommonIconFeatures
           :type="card.type"
           :sqm="card.squareMeters"
-          :date="format_date(card.createdAt)"
+          :date="card.createdAt"
         />
         <div class="advertcard-location">
           <font-awesome-icon
@@ -53,7 +53,6 @@
 </template>
 
 <script>
-import moment from 'moment'
 export default {
   name: 'AdvertCard',
   props: {
@@ -71,11 +70,6 @@ export default {
     }
   },
   methods: {
-    format_date(value) {
-      if (value) {
-        return moment(value).format('DD.MM.YYYY')
-      }
-    },
     deleteAdvert(cardId) {
       this.$API.adverts.deleteAdvert(cardId)
     },
@@ -83,6 +77,7 @@ export default {
       this.$router.push(`/advert/${id}`)
     },
     updateDetail(card) {
+      console.log(card)
       this.$store.commit('UPDATE_DETAIL', card)
     }
   }

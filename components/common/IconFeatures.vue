@@ -21,12 +21,13 @@
         class="features-item-icon icon"
         icon="fa-solid fa-calendar"
       />
-      <span class="features-item-text">{{ date }}</span>
+      <span class="features-item-text">{{ format_date(date) }}</span>
     </div>
   </div>
 </template>
 
 <script>
+import moment from 'moment'
 export default {
   name: 'IconFeatures',
   props: {
@@ -41,6 +42,11 @@ export default {
     date: {
       type: String,
       default: null
+    }
+  },
+  methods: {
+    format_date(value) {
+      return moment(value).format('DD.MM.YYYY')
     }
   }
 }

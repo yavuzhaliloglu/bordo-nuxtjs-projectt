@@ -35,11 +35,7 @@
         <div
           class="form-content-container-buttons d-flex flex-row justify-content-between align-items-center"
         >
-          <LinksButtonComponent
-            class="login-button"
-            :text="text"
-            :type="type"
-          />
+          <button class="radiusbutton" type="submit">Giriş Yap</button>
           <span class="w-50"
             >Henüz hesabın yok mu?
             <nuxt-link class="signup-link" to="/signup"
@@ -58,8 +54,6 @@ export default {
   name: 'SignIn',
   data() {
     return {
-      text: 'Giriş Yap',
-      type: 'submit',
       logininfo: {
         email: 'yavuz.haliloglu@hotmail.com',
         password: 'Yavuz123*Yavuz'
@@ -70,13 +64,8 @@ export default {
     async loginUser() {
       try {
         await this.$auth.loginWith('local', { data: this.logininfo })
-        // this.$auth.setUserToken(response.data.data.accessToken, response.data.data.refreshToken)
-        //     .then(() => this.$toast.success('User set!'))
-        // console.log(response)
-        console.log(this.$auth.user)
-        // this.$router.push('/');
       } catch (err) {
-        console.log(err)
+        alert(err)
       }
     }
   }

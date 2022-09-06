@@ -159,7 +159,7 @@
               class="d-flex flex-row align-items-start justify-content-between"
             >
               <p>{{ advert.user.userName }}</p>
-              <button class="ml-3">Mesaj At</button>
+              <button class="radiusbutton my-3">Mesaj At</button>
             </div>
           </div>
         </div>

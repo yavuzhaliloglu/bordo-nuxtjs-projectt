@@ -5,34 +5,13 @@
     width: 100%;
 
     &-content {
-        display: flex;
-        justify-content: space-between;
-
         &-container {
-            width: 33%;
-            margin: 10px 0;
-            margin-right: 12px;
-
-            &:last-child {
-                margin-right: 0;
-            }
+            width: 100%;
+            margin-bottom: 10px;
 
             &-input {
                 @extend .common-input;
                 width: 100%;
-            }
-        }
-    }
-}
-
-@media screen and (max-width:$sm){
-    .search{
-        &-content{
-            flex-direction: column;
-
-            &-container{
-                width: 100%;
-                margin-right: 0;
             }
         }
     }

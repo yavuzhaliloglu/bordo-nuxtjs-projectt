@@ -2,86 +2,94 @@
   <div class="search">
     <slot></slot>
 
-    <div class="search-content">
-      <div class="search-content-container">
-        <select
-          v-model="location.city"
-          class="search-content-container-input"
-          @change="getDistrict(location.city)"
-        >
-          <option
-            class="search-content-container-input-placeholder"
-            value=""
-            disabled
-            selected
-            hidden
+    <div class="row mt-3">
+      <div class="col-lg">
+        <div class="search-content-container">
+          <select
+            v-model="location.city"
+            class="search-content-container-input"
+            @change="getDistrict(location.city)"
           >
-            Şehir
-          </option>
-          <option
-            v-for="item in selectCity"
-            :key="item._id"
-            class="search-content-container-input-option"
-            :value="item._id"
-          >
-            {{ item.name }}
-          </option>
-        </select>
+            <option
+              class="search-content-container-input-placeholder"
+              value=""
+              disabled
+              selected
+              hidden
+            >
+              Şehir
+            </option>
+            <option
+              v-for="item in selectCity"
+              :key="item._id"
+              class="search-content-container-input-option"
+              :value="item._id"
+            >
+              {{ item.name }}
+            </option>
+          </select>
+        </div>
       </div>
-
-      <div class="search-content-container">
-        <select
-          v-model="location.district"
-          class="search-content-container-input"
-          @change="getTown(location.district)"
-        >
-          <option
-            class="search-content-container-input-placeholder"
-            value=""
-            disabled
-            selected
-            hidden
+      <div class="col-lg">
+        <div class="search-content-container">
+          <select
+            v-model="location.district"
+            class="search-content-container-input"
+            @change="getTown(location.district)"
           >
-            İlçe
-          </option>
-          <option
-            v-for="item in selectDistrict"
-            :key="item._id"
-            class="search-content-container-input-option"
-            :value="item._id"
-          >
-            {{ item.name }}
-          </option>
-        </select>
+            <option
+              class="search-content-container-input-placeholder"
+              value=""
+              disabled
+              selected
+              hidden
+            >
+              İlçe
+            </option>
+            <option
+              v-for="item in selectDistrict"
+              :key="item._id"
+              class="search-content-container-input-option"
+              :value="item._id"
+            >
+              {{ item.name }}
+            </option>
+          </select>
+        </div>
       </div>
-
-      <div class="search-content-container">
-        <select
-          v-model="location.town"
-          class="search-content-container-input"
-          @change="updateValue()"
-        >
-          <option
-            class="search-content-container-input-placeholder"
-            value=""
-            disabled
-            selected
-            hidden
+      <div class="col-lg">
+        <div class="search-content-container">
+          <select
+            v-model="location.town"
+            class="search-content-container-input"
+            @change="updateValue()"
           >
-            Mahalle
-          </option>
-          <option
-            v-for="item in selectTown"
-            :key="item._id"
-            class="search-content-container-input-option"
-            :value="item._id"
-          >
-            {{ item.name }}
-          </option>
-        </select>
+            <option
+              class="search-content-container-input-placeholder"
+              value=""
+              disabled
+              selected
+              hidden
+            >
+              Mahalle
+            </option>
+            <option
+              v-for="item in selectTown"
+              :key="item._id"
+              class="search-content-container-input-option"
+              :value="item._id"
+            >
+              {{ item.name }}
+            </option>
+          </select>
+        </div>
       </div>
-
-      <button v-if="$route.path === '/dashboard'">Ara</button>
+      <div v-if="$route.path === '/dashboard'" class="col-lg">
+        <div class="d-flex justify-content-between">
+          <button class="radiusbutton">Ara</button>
+          <button class="radiusbutton">Filter</button>
+        </div>
+      </div>
     </div>
   </div>
 </template>

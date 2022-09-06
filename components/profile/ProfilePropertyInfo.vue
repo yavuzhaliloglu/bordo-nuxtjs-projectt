@@ -1,8 +1,15 @@
 <template>
   <div class="info">
-    <h4 class="info-header">Property Details</h4>
-    <!-- <img :src="" alt=""> -->
-    {{propertyDetail}}
+    <div v-if="propertyDetail.images">
+      <h4 class="info__header">Property Details</h4>
+      <img class="info__img" :src="propertyDetail.images[0].url" alt="" />
+      <CommonIconFeatures
+        :type="propertyDetail.type"
+        :sqm="propertyDetail.squareMeters"
+        :date="propertyDetail.createdAt"
+      />
+      
+    </div>
   </div>
 </template>
 
@@ -18,7 +25,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    img{
-        border: 1px solid red;
-    }
+img {
+  border: 1px solid red;
+}
 </style>
