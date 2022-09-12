@@ -22,8 +22,10 @@
       </div>
     </div>
     <div class="container">
-      <div v-if="!isMainDashboard" class="advertcard-buttons">
-        <button class="advertcard-buttons-item edit">İlanı Düzenle</button>
+      <div v-if="!isMainDashboard" class="advertcard-buttons pb-3">
+        <button class="advertcard-buttons-item edit" @click="getUpdate(card)">
+          İlanı Düzenle
+        </button>
         <button
           class="advertcard-buttons-item delete"
           @click="deleteAdvert(card._id)"
@@ -48,7 +50,7 @@ export default {
     }
   },
   data() {
-    return {}
+    return { data: {} }
   },
   computed: {
     isMainDashboard() {
@@ -57,14 +59,28 @@ export default {
   },
   methods: {
     deleteAdvert(cardId) {
-      this.$API.adverts.deleteAdvert(cardId)
+      const r = confirm('İlanı Silmek İstediğinize Emin misiniz?')
+      if (r) {
+        this.$API.adverts.deleteAdvert(cardId)
+        window.location.reload()
+      }
     },
     getSingleAdvert(id) {
       this.$router.push(`/advert/${id}`)
     },
     updateDetail(card) {
-      console.log(card)
       this.$store.commit('UPDATE_DETAIL', card)
+    },
+    async getUpdate(card) {
+      await this.$API.adverts
+        .getSingleAdvert(card._id)
+        .then((res) => {
+          console.log(res)
+          this.$store.commit('UPDATE_INPUT_VALUES', res.data.data[0])
+        })
+        .then(() => {
+          this.$router.push(`/dashboard/newproperty/features/${card.type}`)
+        })
     }
   }
 }

@@ -27,7 +27,7 @@ export default {
   },
   methods: {
     getFav() {
-      this.sliderlist = this.$auth.user.data.favorities
+      this.sliderlist = this.$auth.user.data[0].favorities
     }
   }
 }

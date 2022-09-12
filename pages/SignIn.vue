@@ -64,6 +64,7 @@ export default {
     async loginUser() {
       try {
         await this.$auth.loginWith('local', { data: this.logininfo })
+        
       } catch (err) {
         alert(err)
       }

@@ -15,41 +15,7 @@
         :title="item.name"
         :options="item.options"
       />
-      <!-- <CommonSelectComponent
-        v-model="obj.roomCount"
-        :title="inputlist.roomCount.title"
-        :options="inputlist.roomCount.options"
-      />
-      <CommonSelectComponent
-        v-model="obj.buildingAge"
-        :title="inputlist.buildingAge.title"
-        :options="inputlist.buildingAge.options"
-      />
-      <CommonSelectComponent
-        v-model="obj.heatingType"
-        :title="inputlist.heatingType.title"
-        :options="inputlist.heatingType.options"
-      />
-      <CommonSelectComponent
-        v-model="obj.itemStatus"
-        :title="inputlist.itemStatus.title"
-        :options="inputlist.itemStatus.options"
-      />
-      <CommonInputComponent
-        v-model="obj.grossSquareMeters"
-        :title="inputlist.grossSquareMeters.title"
-        :type="inputlist.grossSquareMeters.type"
-      />
-      <CommonInputComponent
-        v-model="obj.netSquareMeters"
-        :title="inputlist.netSquareMeters.title"
-        :type="inputlist.netSquareMeters.type"
-      />
-      <CommonInputComponent
-        v-model="obj.floor"
-        :title="inputlist.floor.title"
-        :type="inputlist.floor.type"
-      /> -->
+      {{ obj }}
     </ProfileDefaultInput>
   </div>
 </template>
@@ -74,6 +40,12 @@ export default {
   methods: {
     setInputs() {
       this.inputlist = this.$store.getters.getWorkPlaceInputs
+      for (let i = 0; i < this.inputlist.selectInputs.length; i++) {
+        this.obj.selects[i] = this.inputlist.selectInputs[i].value
+      }
+      for (let i = 0; i < this.inputlist.defaultInputs.length; i++) {
+        this.obj.defaults[i] = this.inputlist.defaultInputs[i].value
+      }
     }
   }
 }

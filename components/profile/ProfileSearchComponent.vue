@@ -11,15 +11,6 @@
             @change="getDistrict(location.city)"
           >
             <option
-              class="search-content-container-input-placeholder"
-              value=""
-              disabled
-              selected
-              hidden
-            >
-              Şehir
-            </option>
-            <option
               v-for="item in selectCity"
               :key="item._id"
               class="search-content-container-input-option"
@@ -37,15 +28,6 @@
             class="search-content-container-input"
             @change="getTown(location.district)"
           >
-            <option
-              class="search-content-container-input-placeholder"
-              value=""
-              disabled
-              selected
-              hidden
-            >
-              İlçe
-            </option>
             <option
               v-for="item in selectDistrict"
               :key="item._id"
@@ -65,15 +47,6 @@
             @change="updateValue()"
           >
             <option
-              class="search-content-container-input-placeholder"
-              value=""
-              disabled
-              selected
-              hidden
-            >
-              Mahalle
-            </option>
-            <option
               v-for="item in selectTown"
               :key="item._id"
               class="search-content-container-input-option"
@@ -84,6 +57,7 @@
           </select>
         </div>
       </div>
+
       <div v-if="$route.path === '/dashboard'" class="col-lg">
         <div class="d-flex justify-content-between">
           <button class="radiusbutton">Ara</button>
@@ -116,10 +90,19 @@ export default {
     updateValue() {
       this.$emit('location', this.location)
     },
+
     getCity() {
       this.$API.locations.getCity().then((res) => {
         this.selectCity = res.data.data
       })
+      const data = this.$store.getters.getCommonInputs.location
+      if (data.city._id) {
+        this.getDistrict(data.city._id)
+        this.getTown(data.district._id)
+        this.location.city = data.city._id
+        this.location.district = data.district._id
+        this.location.town = data.town._id
+      }
     },
     getDistrict(id) {
       this.$API.locations.getDistrict(id).then((res) => {

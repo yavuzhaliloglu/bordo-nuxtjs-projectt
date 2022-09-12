@@ -4,7 +4,7 @@
       :id="id"
       class="input-group-input"
       :type="type"
-      :value="id"
+      :value="value"
       :placeholder="title"
       @change="updateValue($event.target.value)"
     />

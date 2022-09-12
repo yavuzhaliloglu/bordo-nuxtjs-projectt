@@ -5,7 +5,6 @@
         <span></span>
         <LinksLinkComponent :path="'/'" :text="'Rentiz'" />
       </div>
-
       <div class="nav-menu">
         <ul class="d-flex justify-content-evenly">
           <li v-for="link in links" :key="link.path">
@@ -21,7 +20,7 @@
         >
           <LinksLinkComponent
             :path="profilepath"
-            :text="$auth.user.data.userName"
+            :text="$auth.user.data[0].userName"
             class="nav-buttons__dashboard"
           />
           <button class="nav-buttons__logout" @click="$auth.logout()">
@@ -51,9 +50,12 @@
             <nuxt-link to="/signup">Sign up</nuxt-link>
           </div>
 
-          <div v-else class="d-flex flex-column justify-content-center align-items-center">
+          <div
+            v-else
+            class="d-flex flex-column justify-content-center align-items-center"
+          >
             <nuxt-link class="mt-2" to="/dashboard">{{
-              $auth.user.data.userName
+              $auth.user.data[0].userName
             }}</nuxt-link>
             <button @click="$auth.logout()">Log Out</button>
           </div>
