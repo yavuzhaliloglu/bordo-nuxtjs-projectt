@@ -89,10 +89,23 @@ export default {
     this.getInterior()
     this.getExternal()
     this.getLocation()
+    this.setInputs()
   },
   methods: {
     updateValue() {
       this.$emit('features', this.features)
+    },
+    setInputs() {
+      const data = this.$store.getters.getCommonInputs
+      data.interiorFeatures.forEach((element) => {
+        this.features.interior.push(element._id)
+      })
+      data.externalFeatures.forEach((element) => {
+        this.features.external.push(element._id)
+      })
+      data.locationFeatures.forEach((element) => {
+        this.features.location.push(element._id)
+      })
     },
     getInterior() {
       this.$API.features.getInterior().then((res) => {

@@ -89,11 +89,22 @@ export default {
   },
   mounted() {
     this.getPath()
+    this.setInputs()
   },
   methods: {
     getPath() {
       const path = localStorage.getItem('path')
       this.path = path
+    },
+    setInputs(){
+      const data = this.$store.getters.getCommonInputs
+      if(data.title){
+        this.title = data.title
+        this.price = data.price
+        this.description = data.description
+        return true
+      }
+      return false
     },
     setData() {
       const baseObject = {
@@ -155,9 +166,7 @@ export default {
       const object = {
         image: formData.get("file")
       }
-
       const fd = serialize(object);
-
       this.$API.post.postImage(fd).then(response => {
         this.imagestosend[index] = response.data.data.remoteId
       })
