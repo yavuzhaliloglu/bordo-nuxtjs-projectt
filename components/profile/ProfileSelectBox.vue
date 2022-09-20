@@ -1,69 +1,48 @@
 <template>
-  <div>
-    <div class="selectbox" @change="updateValue">
+  <div class="container">
+    <div class="row mt-3" @change="updateValue">
       <div
         v-if="$route.path !== '/dashboard/newproperty/features/Arsa'"
-        class="selectbox-container"
+        class="col-lg-4 my-3"
       >
-        <h4 class="selectbox-container-header">İç özellikler</h4>
-        <div
-          v-for="item in interior"
-          :key="item._id"
-          class="selectbox-container-content"
-        >
+        <h4>İç özellikler</h4>
+        <div v-for="item in interior" :key="item._id">
           <input
             :id="item._id"
             v-model="features.interior"
             type="checkbox"
             :value="item._id"
-            class="selectbox-container-content-input"
           />
-          <label class="selectbox-container-content-label" :for="item._id">{{
-            item.item
-          }}</label>
+          <label :for="item._id">{{ item.item }}</label>
         </div>
       </div>
 
       <div
         v-if="$route.path !== '/dashboard/newproperty/features/Arsa'"
-        class="selectbox-container"
+        class="col-lg-4 my-3"
       >
-        <h4 class="selectbox-container-header">Dış özellikler</h4>
-        <div
-          v-for="item in external"
-          :key="item._id"
-          class="selectbox-container-content"
-        >
+        <h4>Dış özellikler</h4>
+        <div v-for="item in external" :key="item._id">
           <input
             :id="item._id"
             v-model="features.external"
             type="checkbox"
             :value="item._id"
-            class="selectbox-container-content-input"
           />
-          <label class="selectbox-container-content-label" :for="item._id">{{
-            item.item
-          }}</label>
+          <label :for="item._id">{{ item.item }}</label>
         </div>
       </div>
 
-      <div class="selectbox-container">
-        <h4 class="selectbox-container-header">Konum özellikleri</h4>
-        <div
-          v-for="item in location"
-          :key="item._id"
-          class="selectbox-container-content"
-        >
+      <div class="col-lg-4 my-3">
+        <h4>Konum özellikleri</h4>
+        <div v-for="item in location" :key="item._id">
           <input
             :id="item._id"
             v-model="features.location"
             type="checkbox"
             :value="item._id"
-            class="selectbox-container-content-input"
           />
-          <label class="selectbox-container-content-label" :for="item._id">{{
-            item.item
-          }}</label>
+          <label :for="item._id">{{ item.item }}</label>
         </div>
       </div>
     </div>

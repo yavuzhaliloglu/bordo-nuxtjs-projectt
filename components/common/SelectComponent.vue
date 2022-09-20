@@ -1,5 +1,6 @@
 <template>
   <div class="input-group">
+    <label class="">{{ title }}</label>
     <select
       class="input-group-input"
       :value="value"

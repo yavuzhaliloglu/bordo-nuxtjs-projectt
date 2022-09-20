@@ -1,10 +1,11 @@
 <template>
-  <div class="search">
+  <div class="container">
     <slot></slot>
 
-    <div class="row mt-3">
-      <div class="col-lg">
-        <div class="search-content-container">
+    <div class="row my-3">
+      <div class="col-lg-4">
+        <div>
+          <label>Şehir</label>
           <select
             v-model="location.city"
             class="search-content-container-input"
@@ -21,8 +22,9 @@
           </select>
         </div>
       </div>
-      <div class="col-lg">
-        <div class="search-content-container">
+      <div class="col-lg-4">
+        <div>
+          <label>İlçe</label>
           <select
             v-model="location.district"
             class="search-content-container-input"
@@ -39,8 +41,9 @@
           </select>
         </div>
       </div>
-      <div class="col-lg">
-        <div class="search-content-container">
+      <div class="col-lg-4">
+        <div>
+          <label>Mahalle</label>
           <select
             v-model="location.town"
             class="search-content-container-input"
@@ -58,10 +61,10 @@
         </div>
       </div>
 
-      <div v-if="$route.path === '/dashboard'" class="col-lg">
-        <div class="d-flex justify-content-between">
+      <div v-if="$route.path === '/dashboard'" class="col-lg mt-2">
+        <div class="d-flex justify-content-end">
           <button class="radiusbutton">Ara</button>
-          <button class="radiusbutton">Filter</button>
+          <button class="radiusbutton ml-2">Filter</button>
         </div>
       </div>
     </div>

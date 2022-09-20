@@ -1,11 +1,11 @@
 <template>
   <div class="input-group">
+    <label>{{title}}</label>
     <input
       :id="id"
       class="input-group-input"
       :type="type"
       :value="value"
-      :placeholder="title"
       @change="updateValue($event.target.value)"
     />
   </div>

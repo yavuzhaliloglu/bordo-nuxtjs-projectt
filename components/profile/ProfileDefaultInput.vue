@@ -1,13 +1,13 @@
 <template>
-  <form class="features-inputs container" @submit.prevent="post">
-    <!--HEADER-->
-    <ProfileHeader>
-      <h1 slot="header">İlan Özelliklerinizi seçin</h1>
-      <p slot="text">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus
-        nostrum ducimus similique dignissimos atque non sunt, et possimus autem?
-        Explicabo!
-      </p>
+  <form class="features-inputs row no-gutters" @submit.prevent="post">
+          <!--HEADER-->
+    <ProfileHeader class="container">
+        <h1 slot="header">İlan Özelliklerinizi seçin</h1>
+        <p slot="text">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus
+          nostrum ducimus similique dignissimos atque non sunt, et possimus autem?
+          Explicabo!
+        </p>
     </ProfileHeader>
 
     <!--IMAGE-->
@@ -31,11 +31,14 @@
       <h3>İlan Konumunu seçin</h3>
     </ProfileSearchComponent>
 
-    <h3>Genel Özellikleri Seçin</h3>
+    <div class="container">
+      <h3>Genel Özellikleri Seçin</h3>
+    </div>
     <!--DEFAULT INPUTS-->
     <div class="features-inputs-defaults">
-      <CommonInputComponent v-model="title" :type="'text'" :title="'İlan Başlığı'" />
-      <CommonInputComponent v-model="price" :type="'number'" :title="'Fiyat (₺)'" />
+      
+      <CommonInputComponent class="col-md-6" v-model="title" :type="'text'" :title="'İlan Başlığı'" />
+      <CommonInputComponent class="col-md-6" v-model="price" :type="'number'" :title="'Fiyat (₺)'" />
 
       <!--SLOT-->
       <slot></slot>
@@ -45,7 +48,7 @@
     <ProfileSelectBox @features="getFeatures" />
 
     <!--TEXTAREA-->
-    <div class="input-group description-container">
+    <div class="input-group description-container container">
       <label class="description-container-label" for="description">İlan Açıklaması</label>
       <textarea
         v-model="description"
@@ -57,9 +60,7 @@
       />
     </div>
 
-    <div class="b-container">
-      <button class="b-container-button" type="submit">İlan Ver</button>
-    </div>
+    <button class="b-container-button ml-3" type="submit">İlan Ver</button>
   </form>
 </template>
 
@@ -140,7 +141,6 @@ export default {
         baseObject.externalFeatures = this.features.external
         baseObject.locationFeatures = this.features.location
         baseObject.type = 'İş Yeri'
-
         this.endpoint = 'adverts/workPlace'
       }
       else if(this.$route.path === '/dashboard/newproperty/features/Arsa'){

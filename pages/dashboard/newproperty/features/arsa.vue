@@ -7,6 +7,7 @@
         v-model="obj.defaults[index]"
         :type="item.type"
         :title="item.name"
+        class="col-md-6"
       />
       <CommonSelectComponent
         v-for="(item, index) in inputlist.selectInputs"
@@ -14,6 +15,7 @@
         v-model="obj.selects[index]"
         :title="item.name"
         :options="item.options"
+        class="col-md-6"
       />
 
       <!-- <CommonSelectComponent
@@ -45,9 +47,6 @@ export default {
     return {
       inputlist: null,
       obj: {
-        // landStatus: '',
-        // squareMeters: '',
-        // parcel: ''
         selects: [],
         defaults: []
       }

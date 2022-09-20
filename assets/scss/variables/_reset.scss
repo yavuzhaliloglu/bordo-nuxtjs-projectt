@@ -19,15 +19,13 @@ button {
     font-weight: bold;
 }
 
-.link {
-}
 
-.indexlink{
+.indexlink {
     background-color: $thirdcolor;
     padding: 18px 22px;
 }
 
-.radiusbutton{
+.radiusbutton {
     background-color: $thirdcolor;
     padding: 12px 14px;
     border-radius: 8px;
@@ -97,11 +95,10 @@ p {
         outline: none;
     }
 
-    &::placeholder {
-        color: $white;
+}
 
-    }
-
+select {
+    border: none;
 }
 
 .edit {

@@ -1,15 +1,14 @@
 <template>
-    <div class="header">
-        <slot name="header"></slot>
-        <slot name="text"></slot>
-    </div>
+  <div class="header">
+    <slot name="header"></slot>
+    <slot name="text"></slot>
+  </div>
 </template>
 
 <script>
 export default {
-    name: 'ProfileHeader',
+  name: 'ProfileHeader'
 }
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>
