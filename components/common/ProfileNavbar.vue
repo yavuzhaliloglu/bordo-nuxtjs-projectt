@@ -32,7 +32,7 @@ export default {
           icon: 'house-user'
         },
         {
-          path: '/',
+          path: '/adverts',
           text: 'İlanlar',
           icon: 'building'
         },

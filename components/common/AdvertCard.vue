@@ -75,7 +75,6 @@ export default {
       await this.$API.adverts
         .getSingleAdvert(card._id)
         .then((res) => {
-          console.log(res)
           this.$store.commit('UPDATE_INPUT_VALUES', res.data.data[0])
         })
         .then(() => {

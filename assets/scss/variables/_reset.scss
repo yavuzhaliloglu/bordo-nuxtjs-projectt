@@ -40,6 +40,20 @@ a {
     }
 }
 
+.bg-lightblack {
+    background-color: $lightblack;
+}
+
+.bg-extralightblack {
+    background-color: $extralightblack;
+    
+}
+
+.bg-backgroundblack{
+    background-color: $backgroundblack;
+}
+
+
 button {
     border: none;
     color: $white;
