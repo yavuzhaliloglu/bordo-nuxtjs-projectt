@@ -21,7 +21,7 @@
         <div
           v-for="card in cards"
           :key="card"
-          class="container col-md-4 col-sm-6"
+          class="container col-lg-4 col-md-6"
         >
           <CommonAdvertCard :card="card" />
         </div>
@@ -68,6 +68,7 @@ export default {
       await this.$API.adverts
         .getAdverts(currentPage, this.perPage)
         .then((res) => {
+          console.log(res)
           this.cards = res.data.data
           this.isLoading = false
           this.totalPage = res.data.pagination.totalPage

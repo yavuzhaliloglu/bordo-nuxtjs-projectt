@@ -4,10 +4,7 @@
       <div class="col-lg-8">
         <div class="container advert-main py-4">
           <div
-            style="
-              --swiper-navigation-color: #fff;
-              --swiper-pagination-color: #fff;
-            "
+            style="--swiper-navigation-color: #fff"
             class="swiper-container mySwiper2"
           >
             <div class="swiper-wrapper">
@@ -88,7 +85,11 @@
 
       <div class="col-lg-4">
         <div class="advert-info container py-4">
-          <h3>{{ advert.title }}</h3>
+          <div class="d-flex justify-content-between">
+            <h3>{{ advert.title }}</h3>
+            <button @click="ChangeFavorite">Favorilere Ekle</button>
+            {{ isFav }}
+          </div>
           <p class="advert-info__price">₺ {{ advert.price }}</p>
           <CommonLocationComponent
             class="text-white"
@@ -131,6 +132,11 @@ export default {
       required: true
     }
   },
+  data() {
+    return {
+      isFav: false
+    }
+  },
   mounted() {
     Swiper.use([Navigation, Autoplay, Thumbs])
     /* eslint-disable no-unused-vars */
@@ -157,6 +163,19 @@ export default {
     format_date(value) {
       if (value) {
         return moment(value).format('DD.MM.YYYY')
+      }
+    },
+    ChangeFavorite() {
+      this.isFav = !this.isFav
+      if (this.isFav) {
+        this.$API.adverts.addFavorite(this.advert._id).then(res=>{
+          console.log(res)
+        })
+      }
+      else{
+        this.$API.adverts.removeFavorite(this.advert._id).then(res=>{
+          console.log(res)
+        })
       }
     }
   }

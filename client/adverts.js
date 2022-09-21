@@ -1,5 +1,5 @@
 export default (axios) => ({
-  getAdverts: (currentPage, psize , parameters = {}) => {
+  getAdverts: (currentPage, psize, parameters = {}) => {
     return axios.get('adverts/user', {
       params: { page: currentPage, pageSize: psize }
     })
@@ -9,5 +9,11 @@ export default (axios) => ({
   },
   getSingleAdvert: (id, parameters = {}) => {
     return axios.get(`adverts/${id}`)
+  },
+  addFavorite: (id, parameters = {}) => {
+    return axios.patch(`adverts/favorite/${id}`)
+  },
+  removeFavorite:(id,parameters = {}) =>{
+    return axios.patch(`adverts/unfavorite/${id}`)
   }
 })

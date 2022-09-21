@@ -30,7 +30,7 @@
 <!--RECURSİVE ARAŞTIR-->
 <!--disabled-->
 <!---->
-    <button v-if="isClicked" @click="changePage">Bir sonraki adım</button>
+    <button v-if="isClicked" @click="changePage" class="radiusbutton">Bir sonraki adım</button>
   </div>
 </template>
 
@@ -73,8 +73,6 @@ export default {
       this.isClicked = false
     },
     changeStyle(e) {
-
-      // for foreach arasındaki fark, maple yap
       const btn = document.querySelectorAll(`.${e.classList[0]}`)
       btn.forEach((item) => {
         item.classList.remove('clickedButton')
