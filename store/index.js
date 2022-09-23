@@ -148,17 +148,14 @@ export const mutations = {
     c.location.city = data.address.city
     c.location.district = data.address.district
     c.location.town = data.address.town
-
     c.interiorFeatures = data.interiorFeatures
     c.externalFeatures = data.externalFeatures
     c.locationFeatures = data.locationFeatures
-
     c.title = data.title
     c.price = data.price
     c.description = data.description
-
     c.images = data.images
-    // gelen ilan türüne göre inputları setleyen 3 ayrı fonksiyon yapılabilir. bu şekilde her seferinde tek tek verileri yazmaya gerek kalmaz
+    // gelen ilan türüne göre inputları setleyen 3 ayrı fonksiyon yapılabilir.
   }
 }
 

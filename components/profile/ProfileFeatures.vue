@@ -4,7 +4,6 @@
       class="newproperty-container d-flex w-100 justify-content-between my-3"
     >
       <div class="newproperty-container-item">
-
         <!--i yerine category-->
         <div v-for="i in categories" :key="i._id" class="button-container">
           <button class="fb" @click="getPurpose(i, $event.target)">
@@ -27,10 +26,12 @@
         </div>
       </div>
     </div>
-<!--RECURSİVE ARAŞTIR-->
-<!--disabled-->
-<!---->
-    <button v-if="isClicked" @click="changePage" class="radiusbutton">Bir sonraki adım</button>
+    <!--RECURSİVE ARAŞTIR-->
+    <!--disabled-->
+    <!---->
+    <button v-if="isClicked" class="radiusbutton" @click="changePage">
+      Bir sonraki adım
+    </button>
   </div>
 </template>
 

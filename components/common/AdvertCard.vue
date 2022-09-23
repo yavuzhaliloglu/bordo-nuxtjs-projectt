@@ -4,7 +4,7 @@
       <div class="advertcard-img">
         <img class="advertcard-img-content" :src="card.images[0].url" alt="" />
       </div>
-      <div class="container">
+      <div class="container py-2">
         <div class="advertcard-title">
           <h5 class="advertcard-title-text">
             {{ card.title }}
@@ -54,7 +54,8 @@ export default {
   },
   computed: {
     isMainDashboard() {
-      return this.$route.path === '/' || this.$route.path === '/dashboard'
+      const vm = this.$route.path
+      return vm === '/' || vm === '/dashboard' || vm === '/adverts'
     }
   },
   methods: {

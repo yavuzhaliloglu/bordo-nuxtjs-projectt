@@ -17,7 +17,7 @@ export default {
   data() {
     return {
       text: 'View All Properties',
-      path: '/signin',
+      path: '/adverts',
       loop: true,
       sliderlist: []
     }
@@ -26,8 +26,10 @@ export default {
     this.getFav()
   },
   methods: {
-    getFav() {
-      this.sliderlist = this.$auth.user.data[0].favorities
+    async getFav() {
+      await this.$API.adverts.getAllAdverts().then((res) => {
+        this.sliderlist = res.data.data
+      })
     }
   }
 }

@@ -1,13 +1,13 @@
 <template>
   <form class="features-inputs row no-gutters" @submit.prevent="post">
-          <!--HEADER-->
+    <!--HEADER-->
     <ProfileHeader class="container">
-        <h1 slot="header">İlan Özelliklerinizi seçin</h1>
-        <p slot="text">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus
-          nostrum ducimus similique dignissimos atque non sunt, et possimus autem?
-          Explicabo!
-        </p>
+      <h1 slot="header">İlan Özelliklerinizi seçin</h1>
+      <p slot="text">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus
+        nostrum ducimus similique dignissimos atque non sunt, et possimus autem?
+        Explicabo!
+      </p>
     </ProfileHeader>
 
     <!--IMAGE-->
@@ -34,12 +34,21 @@
     <div class="container">
       <h3>Genel Özellikleri Seçin</h3>
     </div>
+
     <!--DEFAULT INPUTS-->
     <div class="features-inputs-defaults">
-      
-      <CommonInputComponent class="col-md-6" v-model="title" :type="'text'" :title="'İlan Başlığı'" />
-      <CommonInputComponent class="col-md-6" v-model="price" :type="'number'" :title="'Fiyat (₺)'" />
-
+      <CommonInputComponent
+        v-model="title"
+        class="col-md-6"
+        :type="'text'"
+        :title="'İlan Başlığı'"
+      />
+      <CommonInputComponent
+        v-model="price"
+        class="col-md-6"
+        :type="'number'"
+        :title="'Fiyat (₺)'"
+      />
       <!--SLOT-->
       <slot></slot>
     </div>
@@ -49,7 +58,9 @@
 
     <!--TEXTAREA-->
     <div class="input-group description-container container">
-      <label class="description-container-label" for="description">İlan Açıklaması</label>
+      <label class="description-container-label" for="description"
+        >İlan Açıklaması</label
+      >
       <textarea
         v-model="description"
         class="description-container-input"
@@ -65,13 +76,13 @@
 </template>
 
 <script>
-import { serialize } from 'object-to-formdata';
+import { serialize } from 'object-to-formdata'
 export default {
   name: 'ProfileDefaultInput',
   props: {
     obj: {
       type: Object,
-      default:null
+      default: null
     }
   },
   data() {
@@ -82,7 +93,7 @@ export default {
       description: '',
       images: [],
       imagestosend: [],
-      file: "",
+      file: '',
       location: {},
       features: {},
       endpoint: ''
@@ -97,9 +108,9 @@ export default {
       const path = localStorage.getItem('path')
       this.path = path
     },
-    setInputs(){
+    setInputs() {
       const data = this.$store.getters.getCommonInputs
-      if(data.title){
+      if (data.title) {
         this.title = data.title
         this.price = data.price
         this.description = data.description
@@ -115,8 +126,8 @@ export default {
         price: this.price,
         squareMeters: Number(this.obj.defaults[0]),
         categoryPath: this.path,
-        address: this.location,
-      };
+        address: this.location
+      }
       if (this.$route.path === '/dashboard/newproperty/features/Konut') {
         baseObject.roomCount = this.obj.selects[0]
         baseObject.netSquareMeters = Number(this.obj.defaults[1])
@@ -129,8 +140,9 @@ export default {
         baseObject.locationFeatures = this.features.location
         baseObject.type = 'Konut'
         this.endpoint = 'adverts/housing'
-      }
-      else if (this.$route.path === '/dashboard/newproperty/features/isyeri') {
+      } else if (
+        this.$route.path === '/dashboard/newproperty/features/isyeri'
+      ) {
         baseObject.roomCount = this.obj.selects[0]
         baseObject.netSquareMeters = Number(this.obj.defaults[1])
         baseObject.buildingAge = this.obj.selects[1]
@@ -142,8 +154,7 @@ export default {
         baseObject.locationFeatures = this.features.location
         baseObject.type = 'İş Yeri'
         this.endpoint = 'adverts/workPlace'
-      }
-      else if(this.$route.path === '/dashboard/newproperty/features/Arsa'){
+      } else if (this.$route.path === '/dashboard/newproperty/features/Arsa') {
         baseObject.landStatus = this.obj.selects[0]
         baseObject.parcel = this.obj.defaults[1]
         baseObject.locationFeatures = this.features.location
@@ -153,8 +164,8 @@ export default {
       return baseObject
     },
     post() {
-      const formData = this.setData();
-      this.$API.post.post(formData,this.endpoint)
+      const formData = this.setData()
+      this.$API.post.post(formData, this.endpoint)
     },
     getLocation(value) {
       this.location = value
@@ -164,22 +175,23 @@ export default {
     },
     uploadImageSuccess(formData, index) {
       const object = {
-        image: formData.get("file")
+        image: formData.get('file')
       }
-      const fd = serialize(object);
-      this.$API.post.postImage(fd).then(response => {
+      const fd = serialize(object)
+      this.$API.post.postImage(fd).then((response) => {
         this.imagestosend[index] = response.data.data.remoteId
       })
     },
     beforeRemove(index, done) {
-      const r = confirm("Resmi silmek istediğinizden emin misiniz?")
-      if (r === true) { done() }
+      const r = confirm('Resmi silmek istediğinizden emin misiniz?')
+      if (r === true) {
+        done()
+      }
       this.$API.delete.deleteImage(this.imagestosend[index])
       this.imagestosend.splice(index, 1)
-    },
+    }
   }
 }
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

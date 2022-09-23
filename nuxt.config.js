@@ -41,7 +41,8 @@ export default {
   fontawesome: {
     icons: {
       solid: true,
-      brands: true
+      brands: true,
+      regular: true
     }
   },
 

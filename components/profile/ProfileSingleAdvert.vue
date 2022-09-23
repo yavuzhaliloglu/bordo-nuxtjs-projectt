@@ -87,8 +87,18 @@
         <div class="advert-info container py-4">
           <div class="d-flex justify-content-between">
             <h3>{{ advert.title }}</h3>
-            <button @click="ChangeFavorite">Favorilere Ekle</button>
-            {{ isFav }}
+            <font-awesome-icon
+              v-if="isFav"
+              style="cursor: pointer"
+              icon="fa-solid fa-heart"
+              @click="ChangeFavorite"
+            />
+            <font-awesome-icon
+              v-else
+              style="cursor: pointer"
+              icon="fa-regular fa-heart"
+              @click="ChangeFavorite"
+            />
           </div>
           <p class="advert-info__price">₺ {{ advert.price }}</p>
           <CommonLocationComponent
@@ -168,12 +178,11 @@ export default {
     ChangeFavorite() {
       this.isFav = !this.isFav
       if (this.isFav) {
-        this.$API.adverts.addFavorite(this.advert._id).then(res=>{
+        this.$API.adverts.addFavorite(this.advert._id).then((res) => {
           console.log(res)
         })
-      }
-      else{
-        this.$API.adverts.removeFavorite(this.advert._id).then(res=>{
+      } else {
+        this.$API.adverts.removeFavorite(this.advert._id).then((res) => {
           console.log(res)
         })
       }
