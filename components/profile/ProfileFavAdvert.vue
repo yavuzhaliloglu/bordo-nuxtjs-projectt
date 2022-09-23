@@ -3,7 +3,7 @@
     <h3>Your Favorite Adverts</h3>
     <div v-if="!sliderlist.length">Henüz Favori ilanınız yok</div>
     <div v-else>
-      <SlidersPopularSlider :sliderlist="sliderlist" :loop="loop"/>
+      <SlidersPopularSlider :sliderlist="sliderlist" :loop="loop" />
     </div>
   </div>
 </template>
@@ -23,6 +23,7 @@ export default {
   methods: {
     getFav() {
       this.sliderlist = this.$auth.user.data[0].favorities
+
     }
   }
 }

@@ -87,18 +87,20 @@
         <div class="advert-info container py-4">
           <div class="d-flex justify-content-between">
             <h3>{{ advert.title }}</h3>
-            <font-awesome-icon
-              v-if="isFav"
-              style="cursor: pointer"
-              icon="fa-solid fa-heart"
-              @click="ChangeFavorite"
-            />
-            <font-awesome-icon
-              v-else
-              style="cursor: pointer"
-              icon="fa-regular fa-heart"
-              @click="ChangeFavorite"
-            />
+            <div v-if="$auth.loggedIn">
+              <font-awesome-icon
+                v-if="isFav"
+                style="cursor: pointer"
+                icon="fa-solid fa-heart"
+                @click="changeFavorite"
+              />
+              <font-awesome-icon
+                v-else
+                style="cursor: pointer"
+                icon="fa-regular fa-heart"
+                @click="changeFavorite"
+              />
+            </div>
           </div>
           <p class="advert-info__price">₺ {{ advert.price }}</p>
           <CommonLocationComponent
@@ -144,8 +146,11 @@ export default {
   },
   data() {
     return {
-      isFav: false
+      isFav: null
     }
+  },
+  created() {
+    this.checkFavorite()
   },
   mounted() {
     Swiper.use([Navigation, Autoplay, Thumbs])
@@ -175,16 +180,24 @@ export default {
         return moment(value).format('DD.MM.YYYY')
       }
     },
-    ChangeFavorite() {
+    checkFavorite() {
+      if (this.$auth.loggedIn) {
+        const item = this.$auth.user.data[0].favorities.find(
+          (item) => item._id === this.advert._id
+        )
+        if (item !== undefined) {
+          this.isFav = true
+          return
+        }
+      }
+      this.isFav = false
+    },
+    changeFavorite() {
       this.isFav = !this.isFav
       if (this.isFav) {
-        this.$API.adverts.addFavorite(this.advert._id).then((res) => {
-          console.log(res)
-        })
+        this.$API.adverts.addFavorite(this.advert._id)
       } else {
-        this.$API.adverts.removeFavorite(this.advert._id).then((res) => {
-          console.log(res)
-        })
+        this.$API.adverts.removeFavorite(this.advert._id)
       }
     }
   }
