@@ -1,28 +1,34 @@
 <template>
-  <div>
-    <div class="d-flex">
+  <div class="">
+    <div class="row no-gutters hero-search">
       <CommonSelectComponent
+        class="col-3 hero-search__item"
         :title="'category'"
         :options="categories"
         @input="getPurpose"
       />
+
       <CommonSelectComponent
+        class="col-3 hero-search__item"
         :title="'purpose'"
         :options="purpose"
         @input="getTypes"
       />
-      <SelectComponent :title="'type'" :options="types" @input="setPath" />
+      <CommonSelectComponent
+        class="col-3 hero-search__item"
+        :title="'type'"
+        :options="types"
+        @input="setPath"
+      />
 
-      <button @click="changePage">Ara</button>
+      <button class="col-3 hero-search__item" @click="changePage">Ara</button>
     </div>
   </div>
 </template>
 
 <script>
-import SelectComponent from '../common/SelectComponent.vue'
 export default {
   name: 'HeroSearchComponent',
-  components: { SelectComponent },
   data() {
     return {
       categories: [],

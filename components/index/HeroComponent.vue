@@ -12,11 +12,11 @@
         </div>
 
         <div>
-          <HeroSearchComponent />
+          <HeroSearchComponent class="hero-search-container" />
         </div>
       </div>
 
-      <div class="col-md-6">
+      <div class="col-md-6 hero-image">
         <div>
           <img class="w-100 h-100" src="~/assets/images/hero.png" alt="" />
         </div>
@@ -39,4 +39,6 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+
+</style>

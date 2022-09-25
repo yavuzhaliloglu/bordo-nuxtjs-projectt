@@ -1,12 +1,14 @@
 <template>
   <div class="input-group">
-    <label class="">{{ title }}</label>
+    <label v-if="$route.path !== '/'" class="">{{ title }}</label>
     <select
       class="input-group-input"
       :value="value"
       @input="updateValue($event.target.value)"
     >
-      <!-- <option value="" disabled selected hidden>{{title}}</option> -->
+      <option v-if="$route.path === '/'" value="" disabled selected hidden>
+        {{ title }}
+      </option>
       <option v-for="item in options" :key="item._id" :value="item._id">
         <span v-if="$route.path === '/'"> {{ item.categoryName }}</span>
         <span v-else>

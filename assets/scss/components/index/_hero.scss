@@ -2,74 +2,31 @@
 @use '/assets/scss/variables/variables' as *;
 
 .hero {
-    width: 90%;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 80vh;
-    padding: 0;
-    margin-bottom: 40px;
-
-    &-content {
-        width: 50%;
-        height: 100%;
-
-        &-text {
-            width: 90%;
-            font-size: 18px;
-
-            h1 {
-                margin-bottom: 32px;
-            }
-        }
-    }
-
     &-image {
-        width: 50%;
-        height: 100%;
-
-        img {
-            width: 100%;
-            height: 100%;
-        }
+        z-index: -1;
     }
-}
 
-@media screen and (max-width:$md) {
-    .hero {
-        width: 100%;
-        margin: 0;
-        position: relative;
-        height: 90vh;
+    &-search {
 
-        &-content {
-            width: 100%;
-            text-align: center;
-            z-index: 999;
-
-            &-text {
-                margin: auto;
-            }
-
-            &-search {
-                position: relative;
-                width: 100%;
-                top: 0;
-                height: 10vh;
-            }
+        //hiyerarşi yanlış
+        &-container {
+            z-index: 9;
         }
 
-        &-image {
-            width: 100%;
-            position: absolute;
-            bottom: 0;
-            top: 0;
-            left: 0;
-            right: 0;
-            opacity: .4;
+        margin-top: -100px;
+        margin-right: -100px;
+
+        &__item {
+            border-left: .2px solid gray;
+
+            &:last-child {
+                border: 4px solid white;
+            }
+
+            select {
+                font-size: 12px;
+                padding: 10px;
+            }
         }
-
-
     }
 }
