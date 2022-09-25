@@ -12,7 +12,7 @@
         </div>
 
         <div>
-          SEARCH BOX
+          <HeroSearchComponent />
         </div>
       </div>
 
@@ -22,13 +22,14 @@
         </div>
       </div>
     </div>
-    <IndexFeaturedComponent />
   </section>
 </template>
 
 <script>
+import HeroSearchComponent from './HeroSearchComponent.vue'
 export default {
   name: 'HeroComponent',
+  components: { HeroSearchComponent },
   data() {
     return {
       text: 'Search',

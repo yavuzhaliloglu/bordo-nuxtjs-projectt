@@ -87,6 +87,16 @@ export default {
   created() {
     this.getCategories()
   },
+  mounted() {
+    if (localStorage.getItem('path')) {
+      this.path = localStorage.getItem('path')
+      this.filterAdverts()
+    } else {
+      alert(
+        'Aradığınız kriterlere göre ilan bulunamadı. Tüm ilanlar gösteriliyor.'
+      )
+    }
+  },
   methods: {
     getCategories() {
       this.$API.categories.getCategories().then((res) => {

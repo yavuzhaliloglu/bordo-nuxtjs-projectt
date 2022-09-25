@@ -8,7 +8,10 @@
     >
       <!-- <option value="" disabled selected hidden>{{title}}</option> -->
       <option v-for="item in options" :key="item._id" :value="item._id">
-        {{ item.name }}
+        <span v-if="$route.path === '/'"> {{ item.categoryName }}</span>
+        <span v-else>
+          {{ item.name }}
+        </span>
       </option>
     </select>
   </div>
