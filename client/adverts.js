@@ -18,5 +18,8 @@ export default (axios) => ({
   // },
   getAllAdverts: (parameters = {}) => {
     return axios.get('adverts')
+  },
+  filterAdverts:(path,parameters ={})=>{
+    return axios.get(`adverts/category/${path}`)
   }
 })

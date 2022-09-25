@@ -9,7 +9,7 @@
         </p>
       </ProfileHeader>
 
-      <ProfileFeatures :filter-column="false" :features-column="true" />
+      <ProfileFeatures :filter="false" :features="true" class="mt-5" />
     </div>
   </div>
 </template>

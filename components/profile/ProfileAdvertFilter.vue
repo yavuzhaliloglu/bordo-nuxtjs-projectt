@@ -6,7 +6,7 @@
       <div>
         <h6>İlan Tipi</h6>
         <div>
-          <ProfileFeatures :filter-column="true" :features-column="false" />
+          <ProfileFeatures :filter="true" :features="false" />
         </div>
       </div>
     </div>
