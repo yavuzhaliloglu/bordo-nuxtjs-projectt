@@ -15,23 +15,6 @@
         width: 50%;
         height: 100%;
 
-        &-search {
-            width: 16vh;
-            height: 11vh;
-            position: absolute;
-            top: 80%;
-            width: 55%;
-            z-index: 9999;
-
-            .select,
-            .search-button {
-                height: 100%;
-                border: none !important;
-                border-radius: 0 !important;
-            }
-
-        }
-
         &-text {
             width: 90%;
             font-size: 18px;

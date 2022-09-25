@@ -79,6 +79,10 @@ export default {
           this.$store.commit('UPDATE_INPUT_VALUES', res.data.data[0])
         })
         .then(() => {
+          if (card.type === 'İş Yeri') {
+            this.$router.push(`/dashboard/newproperty/features/isyeri`)
+            return
+          }
           this.$router.push(`/dashboard/newproperty/features/${card.type}`)
         })
     }

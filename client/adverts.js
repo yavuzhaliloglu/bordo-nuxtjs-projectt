@@ -13,9 +13,9 @@ export default (axios) => ({
   addFavorite: (id, parameters = {}) => {
     return axios.patch(`adverts/favorite/${id}`)
   },
-  removeFavorite: (id, parameters = {}) => {
-    return axios.patch(`adverts/unfavorite/${id}`)
-  },
+  // removeFavorite: (id, parameters = {}) => {
+  //   return axios.patch(`adverts/unfavorite/${id}`)
+  // },
   getAllAdverts: (parameters = {}) => {
     return axios.get('adverts')
   }

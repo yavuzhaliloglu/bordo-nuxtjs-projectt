@@ -64,13 +64,6 @@ export default {
     return {
       inputlist: null,
       obj: {
-        // roomCount: '',
-        // buildingAge: '',
-        // heatingType: '',
-        // itemStatus: '',
-        // grossSquareMeters: '',
-        // netSquareMeters: '',
-        // floor: ''
         defaults: [],
         selects: []
       }
@@ -83,6 +76,12 @@ export default {
   methods: {
     setInputs() {
       this.inputlist = this.$store.getters.getWorkPlaceInputs
+      for (let i = 0; i < this.inputlist.selectInputs.length; i++) {
+        this.obj.selects[i] = this.inputlist.selectInputs[i].value
+      }
+      for (let i = 0; i < this.inputlist.defaultInputs.length; i++) {
+        this.obj.defaults[i] = this.inputlist.defaultInputs[i].value
+      }
     }
   }
 }

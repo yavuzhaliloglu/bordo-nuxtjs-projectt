@@ -1,8 +1,8 @@
 <template>
-  <section>
-    <div class="hero">
-      <div class="hero-content d-flex flex-column justify-content-around">
-        <div class="hero-content-text">
+  <section class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="h-100 d-flex flex-column justify-content-center">
           <h1>Perfect way to buy and sell a home</h1>
           <p>
             Diam vitae, nec mattis lectus quam pretium amet facilisis. Urna,
@@ -11,16 +11,15 @@
           </p>
         </div>
 
-        <!--SEARCH-->
-        <div
-          class="hero-content-search d-flex flex-row justify-content-center align-items-stretch"
-        >
-          <ProfileSearchComponent />
+        <div>
+          SEARCH BOX
         </div>
       </div>
 
-      <div class="hero-image">
-        <img src="~/assets/images/hero.png" alt="" />
+      <div class="col-md-6">
+        <div>
+          <img class="w-100 h-100" src="~/assets/images/hero.png" alt="" />
+        </div>
       </div>
     </div>
     <IndexFeaturedComponent />
@@ -33,9 +32,9 @@ export default {
   data() {
     return {
       text: 'Search',
-      path: '/signup',
+      path: '/signup'
     }
-  },
+  }
 }
 </script>
 

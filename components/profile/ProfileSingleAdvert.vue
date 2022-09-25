@@ -194,11 +194,7 @@ export default {
     },
     changeFavorite() {
       this.isFav = !this.isFav
-      if (this.isFav) {
-        this.$API.adverts.addFavorite(this.advert._id)
-      } else {
-        this.$API.adverts.removeFavorite(this.advert._id)
-      }
+      this.$API.adverts.addFavorite(this.advert._id)
     }
   }
 }

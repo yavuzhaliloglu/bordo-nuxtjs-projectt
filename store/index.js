@@ -155,7 +155,6 @@ export const mutations = {
     c.price = data.price
     c.description = data.description
     c.images = data.images
-    // gelen ilan türüne göre inputları setleyen 3 ayrı fonksiyon yapılabilir.
   }
 }
 

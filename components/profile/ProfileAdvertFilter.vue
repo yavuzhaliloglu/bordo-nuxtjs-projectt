@@ -5,7 +5,9 @@
 
       <div>
         <h6>İlan Tipi</h6>
-        <div class="bg-extralightblack"></div>
+        <div>
+          <ProfileFeatures :filter-column="true" :features-column="false" />
+        </div>
       </div>
     </div>
   </div>
@@ -19,14 +21,13 @@ export default {
       categories: []
     }
   },
-  created(){
+  created() {
     this.getCategories()
   },
   methods: {
     getCategories() {
       this.$API.categories.getCategories().then((res) => {
         this.categories = res.data.data
-        console.log(this.categories)
       })
     }
   }

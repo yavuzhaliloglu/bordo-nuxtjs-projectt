@@ -1,34 +1,35 @@
 <template>
-  <div class="w-100">
-    <div
-      class="newproperty-container d-flex w-100 justify-content-between my-3"
-    >
-      <div class="newproperty-container-item">
-        <!--i yerine category-->
-        <div v-for="i in categories" :key="i._id" class="button-container">
-          <button class="fb" @click="getPurpose(i, $event.target)">
-            {{ i.categoryName }}
-          </button>
+  <div class="container-fluid">
+    <div class="row">
+      <div :class="{ 'col-12': filterColumn, 'col-md-4': featuresColumn }">
+        <div class="my-3 bg-extralightblack">
+          <div v-for="i in categories" :key="i._id" class="">
+            <button class="fb" @click="getPurpose(i, $event.target)">
+              {{ i.categoryName }}
+            </button>
+          </div>
         </div>
       </div>
 
-      <div class="newproperty-container-item">
-        <div v-for="i in purpose" :key="i._id" class="button-container">
-          <button class="mbb" @click="getTypes(i, $event.target)">
-            {{ i.categoryName }}
-          </button>
+      <div :class="{ 'col-12': filterColumn, 'col-md-4': featuresColumn }">
+        <div class="my-3 bg-extralightblack">
+          <div v-for="i in purpose" :key="i._id" class="button-container">
+            <button class="mbb" @click="getTypes(i, $event.target)">
+              {{ i.categoryName }}
+            </button>
+          </div>
         </div>
       </div>
 
-      <div class="newproperty-container-item">
-        <div v-for="i in type" :key="i._id" class="button-container">
-          <button class="lb" @click="getPath(i)">{{ i.categoryName }}</button>
+      <div :class="{ 'col-12': filterColumn, 'col-md-4': featuresColumn }">
+        <div class="my-3 bg-extralightblack">
+          <div v-for="i in type" :key="i._id" class="button-container">
+            <button class="lb" @click="getPath(i)">{{ i.categoryName }}</button>
+          </div>
         </div>
       </div>
     </div>
-    <!--RECURSİVE ARAŞTIR-->
-    <!--disabled-->
-    <!---->
+
     <button v-if="isClicked" class="radiusbutton" @click="changePage">
       Bir sonraki adım
     </button>
@@ -38,6 +39,16 @@
 <script>
 export default {
   name: 'ProfileFeatures',
+  props: {
+    featuresColumn: {
+      type: Boolean,
+      default: false
+    },
+    filterColumn: {
+      type: Boolean,
+      default: true
+    }
+  },
   data() {
     return {
       path: '',
@@ -45,7 +56,8 @@ export default {
       categories: [],
       purpose: [],
       type: [],
-      isClicked: false
+      isClicked: false,
+      isActive: true
     }
   },
   created() {

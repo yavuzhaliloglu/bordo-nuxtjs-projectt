@@ -9,7 +9,7 @@
         </p>
       </ProfileHeader>
 
-      <ProfileFeatures />
+      <ProfileFeatures :filter-column="false" :features-column="true" />
     </div>
   </div>
 </template>
@@ -19,8 +19,7 @@ export default {
   name: 'NewProperty',
   layout: 'UserProfile',
   data() {
-    return {
-    }
+    return {}
   }
 }
 </script>
