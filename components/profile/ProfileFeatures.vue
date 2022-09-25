@@ -105,7 +105,7 @@ export default {
     },
     filterAdverts() {
       this.$API.adverts.filterAdverts(this.path).then((res) => {
-        console.log(res)
+        this.$root.$emit('adverts', res.data.data)
       })
     },
     getChildren(i, list) {

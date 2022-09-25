@@ -25,6 +25,11 @@ export default {
   created() {
     this.getAllAdverts()
   },
+  mounted() {
+    this.$root.$on('adverts', (data) => {
+      this.allAdverts = data
+    })
+  },
   methods: {
     async getAllAdverts() {
       await this.$API.adverts.getAllAdverts().then((res) => {
