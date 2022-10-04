@@ -98,6 +98,7 @@ export default {
       features: {},
       endpoint: ''
     }
+    // foreach yerine map fonksiyonu
   },
   mounted() {
     this.getPath()
@@ -110,6 +111,7 @@ export default {
     },
     setInputs() {
       const data = this.$store.getters.getCommonInputs
+      console.log(data)
       if (data.title) {
         this.title = data.title
         this.price = data.price
@@ -177,6 +179,7 @@ export default {
       const object = {
         image: formData.get('file')
       }
+      console.log(object)
       const fd = serialize(object)
       this.$API.post.postImage(fd).then((response) => {
         this.imagestosend[index] = response.data.data.remoteId

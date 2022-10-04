@@ -16,7 +16,7 @@
                 </div>
             </nuxt-link>
         </div>
-
+        
         <div class="user-container">
             <b-dropdown class="user-container-dropdown" no-caret right no-flip>
                 <template #button-content>

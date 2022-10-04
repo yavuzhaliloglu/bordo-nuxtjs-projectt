@@ -24,6 +24,7 @@
           class="container col-lg-4 col-md-6"
         >
           <CommonAdvertCard :card="card" />
+          <!--emit ile yapılabilir ve başka yöntemi de var-->
         </div>
       </div>
       <b-pagination
@@ -59,9 +60,11 @@ export default {
       this.getAdverts(this.currentPage)
     }
   },
+  // sayfalar arası geçişte created çağırılmamalı
   created() {
     this.getAdverts(this.currentPage)
   },
+  // sayfada herhangi bir data değiştiğinde watch ile değiştirme veya store kullanma
   methods: {
     async getAdverts(currentPage) {
       this.isLoading = true

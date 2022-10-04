@@ -3,20 +3,21 @@
     <div class="row no-gutters hero-search">
       <CommonSelectComponent
         class="col-3 hero-search__item"
-        :title="'category'"
+        title="category"
         :options="categories"
         @input="getPurpose"
       />
-
+      <!--emit-->
+      <!--isimlendirme yanlış-->
       <CommonSelectComponent
         class="col-3 hero-search__item"
-        :title="'purpose'"
+        title="purpose"
         :options="purpose"
         @input="getTypes"
       />
       <CommonSelectComponent
         class="col-3 hero-search__item"
-        :title="'type'"
+        title="type" 
         :options="types"
         @input="setPath"
       />
@@ -46,12 +47,14 @@ export default {
         this.categories = res.data.data
       })
     },
+    // purposes
     getPurpose(value) {
       const categories = this.categories.find((item) => {
         return item._id === value
       })
       this.path = categories.path
       this.purpose = categories.children
+      console.log('purpose')
     },
     getTypes(value) {
       const purpose = this.purpose.find((item) => {
@@ -59,6 +62,7 @@ export default {
       })
       this.path = purpose.path
       this.types = purpose.children
+      console.log('types')
     },
     setPath(value) {
       const type = this.types.find((item) => {

@@ -1,6 +1,7 @@
 <template>
   <div class="container">
     <div class="row">
+
       <div :class="{ 'col-12': filter, 'col-md-4': features }">
         <div class="my-3 bg-extralightblack newproperty-item">
           <div
@@ -40,6 +41,7 @@
           </div>
         </div>
       </div>
+
     </div>
 
     <button
@@ -49,7 +51,8 @@
     >
       Bir sonraki adım
     </button>
-
+    <!--blob yöntemi-->
+    <!--NUXT LİFECYCLE VE VERİ YÖNETİMİ ARAŞTIR-->
     <button
       v-if="$route.path === '/adverts'"
       class="radiusbutton"

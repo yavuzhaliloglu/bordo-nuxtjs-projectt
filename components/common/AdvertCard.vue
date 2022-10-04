@@ -64,6 +64,7 @@ export default {
       if (r) {
         this.$API.adverts.deleteAdvert(cardId)
         window.location.reload()
+        // sayfaya birdaha istek at
       }
     },
     getSingleAdvert(id) {
@@ -76,6 +77,7 @@ export default {
       await this.$API.adverts
         .getSingleAdvert(card._id)
         .then((res) => {
+          console.log(res.data.data)
           this.$store.commit('UPDATE_INPUT_VALUES', res.data.data[0])
         })
         .then(() => {
